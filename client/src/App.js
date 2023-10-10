@@ -1,24 +1,69 @@
-import logo from './logo.svg';
-import './App.css';
+import Navbar from './components/Navbar';
+import StickyNavbar from './components/StickyNavbar';
+import { Box } from '@mui/material';
+import Footer from './components/Footer';
+import { createTheme, ThemeProvider } from '@mui/material';
+import { green} from '@mui/material/colors';
+import {
+  BrowserRouter as Router,
+  // Switch,
+  Route,
+  // Link,
+  Routes
+} from "react-router-dom";
+import {Home, Landing, Login, Signup, Profile, News} from './pages';
+
+
+
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: '#262626',
+      light: '#42a5f5',
+      dark: '#1565c0',
+      contrastText: '#fff',
+    },
+    secondary: {
+      main: green[500],
+    },
+  },
+  typography: {
+    fontFamily: [
+      'Jost',
+      'cursive',
+    ].join(','),
+  },
+});
+
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    <Router>
+      <ThemeProvider theme={theme}>
+        <Navbar />
+        <Box sx={{
+          width: { xs: '90%', md:'max-content' },
+          margin: 'auto',
+          height: '50vh',
+          top: '8px',
+        }}
         >
-          Learn React
-        </a>
-      </header>
-    </div>
+          <StickyNavbar />
+        </Box>
+        <Routes>
+          <Route path="/" element={<Landing />} />
+          <Route path="/home" element={<Home />} />
+          <Route path="/news" element={<News />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/profile" element={<Profile />} />
+        </Routes>
+        <News />
+        <Footer />
+      </ThemeProvider>
+      
+    </Router>
   );
 }
 
