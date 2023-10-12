@@ -3,15 +3,17 @@ import StickyNavbar from './components/StickyNavbar';
 import { Box } from '@mui/material';
 import Footer from './components/Footer';
 import { createTheme, ThemeProvider } from '@mui/material';
-import { green} from '@mui/material/colors';
+import { green } from '@mui/material/colors';
 import {
   BrowserRouter as Router,
   // Switch,
   Route,
   // Link,
-  Routes
+  Routes,
+  Link
 } from "react-router-dom";
-import {Home, Landing, Login, Signup, Profile, News} from './pages';
+import { Home, Landing, Login, Signup, Profile, News } from './pages';
+import { newsPages } from './constants';
 
 
 
@@ -20,7 +22,7 @@ const theme = createTheme({
     primary: {
       main: '#262626',
       light: '#42a5f5',
-      dark: '#1565c0',
+      dark: '#0C0C0C',
       contrastText: '#fff',
     },
     secondary: {
@@ -37,32 +39,28 @@ const theme = createTheme({
 
 
 
+
 function App() {
   return (
     <Router>
       <ThemeProvider theme={theme}>
-        <Navbar />
-        <Box sx={{
-          width: { xs: '90%', md:'max-content' },
-          margin: 'auto',
-          height: '50vh',
-          top: '8px',
-        }}
-        >
+        <Box sx={{backgroundColor:"primary.dark"}}>
+          <Navbar />
           <StickyNavbar />
+          <Routes>
+            <Route path="/" element={<Landing />} />
+            <Route path="/home" element={<Home />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/signup" element={<Signup />} />
+            <Route path="/profile" element={<Profile />} />
+            {/* //news Endpoints */}
+            {newsPages.map((page) => (
+              <Route exact path={page.path} element={<News path={page.path} key={page.path} />} />
+            ))}
+          </Routes>
+          <Footer />
         </Box>
-        <Routes>
-          <Route path="/" element={<Landing />} />
-          <Route path="/home" element={<Home />} />
-          <Route path="/news" element={<News />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<Signup />} />
-          <Route path="/profile" element={<Profile />} />
-        </Routes>
-        <News />
-        <Footer />
       </ThemeProvider>
-      
     </Router>
   );
 }

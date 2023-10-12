@@ -31,8 +31,8 @@ export const Footer = () => {
                     <Typography
                         variant="h5"
                         noWrap
-                        component="a"
-                        href="#app-bar-with-responsive-menu"
+                        component="Link"
+                        href="/Home"
                         sx={{
                             display: { md: 'flex' },
                             fontFamily: 'monospace',
@@ -54,25 +54,25 @@ export const Footer = () => {
                     <Box>
                         <Typography variant="h5">{footerLinks[0].title}</Typography>
                         <List dense component='div' role="list">
-                            {footerLinks[0].links.map((items)=>(<ListItem align-items="flex-start">{items}</ListItem>))}
+                            {footerLinks[0].links.map((items)=>(<ListItem align-items="flex-start"> <Link to='/' style={{textDecoration:'none', color: 'white'}}>{items}</Link></ListItem>))}
                         </List>
                     </Box>
                     <Box>
                         <Typography variant="h5">{footerLinks[1].title}</Typography>
                         <List dense component='div' role="list">
-                            {footerLinks[1].links.map((items)=>(<ListItem align-items="flex-start">{items}</ListItem>))}
+                            {footerLinks[1].links.map((items)=>(<ListItem align-items="flex-start"><Link to='/' style={{textDecoration:'none', color: 'white'}}>{items}</Link></ListItem>))}
                         </List>
                     </Box>
                     <Box>
                         <Typography variant="h5">{footerLinks[3].title}</Typography>
                         <List dense component='div' role="list">
-                            {footerLinks[3].links.map((items)=>(<ListItem align-items="flex-start">{items}</ListItem>))}
+                            {footerLinks[3].links.map((items)=>(<ListItem align-items="flex-start"><Link to='/' style={{textDecoration:'none', color: 'white'}}>{items}</Link></ListItem>))}
                         </List>
                     </Box>
                     <Box>
                         <Typography variant="h5">{footerLinks[2].title}</Typography>
                         <List dense component='div' role="list">
-                            {footerLinks[2].links.map((items)=>(<ListItem align-items="flex-start">{items}</ListItem>))}
+                            {footerLinks[2].links.map((items)=>(<ListItem align-items="flex-start"><Link to='/' style={{textDecoration:'none', color: 'white'}}>{items}</Link></ListItem>))}
                         </List>
                     </Box>
                 </Box>

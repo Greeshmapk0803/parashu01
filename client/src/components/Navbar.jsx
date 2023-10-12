@@ -12,66 +12,69 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import { Link } from 'react-router-dom';
-
-
 import Fade from '@mui/material/Fade';
+import FadeMenu from './FadeMenu'
+
 
 const pages = ['Home', 'Categories', 'Ask AI', 'Get Context', 'Quiz Me'];
 const settings = ['Profile', 'Dashboard', 'Logout'];
-const options = [
-  { title: 'Home',
-    undu:['Home', 'Categories', 'Ask AI', 'Get Context', 'Quiz Me']
-  },
-  { title: 'Home',
-    undu:['Home', 'Categories', 'Ask AI', 'Get Context', 'Quiz Me']
-  }
+const newsPages1 = [
+  { "title": "arts", "path": "/arts" },
+  { "title": "automobiles", "path": "/automobiles" },
+  { "title": "books/review", "path": "/books-review" },
+  { "title": "business", "path": "/business" },
+  { "title": "fashion", "path": "/fashion" },
+  { "title": "food", "path": "/food" },
+  { "title": "health", "path": "/health" },
+  { "title": "home", "path": "/home" },
+  { "title": "insider", "path": "/insider" },
+  { "title": "magazine", "path": "/magazine" },
+  { "title": "movies", "path": "/movies" },
+  { "title": "nyregion", "path": "/nyregion" },
+  { "title": "obituaries", "path": "/obituaries" },
+  { "title": "opinion", "path": "/opinion" },
+  { "title": "politics", "path": "/politics" },
+  { "title": "realestate", "path": "/realestate" },
+  { "title": "science", "path": "/science" },
+  { "title": "sports", "path": "/sports" },
+  { "title": "sundayreview", "path": "/sundayreview" },
+  { "title": "technology", "path": "/technology" },
+  { "title": "theater", "path": "/theater" },
+  { "title": "t-magazine", "path": "/t-magazine" },
+  { "title": "travel", "path": "/travel" },
+  { "title": "upshot", "path": "/upshot" },
+  { "title": "us", "path": "/us" },
+  { "title": "world", "path": "/world" }
+];
+const newsPages2 = [
+  { "title": "arts", "path": "/arts" },
+  { "title": "automobiles", "path": "/automobiles" },
+  { "title": "books/review", "path": "/books-review" },
+  { "title": "business", "path": "/business" },
+  { "title": "fashion", "path": "/fashion" },
+  { "title": "food", "path": "/food" },
+  { "title": "health", "path": "/health" },
+  { "title": "home", "path": "/home" },
+  { "title": "insider", "path": "/insider" },
+  { "title": "magazine", "path": "/magazine" },
+  { "title": "movies", "path": "/movies" },
+  { "title": "nyregion", "path": "/nyregion" },
+  { "title": "obituaries", "path": "/obituaries" },
+  { "title": "opinion", "path": "/opinion" },
+  { "title": "politics", "path": "/politics" },
+  { "title": "realestate", "path": "/realestate" },
+  { "title": "science", "path": "/science" },
+  { "title": "sports", "path": "/sports" },
+  { "title": "sundayreview", "path": "/sundayreview" },
+  { "title": "technology", "path": "/technology" },
+  { "title": "theater", "path": "/theater" },
+  { "title": "t-magazine", "path": "/t-magazine" },
+  { "title": "travel", "path": "/travel" },
+  { "title": "upshot", "path": "/upshot" },
+  { "title": "us", "path": "/us" },
+  { "title": "world", "path": "/world" }
 ];
 
-
-export function FadeMenu(options) {
-  const [anchorEl, setAnchorEl] = React.useState(null);
-  const open = Boolean(anchorEl);
-  const handleClick = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
-  console.log(options)
-  return (
-    <>
-      <div>
-        <Button
-          id="fade-button"
-          aria-controls={open ? 'fade-menu' : undefined}
-          aria-haspopup="true"
-          aria-expanded={open ? 'true' : undefined}
-          onClick={handleClick}
-          sx={{color: 'white', display: 'block', margin:'0 1em', fontWeight: 500, fontSize: '16px', '&:hover': {}}}
-        >
-          Categories
-        </Button>
-        <Menu
-          id="fade-menu"
-          MenuListProps={{
-            'aria-labelledby': 'fade-button',
-          }}
-          anchorEl={anchorEl}
-          open={open}
-          onClose={handleClose}
-          TransitionComponent={Fade}
-        > 
-          <MenuItem onClick={handleClose}><Link to='/all'>All</Link></MenuItem>
-          <MenuItem onClick={handleClose}>Politics</MenuItem>
-          <MenuItem onClick={handleClose}>Sports</MenuItem>
-          <MenuItem onClick={handleClose}>Health</MenuItem>
-          <MenuItem onClick={handleClose}>Entertainment</MenuItem>
-
-        </Menu>
-      </div>
-    </>
-  );
-}
 
 function ResponsiveAppBar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -182,7 +185,7 @@ function ResponsiveAppBar() {
                   display: 'block', 
                   margin:'0 1em',
                   fontWeight: 500,
-                  fontSize: '16px',
+                  fontSize: '14px',
                   '&:hover': {
                   backgroundColor: '#f5f5f5',
                   color: 'black',
@@ -192,7 +195,7 @@ function ResponsiveAppBar() {
                 {page}
               </Button>
             ))}
-            <FadeMenu options={options}/>
+            <FadeMenu options={newsPages1} text='Categories'/>
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>

@@ -6,22 +6,67 @@ export const NavLinks = [
     { href: '/', key: 'Hire Developers', text: 'Hire Developers' }
 ];
 
-const pages = ['Home', 'Category', 'Ask AI', 'About'];
-export const categoryFilters = [
-    "Frontend",
-    "Backend",
-    "Full-Stack",
-    "Mobile",
-    "UI/UX",
-    "Game Dev",
-    "DevOps",
-    "Data Science",
-    "Machine Learning",
-    "Cybersecurity",
-    "Blockchain",
-    "E-commerce",
-    "Chatbots"
-]
+export const newsPages = [
+    { "title": "arts", "path": "/arts" },
+    { "title": "automobiles", "path": "/automobiles" },
+    { "title": "books/review", "path": "/books-review" },
+    { "title": "business", "path": "/business" },
+    { "title": "fashion", "path": "/fashion" },
+    { "title": "food", "path": "/food" },
+    { "title": "health", "path": "/health" },
+    { "title": "home", "path": "/home" },
+    { "title": "insider", "path": "/insider" },
+    { "title": "magazine", "path": "/magazine" },
+    { "title": "movies", "path": "/movies" },
+    { "title": "nyregion", "path": "/nyregion" },
+    { "title": "obituaries", "path": "/obituaries" },
+    { "title": "opinion", "path": "/opinion" },
+    { "title": "politics", "path": "/politics" },
+    { "title": "realestate", "path": "/realestate" },
+    { "title": "science", "path": "/science" },
+    { "title": "sports", "path": "/sports" },
+    { "title": "sundayreview", "path": "/sundayreview" },
+    { "title": "technology", "path": "/technology" },
+    { "title": "theater", "path": "/theater" },
+    { "title": "t-magazine", "path": "/t-magazine" },
+    { "title": "travel", "path": "/travel" },
+    { "title": "upshot", "path": "/upshot" },
+    { "title": "us", "path": "/us" },
+    { "title": "world", "path": "/world" }
+];
+
+//link corresponding to sticky navbar
+export const categoryList1 = [
+    { "title": "home", "path": "/home" },
+    { "title": "politics", "path": "/politics" },
+    { "title": "opinion", "path": "/opinion" },
+    { "title": "business", "path": "/business" },
+    { "title": "science", "path": "/science" },
+    { "title": "movies", "path": "/movies" },
+];
+export const categoryList2 = [
+    { "title": "sports", "path": "/sports" },
+    { "title": "arts", "path": "/arts" },
+    { "title": "automobiles", "path": "/automobiles" },
+    { "title": "books/review", "path": "/books-review" },
+    { "title": "business", "path": "/business" },
+    { "title": "fashion", "path": "/fashion" },
+    { "title": "food", "path": "/food" },
+    { "title": "health", "path": "/health" },
+    { "title": "insider", "path": "/insider" },
+    { "title": "magazine", "path": "/magazine" },
+    { "title": "nyregion", "path": "/nyregion" },
+    { "title": "obituaries", "path": "/obituaries" },
+    { "title": "realestate", "path": "/realestate" },
+    { "title": "sundayreview", "path": "/sundayreview" },
+    { "title": "technology", "path": "/technology" },
+    { "title": "theater", "path": "/theater" },
+    { "title": "t-magazine", "path": "/t-magazine" },
+    { "title": "travel", "path": "/travel" },
+    { "title": "upshot", "path": "/upshot" },
+    { "title": "us", "path": "/us" },
+    { "title": "world", "path": "/world" }
+];
 
 export const footerLinks = [
     {

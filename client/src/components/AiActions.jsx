@@ -59,7 +59,7 @@ export default function CustomizedMenus() {
     };
 
     return (
-        <Box sx={{width:'100%', }} mt='10px'>
+        <Box sx={{width:'100%', marginTop: {md:'10px'}}}>
             <Button
                 id="demo-customized-button"
                 aria-controls={open ? 'demo-customized-menu' : undefined}

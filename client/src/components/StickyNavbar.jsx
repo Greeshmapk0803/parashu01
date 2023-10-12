@@ -3,13 +3,13 @@ import { useState, useEffect } from 'react';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
-import CssBaseline from '@mui/material/CssBaseline';
 import useScrollTrigger from '@mui/material/useScrollTrigger';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
-import Zoom from '@mui/material/Zoom';
-
-const pages = ['Home', 'Category', 'Ask AI', 'About'];
+import Zoom from '@mui/material/Zoom'
+import { Link } from 'react-router-dom';
+import FadeMenu from './FadeMenu';
+import { categoryList1, categoryList2 } from '../constants';
 
 
 function ElevationScroll(props) {
@@ -46,35 +46,35 @@ export default function ElevateAppBar(props) {
         return () => {
             window.removeEventListener('scroll', handleScroll);
         };
-    }, []); // Empty dependency array means this effect will run once after the initial render.
+    }, []);
 
     return (
-        <React.Fragment>
-            <CssBaseline />
             <ElevationScroll {...props}>
-                <AppBar position='sticky' sx={{borderRadius:'10px', top:'3em', margin:'3em 1em'}}>
+                <AppBar position={'sticky'} sx={{ borderRadius: scrolled ? `100px` : `20px`, top: '2em', margin: '1em auto', width:'max-content', display:{xs: 'none', md: 'flex'}, border:'3px solid grey' }}>
                     <Toolbar>
                         <Zoom in={!scrolled} style={{ transitionDelay: !scrolled ? '100ms' : '0ms' }}>
-                            <Typography variant="h6" text-align='center' component="div" sx={{ display: scrolled ? 'none' : 'flex', width:'100%', justifyContent:'center'}}>
+                            <Typography variant="h6" text-align='center' component="div" sx={{ display: scrolled ? 'none' : 'flex', width: '100%', justifyContent: 'center', fontSize:'16px' }}>
                                 Your Headlines...
                             </Typography>
                         </Zoom>
                         <Zoom in={scrolled} style={{ transitionDelay: scrolled ? '300ms' : '0ms' }}>
                             <Box sx={{ flexGrow: 1, display: { md: 'flex' }, flexDirection: { xs: 'row' }, justifyContent: 'center', display: scrolled ? 'flex' : 'none' }}>
                                 {/* Buttons go here */}
-                                {pages.map((page) => (
-                                    <Button
-                                        key={page}
-                                        sx={{ my: 2, color: 'white', display: 'block', margin: '0 1em' }}
-                                    >
-                                        {page}
-                                    </Button>
+                                {categoryList1.map((page) => (
+                                    <Link to={page.path} style={{ color: 'white', textDecoration: 'none' }}>
+                                        <Button
+                                            key={page}
+                                            sx={{ my: 2, color: 'white', display: 'block', margin: '0 1em' }}
+                                        >
+                                            {page.title}
+                                        </Button>
+                                    </Link>
                                 ))}
+                                <FadeMenu options={categoryList2} text='More'/>
                             </Box>
                         </Zoom>
                     </Toolbar>
                 </AppBar>
             </ElevationScroll>
-        </React.Fragment>
     );
 }
