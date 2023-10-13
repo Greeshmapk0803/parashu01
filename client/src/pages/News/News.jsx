@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, Suspense } from 'react'
 import axios from 'axios';
 import NewsItem from '../../components/NewsItem';
 import { Grid } from '@mui/material';
@@ -24,12 +24,12 @@ export function News(props) {
     const apiKey = process.env.NYT_NEWS_API_KEY;
     console.log(process.env.NYT_NEWS_API_KEY);
     const apiEndPoint = `https://api.nytimes.com/svc/topstories/v2/${path}.json?api-key=df2wNBhQH6XoZBZJnmj151DiOeDHKSaL`
-
     useEffect(() => {
         const fetchData = async () => {
             try {
                 const response = await axios.get(apiEndPoint);
                 setData(response.data.results);
+                console.log(response.data.results)
             } catch (error) {
                 setError(error);
             } finally {
@@ -53,15 +53,15 @@ export function News(props) {
     }
 
     return (
-        <Box sx={{ flexGrow: 1, margin: {xs:'2em 1em',md:'0 1em'}, backgroundColor:'primary.dark'}}>
-            <Grid container spacing={{ xs: 2, md: 4 }} columns={{ xs: 4, sm: 8, md: 12 }}>
-                {data.map((item, index) => (
-                    <Grid item xs={4} sm={4} md={4} key={index} sx={{ display: 'flex', justifyContent: 'center' }}>
-                            <NewsItem keyProp={item.uri} title={item.title} desc ={item.abstract} ImgSrc ={item.multimedia} newsURL ={item.url}/>  
-                    </Grid>
-                ))}
-            </Grid>
-        </Box>
+            <Box sx={{ flexGrow: 1, margin: {xs:'2em 1em',md:'0 1em 2em 1em'}, backgroundColor:'primary.dark'}}>
+                <Grid container spacing={{ xs: 2, md: 4 }} columns={{ xs: 4, sm: 8, md: 12 }}>
+                    {data.map((item, index) => (
+                        <Grid item xs={4} sm={4} md={4} key={index} sx={{ display: 'flex', justifyContent: 'center' }}>
+                                <NewsItem keyProp={item.uri} title={item.title} desc ={item.abstract} ImgSrc ={item.multimedia} newsURL ={item.url} source={item.created_date} />
+                        </Grid>
+                    ))}
+                </Grid>
+            </Box>
     );
 }
 

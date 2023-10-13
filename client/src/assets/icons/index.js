@@ -9,6 +9,6 @@ import ArchiveIcon from '@mui/icons-material/Archive';
 import FileCopyIcon from '@mui/icons-material/FileCopy';
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import AiAction from './animated/aiAction.gif'
 
-
-export {SummarizeIcon, TipsAndUpdatesIcon, QuizIcon, QuestionMarkIcon, BookmarkRoundedIcon, KeyboardArrowDownIcon, EditIcon, ArchiveIcon, FileCopyIcon, MoreHorizIcon, ExpandMoreIcon}
+export {SummarizeIcon, TipsAndUpdatesIcon, QuizIcon, QuestionMarkIcon, BookmarkRoundedIcon, KeyboardArrowDownIcon, EditIcon, ArchiveIcon, FileCopyIcon, MoreHorizIcon, ExpandMoreIcon, AiAction}

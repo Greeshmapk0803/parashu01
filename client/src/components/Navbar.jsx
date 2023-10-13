@@ -14,6 +14,15 @@ import MenuItem from '@mui/material/MenuItem';
 import { Link } from 'react-router-dom';
 import Fade from '@mui/material/Fade';
 import FadeMenu from './FadeMenu'
+import Drawer from '@mui/material/Drawer';
+import List from '@mui/material/List';
+import Divider from '@mui/material/Divider';
+import ListItem from '@mui/material/ListItem';
+import ListItemButton from '@mui/material/ListItemButton';
+import ListItemIcon from '@mui/material/ListItemIcon';
+import ListItemText from '@mui/material/ListItemText';
+import InboxIcon from '@mui/icons-material/MoveToInbox';
+import MailIcon from '@mui/icons-material/Mail';
 
 
 const pages = ['Home', 'Categories', 'Ask AI', 'Get Context', 'Quiz Me'];
@@ -46,34 +55,93 @@ const newsPages1 = [
   { "title": "us", "path": "/us" },
   { "title": "world", "path": "/world" }
 ];
-const newsPages2 = [
-  { "title": "arts", "path": "/arts" },
-  { "title": "automobiles", "path": "/automobiles" },
-  { "title": "books/review", "path": "/books-review" },
-  { "title": "business", "path": "/business" },
-  { "title": "fashion", "path": "/fashion" },
-  { "title": "food", "path": "/food" },
-  { "title": "health", "path": "/health" },
-  { "title": "home", "path": "/home" },
-  { "title": "insider", "path": "/insider" },
-  { "title": "magazine", "path": "/magazine" },
-  { "title": "movies", "path": "/movies" },
-  { "title": "nyregion", "path": "/nyregion" },
-  { "title": "obituaries", "path": "/obituaries" },
-  { "title": "opinion", "path": "/opinion" },
-  { "title": "politics", "path": "/politics" },
-  { "title": "realestate", "path": "/realestate" },
-  { "title": "science", "path": "/science" },
-  { "title": "sports", "path": "/sports" },
-  { "title": "sundayreview", "path": "/sundayreview" },
-  { "title": "technology", "path": "/technology" },
-  { "title": "theater", "path": "/theater" },
-  { "title": "t-magazine", "path": "/t-magazine" },
-  { "title": "travel", "path": "/travel" },
-  { "title": "upshot", "path": "/upshot" },
-  { "title": "us", "path": "/us" },
-  { "title": "world", "path": "/world" }
-];
+
+
+
+
+export function TemporaryDrawer() {
+  const [state, setState] = React.useState({right: false});
+
+  const toggleDrawer = (anchor, open) => (event) => {
+      if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
+          return;
+      }
+
+      setState({ ...state, [anchor]: open });
+  };
+
+  const list = (anchor) => (
+      <Box
+          sx={{ width: anchor === 'top' || anchor === 'bottom' ? 'auto' : 250 }}
+          role="presentation"
+          onClick={toggleDrawer(anchor, false)}
+          onKeyDown={toggleDrawer(anchor, false)}
+      >
+          <List>
+              <Link to='/'>
+                <ListItem disablePadding>
+                    <ListItemButton>
+                        <ListItemIcon>
+                            <MailIcon />
+                        </ListItemIcon>
+                        <ListItemText primary='Home' />
+                    </ListItemButton>
+                </ListItem>
+              </Link>
+              {['Ask AI', 'Get Context', 'Quiz Me!'].map((text, index) => (
+                  <ListItem key={text} disablePadding>
+                      <ListItemButton>
+                          <ListItemIcon>
+                              {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+                          </ListItemIcon>
+                          <ListItemText primary={text} />
+                      </ListItemButton>
+                  </ListItem>
+              ))}
+          </List>
+          <Divider />
+          <List>
+              {newsPages1.map((text, index) => (
+                  <ListItem key={index} disablePadding>
+                      <Link to={text.path} style={{textDecoration:'none', color:'black', width:'100%'}}>
+                        <ListItemButton>
+                            <ListItemText primary={text.title} />
+                        </ListItemButton>
+                      </Link>
+                  </ListItem>
+              ))}
+          </List>
+      </Box>
+  );
+
+  return (
+      <div>
+          {['right'].map((anchor) => (
+              <>
+                  <Button onClick={toggleDrawer('right', true)}
+                  sx={{ my: 2, 
+                  color: 'white', 
+                  display: 'block', 
+                  margin:'0 1em',
+                  fontWeight: 500,
+                  fontSize: '14px',
+                  '&:hover': {
+                  backgroundColor: '#f5f5f5',
+                  color: 'black',
+                  opacity: [0.9],
+              }, }}>More</Button>
+                  <Drawer
+                      anchor={'right'}
+                      open={state['right']}
+                      onClose={toggleDrawer('right', false)}
+                  >
+                      {list('right')}
+                  </Drawer>
+              </>
+          ))}
+      </div>
+  );
+}
 
 
 function ResponsiveAppBar() {
@@ -119,41 +187,8 @@ function ResponsiveAppBar() {
             </Link>
           </Typography>
 
-          <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
-            <IconButton
-              size="large"
-              aria-label="account of current user"
-              aria-controls="menu-appbar"
-              aria-haspopup="true"
-              onClick={handleOpenNavMenu}
-              color="inherit"
-            >
-              <MenuIcon />
-            </IconButton>
-            <Menu
-              id="menu-appbar"
-              anchorEl={anchorElNav}
-              anchorOrigin={{
-                vertical: 'bottom',
-                horizontal: 'left',
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: 'top',
-                horizontal: 'left',
-              }}
-              open={Boolean(anchorElNav)}
-              onClose={handleCloseNavMenu}
-              sx={{
-                display: { xs: 'block', md: 'none' },
-              }}
-            >
-              {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
-                </MenuItem>
-              ))}
-            </Menu>
+          <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' }, fontSize:'12px' }}>
+            <TemporaryDrawer />
           </Box>
             <Typography
               variant="h5"
@@ -195,7 +230,8 @@ function ResponsiveAppBar() {
                 {page}
               </Button>
             ))}
-            <FadeMenu options={newsPages1} text='Categories'/>
+            <TemporaryDrawer />
+            
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>

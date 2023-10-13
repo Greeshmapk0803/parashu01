@@ -14,6 +14,7 @@ import {
 } from "react-router-dom";
 import { Home, Landing, Login, Signup, Profile, News } from './pages';
 import { newsPages } from './constants';
+import { SwipableDrawer } from './components';
 
 
 
@@ -49,7 +50,7 @@ function App() {
           <StickyNavbar />
           <Routes>
             <Route path="/" element={<Landing />} />
-            <Route path="/home" element={<Home />} />
+            <Route exact path="/home" element={<Home />} />
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Signup />} />
             <Route path="/profile" element={<Profile />} />
