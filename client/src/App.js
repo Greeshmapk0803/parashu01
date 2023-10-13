@@ -29,10 +29,11 @@ const theme = createTheme({
       main: green[500],
     },
   },
+
   typography: {
     fontFamily: [
-      'Jost',
-      'cursive',
+      'EB Garamond',
+      'serif',
     ].join(','),
   },
 });
