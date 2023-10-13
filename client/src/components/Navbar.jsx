@@ -23,6 +23,15 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
+import {HomeRoundedIcon, TipsAndUpdatesIcon, ModelTrainingIcon, QuizIcon} from '../assets/icons';
+
+const topTextIcon = [
+  {title:'Home', icon:<HomeRoundedIcon sx={{color:'white'}} />},
+  {title:'Ask AI', icon:<ModelTrainingIcon sx={{color:'white'}} />},
+  {title:'Get Context', icon:<TipsAndUpdatesIcon sx={{color:'white'}} />},
+  {title:'Quiz Me!', icon:<QuizIcon sx={{color:'white'}} />},
+]
+
 
 
 const pages = ['Home', 'Categories', 'Ask AI', 'Get Context', 'Quiz Me'];
@@ -60,86 +69,83 @@ const newsPages1 = [
 
 
 export function TemporaryDrawer() {
-  const [state, setState] = React.useState({right: false});
+  const [state, setState] = React.useState({ right: false });
 
   const toggleDrawer = (anchor, open) => (event) => {
-      if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
-          return;
-      }
+    if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
+      return;
+    }
 
-      setState({ ...state, [anchor]: open });
+    setState({ ...state, [anchor]: open });
   };
 
   const list = (anchor) => (
-      <Box
-          sx={{ width: anchor === 'top' || anchor === 'bottom' ? 'auto' : 250 }}
-          role="presentation"
-          onClick={toggleDrawer(anchor, false)}
-          onKeyDown={toggleDrawer(anchor, false)}
-      >
-          <List>
-              <Link to='/'>
-                <ListItem disablePadding>
-                    <ListItemButton>
-                        <ListItemIcon>
-                            <MailIcon />
-                        </ListItemIcon>
-                        <ListItemText primary='Home' />
-                    </ListItemButton>
-                </ListItem>
-              </Link>
-              {['Ask AI', 'Get Context', 'Quiz Me!'].map((text, index) => (
-                  <ListItem key={text} disablePadding>
-                      <ListItemButton>
-                          <ListItemIcon>
-                              {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                          </ListItemIcon>
-                          <ListItemText primary={text} />
-                      </ListItemButton>
-                  </ListItem>
-              ))}
-          </List>
-          <Divider />
-          <List>
-              {newsPages1.map((text, index) => (
-                  <ListItem key={index} disablePadding>
-                      <Link to={text.path} style={{textDecoration:'none', color:'black', width:'100%'}}>
-                        <ListItemButton>
-                            <ListItemText primary={text.title} />
-                        </ListItemButton>
-                      </Link>
-                  </ListItem>
-              ))}
-          </List>
-      </Box>
+    <Box
+      sx={{ 
+          width: anchor === 'top' || anchor === 'bottom' ? 'auto' : 250,
+          backgroundColor: 'primary.dark',
+          color: 'white'
+        }}
+      role="presentation"
+      onClick={toggleDrawer(anchor, false)}
+      onKeyDown={toggleDrawer(anchor, false)}
+    >
+      <List>
+        <Link to='/'>
+        {topTextIcon.map((text, index) => (
+          <ListItem key={index} disablePadding sx={{color:'whitesmoke', textDecoration:'none'}}>
+            <ListItemButton>
+              <ListItemIcon>
+                {text.icon}
+              </ListItemIcon>
+              <ListItemText primary={text.title} />
+            </ListItemButton>
+          </ListItem>
+        ))}
+        </Link>
+      </List>
+      <Divider />
+      <List>
+        {newsPages1.map((text, index) => (
+          <ListItem key={index} disablePadding>
+            <Link to={text.path} style={{ textDecoration: 'none', color: 'black', width: '100%' }}>
+              <ListItemButton>
+                <ListItemText primary={text.title}  sx={{color:'whitesmoke', textTransform: 'capitalize'}} />
+              </ListItemButton>
+            </Link>
+          </ListItem>
+        ))}
+      </List>
+    </Box>
   );
 
   return (
-      <div>
-          {['right'].map((anchor) => (
-              <>
-                  <Button onClick={toggleDrawer('right', true)}
-                  sx={{ my: 2, 
-                  color: 'white', 
-                  display: 'block', 
-                  margin:'0 1em',
-                  fontWeight: 500,
-                  fontSize: '14px',
-                  '&:hover': {
-                  backgroundColor: '#f5f5f5',
-                  color: 'black',
-                  opacity: [0.9],
-              }, }}>More</Button>
-                  <Drawer
-                      anchor={'right'}
-                      open={state['right']}
-                      onClose={toggleDrawer('right', false)}
-                  >
-                      {list('right')}
-                  </Drawer>
-              </>
-          ))}
-      </div>
+    <div>
+      {['right'].map((anchor) => (
+        <>
+          <Button onClick={toggleDrawer('right', true)}
+            sx={{
+              my: 2,
+              color: 'white',
+              display: 'block',
+              fontWeight: 500,
+              fontSize: '14px',
+              '&:hover': {
+                backgroundColor: '#f5f5f5',
+                color: 'black',
+                opacity: [0.9],
+              },
+            }}>More</Button>
+          <Drawer
+            anchor={'right'}
+            open={state['right']}
+            onClose={toggleDrawer('right', false)}
+          >
+            {list('right')}
+          </Drawer>
+        </>
+      ))}
+    </div>
   );
 }
 
@@ -182,56 +188,58 @@ function ResponsiveAppBar() {
               textDecoration: 'none',
             }}
           >
-            <Link to='/' style={{textDecoration:'none', color: 'white'}}>
+            <Link to='/' style={{ textDecoration: 'none', color: 'white' }}>
               Parashu
             </Link>
           </Typography>
 
-          <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' }, fontSize:'12px' }}>
+          <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' }, justifyContent: 'flex-start' }}>
             <TemporaryDrawer />
           </Box>
-            <Typography
-              variant="h5"
-              noWrap
-              component="a"
-              href="#app-bar-with-responsive-menu"
-              sx={{
-                mr: 2,
-                display: { xs: 'flex', md: 'none' },
-                flexGrow: 1,
-                fontFamily: 'monospace',
-                fontWeight: 700,
-                letterSpacing: '.3rem',
-                color: 'inherit',
-                textDecoration: 'none',
-              }}
-            >
-              <Link to='/' style={{textDecoration:'none', color: 'white'}}>
+          <Typography
+            variant="h5"
+            noWrap
+            component="a"
+            href="#app-bar-with-responsive-menu"
+            sx={{
+              mr: 2,
+              display: { xs: 'flex', md: 'none' },
+              flexGrow: 1,
+              fontFamily: 'monospace',
+              fontWeight: 700,
+              letterSpacing: '.3rem',
+              color: 'inherit',
+              textDecoration: 'none',
+            }}
+          >
+            <Link to='/' style={{ textDecoration: 'none', color: 'white' }}>
               Parashu
-              </Link>
-            </Typography>
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, justifyContent: 'center'}}>
+            </Link>
+          </Typography>
+          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, justifyContent: 'center' }}>
             {pages.map((page) => (
               <Button
                 key={page}
                 onClick={handleCloseNavMenu}
-                sx={{ my: 2, 
-                  color: 'white', 
-                  display: 'block', 
-                  margin:'0 1em',
+                sx={{
+                  my: 2,
+                  color: 'white',
+                  display: 'block',
+                  margin: '0 1em',
                   fontWeight: 500,
                   fontSize: '14px',
                   '&:hover': {
-                  backgroundColor: '#f5f5f5',
-                  color: 'black',
-                  opacity: [0.9],
-              }, }}
+                    backgroundColor: '#f5f5f5',
+                    color: 'black',
+                    opacity: [0.9],
+                  },
+                }}
               >
                 {page}
               </Button>
             ))}
             <TemporaryDrawer />
-            
+
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>

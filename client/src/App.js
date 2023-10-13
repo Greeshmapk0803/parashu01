@@ -33,7 +33,7 @@ const theme = createTheme({
 
   typography: {
     fontFamily: [
-      'EB Garamond',
+      'Gabarito',
       'serif',
     ].join(','),
   },

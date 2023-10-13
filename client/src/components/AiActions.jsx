@@ -5,7 +5,7 @@ import Menu from '@mui/material/Menu';
 import { Box } from '@mui/material';
 import MenuItem from '@mui/material/MenuItem';
 import Divider from '@mui/material/Divider';
-import {SummarizeIcon, TipsAndUpdatesIcon, QuizIcon, QuestionMarkIcon, BookmarkRoundedIcon, KeyboardArrowDownIcon, AiAction, EditIcon, ArchiveIcon, FileCopyIcon, MoreHorizIcon} from '../assets/icons';
+import {SummarizeIcon, TipsAndUpdatesIcon, QuizIcon, QuestionMarkIcon, BookmarkRoundedIcon, KeyboardArrowDownIcon, AiAction} from '../assets/icons';
 
 const StyledMenu = styled((props) => (
     <Menu
