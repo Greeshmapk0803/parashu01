@@ -5,15 +5,12 @@ import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import Menu from '@mui/material/Menu';
-import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import { Link } from 'react-router-dom';
-import Fade from '@mui/material/Fade';
-import FadeMenu from './FadeMenu'
 import Drawer from '@mui/material/Drawer';
 import List from '@mui/material/List';
 import Divider from '@mui/material/Divider';
@@ -21,8 +18,6 @@ import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
-import MailIcon from '@mui/icons-material/Mail';
 import {HomeRoundedIcon, TipsAndUpdatesIcon, ModelTrainingIcon, QuizIcon} from '../assets/icons';
 
 const topTextIcon = [
@@ -170,7 +165,7 @@ function ResponsiveAppBar() {
   };
 
   return (
-    <AppBar position="static">
+    <AppBar position="static" sx={{display:{xs:'none', md:'block'}}}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Typography
@@ -239,7 +234,6 @@ function ResponsiveAppBar() {
               </Button>
             ))}
             <TemporaryDrawer />
-
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>

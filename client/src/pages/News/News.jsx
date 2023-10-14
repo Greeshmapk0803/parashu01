@@ -45,7 +45,7 @@ export function News(props) {
     }
 
     return (
-            <Box sx={{ flexGrow: 1, margin: {xs:'2em 1em',md:'0 1em 2em 1em'}, backgroundColor:'primary.dark', minHeight:'100vh'}}>
+            <Box sx={{ flexGrow: 1, margin: {xs:'0em 1em',md:'0 1em 2em 1em'}, backgroundColor:'primary.dark', minHeight:'100vh'}}>
                 <Grid container spacing={{ xs: 2, md: 4 }} columns={{ xs: 4, sm: 8, md: 12 }}>
                     {data.map((item, index) => (
                         <Grid item xs={4} sm={4} md={4} key={index} sx={{ display: 'flex', justifyContent: 'center' }}>
