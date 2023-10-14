@@ -12,6 +12,7 @@ import FadeMenu from './FadeMenu';
 import { categoryList1, categoryList2 } from '../constants';
 
 
+
 function ElevationScroll(props) {
     const { children, window } = props;
     // Note that you normally won't need to set the window ref as useScrollTrigger
@@ -50,8 +51,9 @@ export default function ElevateAppBar(props) {
 
     return (
             <ElevationScroll {...props}>
-                <AppBar position={'sticky'} sx={{ borderRadius: scrolled ? `100px` : `20px`, top: '2em', margin: '1em auto', width:'max-content', display:{xs: 'none', md: 'flex'}, border:'3px solid grey' }}>
-                    <Toolbar>
+                <AppBar position={'sticky'} sx={{ borderRadius: scrolled ? `100px` : `20px`, top: '2em', margin: {xs: '0px auto',md:'1em auto'}, width:'max-content', border:'2px solid grey' }}>
+                <Typography variant="g5" color="white" sx={{display:{md:'none'}, padding:'0.5em'}}>Topic</Typography>
+                    <Toolbar sx={{ display:{xs: 'none', md: 'flex'}}}>
                         <Zoom in={!scrolled} style={{ transitionDelay: !scrolled ? '100ms' : '0ms' }}>
                             <Typography variant="h6" text-align='center' component="div" sx={{ display: scrolled ? 'none' : 'flex', width: '100%', justifyContent: 'center', fontSize:'16px' }}>
                                 Your Headlines...

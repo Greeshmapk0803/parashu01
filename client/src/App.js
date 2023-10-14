@@ -17,6 +17,8 @@ import { newsPages } from './constants';
 import { useState, useEffect } from 'react';
 import axios from "axios";
 import Articles from "./components/articles";
+import MobileAppbar from './components/MobileAppbar';
+
 
 
 const theme = createTheme({
@@ -31,10 +33,11 @@ const theme = createTheme({
       main: green[500],
     },
   },
+
   typography: {
     fontFamily: [
-      'Jost',
-      'cursive',
+      'Gabarito',
+      'serif',
     ].join(','),
   },
 });
@@ -63,12 +66,13 @@ function App() {
   return (
     <Router>
       <ThemeProvider theme={theme}>
-        <Box sx={{backgroundColor:"primary.dark"}}>
+        <Box sx={{ backgroundColor: "primary.dark" }}>
           <Navbar />
           <StickyNavbar />
+          <MobileAppbar />
           <Routes>
             <Route path="/" element={<Landing />} />
-            <Route path="/home" element={<Home />} />
+            <Route exact path="/home" element={<Home />} />
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Signup />} />
             <Route path="/profile" element={<Profile />} />

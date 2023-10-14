@@ -5,7 +5,7 @@ import Menu from '@mui/material/Menu';
 import { Box } from '@mui/material';
 import MenuItem from '@mui/material/MenuItem';
 import Divider from '@mui/material/Divider';
-import {SummarizeIcon, TipsAndUpdatesIcon, QuizIcon, QuestionMarkIcon, BookmarkRoundedIcon, KeyboardArrowDownIcon, EditIcon, ArchiveIcon, FileCopyIcon, MoreHorizIcon} from '../assets/icons';
+import {SummarizeIcon, TipsAndUpdatesIcon, QuizIcon, QuestionMarkIcon, BookmarkRoundedIcon, KeyboardArrowDownIcon, AiAction} from '../assets/icons';
 
 const StyledMenu = styled((props) => (
     <Menu
@@ -71,7 +71,8 @@ export default function CustomizedMenus() {
                 endIcon={<KeyboardArrowDownIcon />}
                 sx={{backgroundColor:'white', color:'primary.main', fontWeight: 500, width:'100%', '&:hover': {backgroundColor: '#f5f5f5', color: '#262626', opacity: [0.9],}}}
             >
-                Options
+                <img src={AiAction} alt="AI Action" style={{width:'20px', height:'20px', marginLeft:'10px'}} />
+                AI Options
             </Button>
             <StyledMenu
                 id="demo-customized-menu"

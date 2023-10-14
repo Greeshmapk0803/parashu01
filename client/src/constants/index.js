@@ -9,7 +9,7 @@ export const NavLinks = [
 export const newsPages = [
     { "title": "arts", "path": "/arts" },
     { "title": "automobiles", "path": "/automobiles" },
-    { "title": "books/review", "path": "/books-review" },
+    { "title": "books/review", "path": "/books/review" },
     { "title": "business", "path": "/business" },
     { "title": "fashion", "path": "/fashion" },
     { "title": "food", "path": "/food" },
@@ -48,7 +48,7 @@ export const categoryList2 = [
     { "title": "sports", "path": "/sports" },
     { "title": "arts", "path": "/arts" },
     { "title": "automobiles", "path": "/automobiles" },
-    { "title": "books/review", "path": "/books-review" },
+    { "title": "books/review", "path": "/books/review" },
     { "title": "business", "path": "/business" },
     { "title": "fashion", "path": "/fashion" },
     { "title": "food", "path": "/food" },
