@@ -14,7 +14,12 @@ import {
 } from "react-router-dom";
 import { Home, Landing, Login, Signup, Profile, News } from './pages';
 import { newsPages } from './constants';
-import { SwipableDrawer } from './components';
+import Fab from '@mui/material/Fab';
+import AddIcon from '@mui/icons-material/Add';
+import EditIcon from '@mui/icons-material/Edit';
+import FavoriteIcon from '@mui/icons-material/Favorite';
+import NavigationIcon from '@mui/icons-material/Navigation';
+import FloatingIcon from './components/FloatingIcon';
 
 
 
@@ -46,7 +51,7 @@ function App() {
   return (
     <Router>
       <ThemeProvider theme={theme}>
-        <Box sx={{backgroundColor:"primary.dark"}}>
+        <Box sx={{ backgroundColor: "primary.dark" }}>
           <Navbar />
           <StickyNavbar />
           <Routes>
@@ -60,6 +65,7 @@ function App() {
               <Route exact path={page.path} element={<News path={page.path} key={page.path} />} />
             ))}
           </Routes>
+          <FloatingIcon />
           <Footer />
         </Box>
       </ThemeProvider>
