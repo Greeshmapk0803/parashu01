@@ -170,8 +170,8 @@ export default function BottomAppBar() {
     return (
         <>
             <CssBaseline />
-            <AppBar position="fixed" color="primary" sx={{ top: 'auto', bottom: 0, widht: '100%', display:{md:'none'} }}>
-                <Toolbar sx={{ display: 'flex', justifyContent: 'space-between', width: '100%' }}>
+            <AppBar position="fixed" color={"inherit"} sx={{ top: 'auto', bottom: 0, widht: '100%', display:{md:'none'}, borderTop:'1px solid grey' }}>
+                <Toolbar sx={{ display: 'flex', justifyContent: 'space-between', width: '100%', backgroundColor:'primary.dark' }}>
                     <IconButton color="inherit" aria-label="open drawer">
                         <TemporaryDrawer />
                     </IconButton>

@@ -6,5 +6,6 @@ import AiActions from './AiActions';
 import Spinner from './Spinner';
 import FadeMenu from './FadeMenu';
 import SwipableDrawer from './SwipableDrawer';
+import MobileAppbar from './MobileAppbar';
 
-export { Navbar, StickyNavbar, Footer, NewsItem, AiActions, Spinner, FadeMenu, SwipableDrawer };
+export { MobileAppbar, Navbar, StickyNavbar, Footer, NewsItem, AiActions, Spinner, FadeMenu, SwipableDrawer };

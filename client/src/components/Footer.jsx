@@ -34,7 +34,7 @@ export const Footer = () => {
                         component="Link"
                         href="/Home"
                         sx={{
-                            display: { md: 'flex' },
+                            display: 'flex',
                             fontFamily: 'monospace',
                             fontWeight: 700,
                             letterSpacing: '.3rem',
