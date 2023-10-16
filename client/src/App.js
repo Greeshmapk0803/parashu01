@@ -18,6 +18,9 @@ import { useState, useEffect } from 'react';
 import axios from "axios";
 import Articles from "./components/articles";
 import MobileAppbar from './components/MobileAppbar';
+import React from 'react';
+import TldrComponent from './components/TldrComponent';
+
 
 
 
@@ -82,6 +85,8 @@ function App() {
               <Route exact path={page.path} element={<News path={page.path} key={page.path} />} />
               ))}
               <Route exact path='test' element={<Articles articles={articles} style= {{color: "white"}}/>} />
+              <Route exact path='/testing' element={<TldrComponent style={{ color: "white" }} />} />
+
 
           </Routes>
 

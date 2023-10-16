@@ -19,8 +19,9 @@ const Spinner = () => {
 				</svg>
 			</div>
 		</div>
-
 	)
 }
 
 export default Spinner
+
+

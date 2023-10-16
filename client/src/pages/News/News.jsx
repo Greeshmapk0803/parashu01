@@ -58,10 +58,3 @@ export function News(props) {
 }
 
 export default News;
-
-
-
-
-
-
-    // export default News
