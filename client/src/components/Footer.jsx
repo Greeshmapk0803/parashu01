@@ -42,7 +42,7 @@ export const Footer = () => {
                             textDecoration: 'none',
                         }}
                     >
-                        PARASHU
+                        NEWS
                     </Typography>
                 </Link>
 

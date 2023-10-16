@@ -184,7 +184,7 @@ function ResponsiveAppBar() {
             }}
           >
             <Link to='/' style={{ textDecoration: 'none', color: 'white' }}>
-              Parashu
+              NEWS
             </Link>
           </Typography>
 
@@ -208,7 +208,7 @@ function ResponsiveAppBar() {
             }}
           >
             <Link to='/' style={{ textDecoration: 'none', color: 'white' }}>
-              Parashu
+              NEWS
             </Link>
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, justifyContent: 'center' }}>

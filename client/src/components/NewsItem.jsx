@@ -40,7 +40,7 @@ export default function ImgMediaCard(props) {//Function to beautify created_date
                 image={ImgSrc !== null ? ImgSrc[0].url : 'https://images.unsplash.com/photo-1575936123452-b67c3203c357?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8aW1hZ2V8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=600&q=60'}
             />
             <CardContent sx={{ height: 'min-content' }}>
-                <Chip color="warning" size="small" label={beautifiedTimestamp} />
+                <Chip color="success" size="small" variant='outlined' label={beautifiedTimestamp} />
                 <Typography gutterBottom variant="h5" component="div" sx={{fontWeight:'500'}}>
                     {title}
                 </Typography>
