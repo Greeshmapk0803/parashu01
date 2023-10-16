@@ -1,22 +1,31 @@
 import * as React from 'react';
-import { useState, useEffect } from 'react';
+import { styled } from '@mui/material/styles';
 import AppBar from '@mui/material/AppBar';
+import Box from '@mui/material/Box';
+import CssBaseline from '@mui/material/CssBaseline';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
-import useScrollTrigger from '@mui/material/useScrollTrigger';
-import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
-import Zoom from '@mui/material/Zoom'
-import { Link } from 'react-router-dom';
-import FadeMenu from './FadeMenu';
-import { categoryList1, categoryList2 } from '../constants';
-import Drawer from '@mui/material/Drawer';
+import IconButton from '@mui/material/IconButton';
+import Paper from '@mui/material/Paper';
+import Fab from '@mui/material/Fab';
 import List from '@mui/material/List';
-import Divider from '@mui/material/Divider';
 import ListItem from '@mui/material/ListItem';
+import ListItemAvatar from '@mui/material/ListItemAvatar';
+import ListItemText from '@mui/material/ListItemText';
+import ListSubheader from '@mui/material/ListSubheader';
+import Avatar from '@mui/material/Avatar';
+import AddIcon from '@mui/icons-material/Add';
+import SearchIcon from '@mui/icons-material/Search';
+import MoreIcon from '@mui/icons-material/MoreVert';
+import { Link } from 'react-router-dom';
+import Drawer from '@mui/material/Drawer';
+import Divider from '@mui/material/Divider';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
+import { Button } from '@mui/material';
+import { Tooltip } from '@mui/material';
+import Menu from '@mui/material/Menu';
+import MenuItem from '@mui/material/MenuItem';
 import { HomeRoundedIcon, TipsAndUpdatesIcon, ModelTrainingIcon, QuizIcon } from '../assets/icons';
 
 const topTextIcon = [
@@ -25,6 +34,8 @@ const topTextIcon = [
     { title: 'Get Context', icon: <TipsAndUpdatesIcon sx={{ color: 'white' }} /> },
     { title: 'Quiz Me!', icon: <QuizIcon sx={{ color: 'white' }} /> },
 ]
+const settings = ['Profile', 'Dashboard', 'Logout'];
+
 
 const newsPages1 = [
     { "title": "arts", "path": "/arts" },
@@ -54,6 +65,7 @@ const newsPages1 = [
     { "title": "us", "path": "/us" },
     { "title": "world", "path": "/world" }
 ];
+
 export function TemporaryDrawer() {
     const [state, setState] = React.useState({ right: false });
 
@@ -136,70 +148,82 @@ export function TemporaryDrawer() {
 }
 
 
-function ElevationScroll(props) {
-    const { children, window } = props;
-    // Note that you normally won't need to set the window ref as useScrollTrigger
-    // will default to window.
-    // This is only being set here because the demo is in an iframe.
-    const trigger = useScrollTrigger({
-        disableHysteresis: true,
-        threshold: 0,
-        target: window ? window() : undefined,
-    });
+const StyledFab = styled(Fab)({
+    position: 'absolute',
+    zIndex: 1,
+    top: -30,
+    left: 0,
+    right: 0,
+    margin: '0 auto',
+});
 
-    return React.cloneElement(children, {
-        elevation: trigger ? 4 : 0,
-    });
-}
+export default function BottomAppBar() {
+    const [anchorElUser, setAnchorElUser] = React.useState(null);
 
+    const handleOpenUserMenu = (event) => {
+        setAnchorElUser(event.currentTarget);
+    };
 
-export default function ElevateAppBar(props) {
-    const [scrolled, setScrolled] = useState(false);
-
-    useEffect(() => {
-        const handleScroll = () => {
-            if (window.scrollY > 0) {
-                setScrolled(true);
-            } else {
-                setScrolled(false);
-            }
-        };
-
-        window.addEventListener('scroll', handleScroll);
-
-        return () => {
-            window.removeEventListener('scroll', handleScroll);
-        };
-    }, []);
-
+    const handleCloseUserMenu = () => {
+        setAnchorElUser(null);
+    };
     return (
-        <ElevationScroll {...props}>
-            <AppBar position={'sticky'} sx={{ borderRadius: scrolled ? `100px` : `20px`, top: '2em', margin: { xs: '0px auto', md: '1em auto' }, width: 'max-content', border: '2px solid grey' }}>
-                <Typography variant="g5" color="white" sx={{ display: { md: 'none' }, padding: '0.5em' }}>Topic</Typography>
-                <Toolbar sx={{ display: { xs: 'none', md: 'flex' } }}>
-                    <Zoom in={!scrolled} style={{ transitionDelay: !scrolled ? '100ms' : '0ms' }}>
-                        <Typography variant="h6" text-align='center' component="div" sx={{ display: scrolled ? 'none' : 'flex', width: '100%', justifyContent: 'center', fontSize: '16px' }}>
-                            Your Headlines...
-                        </Typography>
-                    </Zoom>
-                    <Zoom in={scrolled} style={{ transitionDelay: scrolled ? '300ms' : '0ms' }}>
-                        <Box sx={{ flexGrow: 1, display: { md: 'flex' }, flexDirection: { xs: 'row' }, justifyContent: 'center', display: scrolled ? 'flex' : 'none' }}>
-                            {/* Buttons go here */}
-                            {categoryList1.map((page) => (
-                                <Link to={page.path} style={{ color: 'white', textDecoration: 'none' }}>
-                                    <Button
-                                        key={page}
-                                        sx={{ my: 2, color: 'white', display: 'block', margin: '0 1em' }}
-                                    >
-                                        {page.title}
-                                    </Button>
-                                </Link>
+        <>
+            <CssBaseline />
+            <AppBar position="fixed" color={"inherit"} sx={{ top: 'auto', bottom: 0, widht: '100%', display:{md:'none'}, borderTop:'1px solid grey' }}>
+                <Toolbar sx={{ display: 'flex', justifyContent: 'space-between', width: '100%', backgroundColor:'primary.dark' }}>
+                    <IconButton color="inherit" aria-label="open drawer">
+                        <TemporaryDrawer />
+                    </IconButton>
+                    <Typography
+                        variant="h6"
+                        noWrap
+                        component="a"
+                        href="#app-bar-with-responsive-menu"
+                        sx={{
+                            display: { xs: 'block', md: 'flex' },
+                            fontFamily: 'monospace',
+                            fontWeight: 700,
+                            letterSpacing: '.3rem',
+                            color: 'inherit',
+                            textDecoration: 'none',
+                        }}
+                    >
+                        <Link to='/' style={{ textDecoration: 'none', color: 'white' }}>
+                            Parashu
+                        </Link>
+                    </Typography>
+                    <Box sx={{ flexGrow: 0 }}>
+                        <Tooltip title="Open settings">
+                            <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+                                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+                            </IconButton>
+                        </Tooltip>
+                        <Menu
+                            sx={{ mt: '45px' }}
+                            id="menu-appbar"
+                            anchorEl={anchorElUser}
+                            anchorOrigin={{
+                                vertical: 'top',
+                                horizontal: 'right',
+                            }}
+                            keepMounted
+                            transformOrigin={{
+                                vertical: 'bottom',
+                                horizontal: 'right',
+                            }}
+                            open={Boolean(anchorElUser)}
+                            onClose={handleCloseUserMenu}
+                        >
+                            {settings.map((setting) => (
+                                <MenuItem key={setting} onClick={handleCloseUserMenu}>
+                                    <Typography textAlign="center">{setting}</Typography>
+                                </MenuItem>
                             ))}
-                            <FadeMenu options={categoryList2} text='More' />
-                        </Box>
-                    </Zoom>
+                        </Menu>
+                    </Box>
                 </Toolbar>
             </AppBar>
-        </ElevationScroll>
+        </>
     );
 }

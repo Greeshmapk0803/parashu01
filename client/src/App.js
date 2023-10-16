@@ -14,6 +14,13 @@ import {
 } from "react-router-dom";
 import { Home, Landing, Login, Signup, Profile, News } from './pages';
 import { newsPages } from './constants';
+import { useState, useEffect } from 'react';
+import axios from "axios";
+import Articles from "./components/articles";
+import MobileAppbar from './components/MobileAppbar';
+import React from 'react';
+import TldrComponent from './components/TldrComponent';
+
 
 
 
@@ -32,33 +39,57 @@ const theme = createTheme({
 
   typography: {
     fontFamily: [
-      'EB Garamond',
+      'Gabarito',
       'serif',
     ].join(','),
   },
 });
 
+const API_URL = "http://localhost:3000/api/v1/articles"
 
-
+function getAPIData(){
+  return axios.get(API_URL).then((response) => response.data)
+}
 
 function App() {
+  const [articles, setArticles] = useState([]);
+  console.log('hi')
+
+  useEffect(() => {
+      let mounted = true;
+      getAPIData().then((items) => {
+        if(mounted){
+          setArticles(items);
+          console.log(items)
+        }
+    });
+    return () => (mounted = false);
+  }, []);
+
   return (
     <Router>
       <ThemeProvider theme={theme}>
-        <Box sx={{backgroundColor:"primary.dark"}}>
+        <Box sx={{ backgroundColor: "primary.dark" }}>
           <Navbar />
           <StickyNavbar />
+          <MobileAppbar />
           <Routes>
             <Route path="/" element={<Landing />} />
-            <Route path="/home" element={<Home />} />
+            <Route exact path="/home" element={<Home />} />
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Signup />} />
             <Route path="/profile" element={<Profile />} />
+
             {/* //news Endpoints */}
             {newsPages.map((page) => (
               <Route exact path={page.path} element={<News path={page.path} key={page.path} />} />
-            ))}
+              ))}
+              <Route exact path='test' element={<Articles articles={articles} style= {{color: "white"}}/>} />
+              <Route exact path='/testing' element={<TldrComponent style={{ color: "white" }} />} />
+
+
           </Routes>
+
           <Footer />
         </Box>
       </ThemeProvider>
