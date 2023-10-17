@@ -217,22 +217,36 @@ function ResponsiveAppBar() {
                 key={page}
                 onClick={handleCloseNavMenu}
                 sx={{
-                  my: 2,
-                  color: 'white',
-                  display: 'block',
-                  margin: '0 1em',
-                  fontWeight: 500,
-                  fontSize: '14px',
-                  '&:hover': {
-                    backgroundColor: '#f5f5f5',
-                    color: 'black',
-                    opacity: [0.9],
-                  },
+                m: 2,
+                color: 'white',
+                display: 'block',
+                fontWeight: 500,
+                fontSize: '14px',
+                '&:hover': {
+                  backgroundColor: '#f5f5f5',
+                  color: 'black',
+                  opacity: [0.9],
+                },
                 }}
               >
                 {page}
               </Button>
             ))}
+            <Link to='/dnd'>
+              <Button
+              sx={{
+                m: 2,
+                color: 'white',
+                display: 'block',
+                fontWeight: 500,
+                fontSize: '14px',
+                '&:hover': {
+                  backgroundColor: '#f5f5f5',
+                  color: 'black',
+                  opacity: [0.9],
+                },
+              }}>Drag and Drop</Button>
+            </Link>
             <TemporaryDrawer />
           </Box>
 

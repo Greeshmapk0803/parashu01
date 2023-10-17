@@ -14,5 +14,8 @@ import HomeRoundedIcon from '@mui/icons-material/HomeRounded';
 import ModelTrainingIcon from '@mui/icons-material/ModelTraining';
 import InsertInvitationRoundedIcon from '@mui/icons-material/InsertInvitationRounded';
 import ChromeReaderModeIcon from '@mui/icons-material/ChromeReaderMode';
+import SendIcon from '@mui/icons-material/Send';
+import MemoryIcon from '@mui/icons-material/Memory';
+import NotStartedIcon from '@mui/icons-material/NotStarted';
 
-export {ModelTrainingIcon,HomeRoundedIcon, SummarizeIcon, TipsAndUpdatesIcon, QuizIcon, QuestionMarkIcon, BookmarkRoundedIcon, KeyboardArrowDownIcon, EditIcon, ArchiveIcon, FileCopyIcon, MoreHorizIcon, ExpandMoreIcon, AiAction, InsertInvitationRoundedIcon, ChromeReaderModeIcon}
+export {NotStartedIcon,ModelTrainingIcon,HomeRoundedIcon, SummarizeIcon, TipsAndUpdatesIcon, QuizIcon, QuestionMarkIcon, BookmarkRoundedIcon, KeyboardArrowDownIcon, EditIcon, ArchiveIcon, FileCopyIcon, MoreHorizIcon, ExpandMoreIcon, AiAction, InsertInvitationRoundedIcon, ChromeReaderModeIcon, SendIcon, MemoryIcon}
