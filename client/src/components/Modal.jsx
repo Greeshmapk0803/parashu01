@@ -7,6 +7,7 @@ import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import Skeleton from './Loaders/Skeleton';
 
+
 const apiUrl = 'https://tldrthis.p.rapidapi.com/v1/model/abstractive/summarize-url/';//the ai link
 
 const style = {
@@ -86,8 +87,14 @@ export default function BasicModal(props) {
     // }
 
     return (
-        <div>
-            <Button onClick={handleOpen}>Open modal</Button>
+        <Box  sx={{width:'80%'}}>
+            <Button
+                    onClick={handleOpen}
+                    variant="contained"
+                    sx={{ backgroundColor: 'white', color: 'primary.main', fontWeight: 500, width: '100%', '&:hover': { backgroundColor: '#f5f5f5', color: '#262626', opacity: [0.9], } }}
+                >
+                    Short Summary
+            </Button>
             <Modal
                 open={open}
                 onClose={handleClose}
@@ -123,6 +130,6 @@ export default function BasicModal(props) {
                     }
                 </Box>
             </Modal>
-        </div>
+        </Box>
     );
 }
