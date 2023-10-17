@@ -3,7 +3,7 @@ import { Box } from '@mui/material';
 import { createTheme, ThemeProvider } from '@mui/material';
 import { green } from '@mui/material/colors';
 import { Home, Landing, Login, Signup, Profile, News, NewsArticle } from './pages';
-import {Navbar, TldrComponent, MobileAppbar, Footer, StickyNavbar} from './components';
+import {Navbar, MobileAppbar, Footer, StickyNavbar, DragAndDrop} from './components';
 import { newsPages } from './constants';
 import {
   BrowserRouter as Router,
@@ -49,6 +49,7 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Signup />} />
             <Route path="/profile" element={<Profile />} />
+            <Route path="/dnd" element={<DragAndDrop />} />
 
             {/* //news Endpoints */}
             {newsPages.map((page) => (

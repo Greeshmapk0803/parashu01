@@ -7,5 +7,7 @@ import Spinner from './Loaders/Spinner';
 import FadeMenu from './FadeMenu';
 import MobileAppbar from './MobileAppbar';
 import Modal from './Modal';
+import DragAndDrop from './DragAndDrop';
+import DragandDropLoader from './Loaders/DragandDropLoader';
 
-export { Modal, MobileAppbar, Navbar, StickyNavbar, Footer, NewsItem, AiActions, Spinner, FadeMenu };
+export { Modal, MobileAppbar, Navbar, StickyNavbar, Footer, NewsItem, AiActions, Spinner, FadeMenu, DragAndDrop, DragandDropLoader };
