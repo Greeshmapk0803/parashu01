@@ -32,7 +32,7 @@ const Landing = () => {
             <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', margin: '3em 3m 0 3em' }}>
                 <Box sx={{ display: 'flex',flexDirection:{xs:'column', md:'row'}, alignItems:'center', margin: '0 2em 2em 2em' }}>
                     <Grid sx={{margin:{md:'3em auto'}}}>
-                        <Typography variant="h2" sx={{ width: '70%', margin: '0em 1em 0.5em 0em', fontSize:{xs:'35px', md:'50px'} }}>Enter the Future of News: Parashu</Typography>
+                        <Typography variant="h2" sx={{ width: {xs:'100%', sm:'70%'}, margin: {xs:'0 0 0 0',sm:'0em 1em 0.5em 0em'}, fontSize:{xs:'40px', md:'50px'}}}>Enter the Future of News: Parashu</Typography>
                         <Typography variant="5" sx={{}}>Where News Gets a Digital Soul. Feel the Beat of Truth in Every Byte. Informed Today, Ahead Tomorrow!</Typography>
                         <Box sx={{ margin: '3em auto 2em auto', display: 'flex', justifyContent: 'flex-start' }}>
                             <Button variant="outlined" sx={{ color: 'white', mx: '2em 2em 2em 0' }} color="secondary" endIcon={<MemoryIcon />} size="large">
@@ -45,7 +45,7 @@ const Landing = () => {
                             </Link>
                         </Box>
                     </Grid>
-                    <Box sx={{ width: '60%' }}>
+                    <Box sx={{ width: {xs:'98%',sm:'60%'} }}>
                         <img src={landingImage} alt="landing page" style={{ width: '100%', height: '65vh', objectFit: 'cover', borderRadius: '10px' }} />
                     </Box>
                 </Box>
@@ -54,7 +54,7 @@ const Landing = () => {
                 <Typography sx={{ margin: '2em 0 1em 0', textAlign: 'center', p: '10px', fontSize:{xs:'25px', md:'40px'} }}>Elevate Your News Experience with Parashu: The Power of AI Unleashed!</Typography>
                 <Box sx={{ display: 'flex', flexDirection: { xs: 'column', sm: 'row' }, justifyContent: 'space-around', alignItems: 'center', width: '100%', padding: '0em 0 3em 0' }}>
                     {features.map((value, index) => (
-                        <Box key={index} sx={{ backgroundColor: '#000418', borderRadius: '10px', display: 'flex', flexDirection: 'column', alignItems: 'center', p: '1em', maxWidth: '200px', margin: '0 0 1em 0' }}>
+                        <Box key={index} sx={{ backgroundColor: '#000418', borderRadius: '10px', display: 'flex', flexDirection: 'column', alignItems: 'center', p: '1em', maxWidth: {xs:'90%',sm:'200px'}, margin: '0 0 1em 0' }}>
                             <Typography variant='h6' sx={{ textAlign: 'center' }}>{value.title}</Typography>
                             {value.icon}
                             <Typography component='p' sx={{ textAlign: 'center' }}>{value.tagline}</Typography>

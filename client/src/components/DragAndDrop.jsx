@@ -49,7 +49,7 @@ const DragAndDrop = () => {
                     onDrop={handleDrop}
                     onDragOver={handleDragOver}
                     sx={{
-                        width: '70%',
+                        width: {xs:'100%',sm:'70%'},
                         height: '300px',
                         margin: '2em auto',
                         borderRadius: '10px',
