@@ -1,27 +1,16 @@
-import Navbar from './components/Navbar';
-import StickyNavbar from './components/StickyNavbar';
+import React from 'react';
 import { Box } from '@mui/material';
-import Footer from './components/Footer';
 import { createTheme, ThemeProvider } from '@mui/material';
 import { green } from '@mui/material/colors';
+import { Home, Landing, Login, Signup, Profile, News, NewsArticle } from './pages';
+import {Navbar, TldrComponent, MobileAppbar, Footer, StickyNavbar} from './components';
+import { newsPages } from './constants';
 import {
   BrowserRouter as Router,
-  // Switch,
   Route,
-  // Link,
   Routes,
   Link
 } from "react-router-dom";
-import { Home, Landing, Login, Signup, Profile, News } from './pages';
-import { newsPages } from './constants';
-import { useState, useEffect } from 'react';
-import axios from "axios";
-import Articles from "./components/articles";
-import MobileAppbar from './components/MobileAppbar';
-import React from 'react';
-import TldrComponent from './components/TldrComponent';
-
-
 
 
 const theme = createTheme({
@@ -45,31 +34,12 @@ const theme = createTheme({
   },
 });
 
-const API_URL = "http://localhost:3000/api/v1/articles"
-
-function getAPIData(){
-  return axios.get(API_URL).then((response) => response.data)
-}
 
 function App() {
-  const [articles, setArticles] = useState([]);
-  console.log('hi')
-
-  useEffect(() => {
-      let mounted = true;
-      getAPIData().then((items) => {
-        if(mounted){
-          setArticles(items);
-          console.log(items)
-        }
-    });
-    return () => (mounted = false);
-  }, []);
-
   return (
     <Router>
       <ThemeProvider theme={theme}>
-        <Box sx={{ backgroundColor: "primary.dark" }}>
+        <Box sx={{ backgroundColor: "primary.dark", color:'whitesmoke' }}>
           <Navbar />
           <StickyNavbar />
           <MobileAppbar />
@@ -84,10 +54,7 @@ function App() {
             {newsPages.map((page) => (
               <Route exact path={page.path} element={<News path={page.path} key={page.path} />} />
               ))}
-              <Route exact path='test' element={<Articles articles={articles} style= {{color: "white"}}/>} />
-              <Route exact path='/testing' element={<TldrComponent style={{ color: "white" }} />} />
-
-
+              <Route exact path='/long' element={<NewsArticle style={{ color: "white" }} />} />
           </Routes>
 
           <Footer />

@@ -190,7 +190,7 @@ export default function BottomAppBar() {
                         }}
                     >
                         <Link to='/' style={{ textDecoration: 'none', color: 'white' }}>
-                            Parashu
+                            NEWS
                         </Link>
                     </Typography>
                     <Box sx={{ flexGrow: 0 }}>

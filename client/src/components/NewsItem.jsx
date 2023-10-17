@@ -6,13 +6,15 @@ import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { AiActions } from '.';
-import Link from '@mui/material/Link';
+// import { Link, useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import Chip from '@mui/material/Chip';
+import Modal from './Modal';
 
 
 export default function ImgMediaCard(props) {//Function to beautify created_date timestamp
     const { keyProp, title, desc, ImgSrc, newsURL, created_at } = props;
-
+    const navigate = useNavigate();
     function beautifyTimestamp(timestamp) {
         const options = {
             year: 'numeric',
@@ -32,7 +34,10 @@ export default function ImgMediaCard(props) {//Function to beautify created_date
 
 
     return (
-        <Card sx={{ maxWidth: 400, borderRadius: '5px', height: 'min-content', border: '2px solid grey', backgroundColor:'primary.main', color:'whitesmoke' }} key={keyProp}>
+        <Card sx={{ maxWidth: 400, borderRadius: '5px', height: 'min-content', border: '2px solid grey', backgroundColor: 'primary.main', color: 'whitesmoke' }} key={keyProp}>
+
+            <Modal summaryURL={newsURL} summaryTitle={title} />
+
             <CardMedia
                 component="img"
                 alt={title}
@@ -41,7 +46,7 @@ export default function ImgMediaCard(props) {//Function to beautify created_date
             />
             <CardContent sx={{ height: 'min-content' }}>
                 <Chip color="success" size="small" variant='outlined' label={beautifiedTimestamp} />
-                <Typography gutterBottom variant="h5" component="div" sx={{fontWeight:'500'}}>
+                <Typography gutterBottom variant="h5" component="div" sx={{ fontWeight: '500' }}>
                     {title}
                 </Typography>
                 <Typography variant="body2" color='whitesmoke'>
@@ -49,21 +54,31 @@ export default function ImgMediaCard(props) {//Function to beautify created_date
                 </Typography>
             </CardContent>
             <CardActions sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, justifyContent: { md: 'flex-end' }, alignItems: { xs: 'flex-end' }, height: '20%' }}>
-                <Link href={newsURL} sx={{ width: '100%',marginRight: { xs: '0', md: '10px' }, }} target="_blank">
-                    <Button sx={{
-                        backgroundColor: 'primary.dark',
-                        color: 'whitesmoke',
-                        width: '100%',
-                        marginBottom: { xs: '10px', md: '0' },
-                        '&:hover': {
-                            backgroundColor: '#3c3c3c',
-                            color: '',
-                        },
-                    }}>
+                {/* <Link  
+                onClick={() => {
+                    // Navigate to the 'long' page with newsURL as a URL parameter
+                    history.push(`/long?newsURL=${encodeURIComponent(props.newsURL)}`);
+                }}  */}
+                {/* style={{ width: '100%', marginRight: { xs: '0', md: '10px' } }}> */}
+                    <Button
+                        onClick={() => {
+                            // Navigate to the 'long' page with newsURL as a URL parameter
+                            navigate(`/long?newsURL=${encodeURIComponent(props.newsURL)}`);
+                        }}
+                        sx={{
+                            backgroundColor: 'primary.dark',
+                            color: 'whitesmoke',
+                            width: '100%',
+                            marginBottom: { xs: '10px', md: '0' },
+                            '&:hover': {
+                                backgroundColor: '#3c3c3c',
+                                color: '',
+                            },
+                        }}>
                         Read
                     </Button>
-                </Link>
-                <AiActions />
+                {/* </Link> */}
+                <AiActions newsURL={newsURL} />
             </CardActions>
         </Card>
     );

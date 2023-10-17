@@ -2,9 +2,7 @@ import React, { useEffect, useState } from 'react'
 import axios from 'axios';
 import NewsItem from '../../components/NewsItem';
 import { Grid } from '@mui/material';
-import Paper from '@mui/material/Paper';
 import Box from '@mui/material/Box';
-import { experimentalStyled as styled } from '@mui/material/styles';
 import {Spinner} from '../../components';
 
 export function News(props) {
@@ -13,15 +11,12 @@ export function News(props) {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
-    const apiKey = process.env.NYT_NEWS_API_KEY;
-    console.log(process.env.NYT_NEWS_API_KEY);
     const apiEndPoint = `https://api.nytimes.com/svc/topstories/v2/${path}.json?api-key=df2wNBhQH6XoZBZJnmj151DiOeDHKSaL`
     useEffect(() => {
         const fetchData = async () => {
             try {
                 const response = await axios.get(apiEndPoint);
                 setData(response.data.results);
-                console.log(response.data.results)
             } catch (error) {
                 setError(error);
             } finally {
