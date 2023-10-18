@@ -20,7 +20,7 @@ const NewsArticle = () => {
             url: apiUrl,
             headers: {
                 'content-type': 'application/json',
-                'X-RapidAPI-Key': '42c09b95c1msh3fbbc615ba4bbeep199e65jsnc17e96129064',
+                'X-RapidAPI-Key': 'c75063652amsha1ce789fbd6702fp176ca2jsn7eb2e98a89de',
                 'X-RapidAPI-Host': 'tldrthis.p.rapidapi.com'
             },
             data: {
