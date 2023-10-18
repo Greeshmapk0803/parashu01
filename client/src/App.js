@@ -40,7 +40,7 @@ function App() {
     <Router>
       <ThemeProvider theme={theme}>
         <Box sx={{ backgroundColor: "primary.dark", color:'whitesmoke' }}>
-          <ProgressBar duration={"0.2"} height="5"/>
+          <ProgressBar duration={"0.2"} height="3.5" bgcolor= "#701ac1" />
           <Navbar />
           <StickyNavbar />
           <MobileAppbar />
