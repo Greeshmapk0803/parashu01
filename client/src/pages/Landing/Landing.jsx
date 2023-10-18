@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import Button from '@mui/material/Button';
 import { Box, Container, Grid, Typography } from '@mui/material';
 import { Link } from 'react-router-dom';
@@ -9,6 +9,11 @@ import { DragAndDrop, TopicGrid } from '../../components';
 import { features } from '../../constants';
 
 const Landing = () => {
+
+    useEffect(() => {//change th edocument title on load
+        document.title = `Parashu | A Modern NEWS App`;//setting the document title dynamically
+    }, []);
+
     return (
         <Container maxWidth="xl">
             <Box sx={{ display: 'flex', flexDirection: { xs: 'column-reverse', md: 'row' }, alignItems: 'center', margin: '0 2em 2em 2em' }}>
@@ -19,7 +24,7 @@ const Landing = () => {
                     <Box sx={{margin: { xs: '1em auto', md: '3em auto 2em auto' }, display: 'flex', flexDirection:{xs:'column', md:'row'},justifyContent: {xs:'space-around',md:'flex-start'} }}>
                         <Link to='/home' style={{}}>
                             <Button variant="outlined" sx={{ color: 'white',width:'100%' }} color="secondary" endIcon={<MemoryIcon />} size="large">
-                                Explore AI
+                                Explore AI Actions
                             </Button>
                         </Link>
                         <Link to='/home'>

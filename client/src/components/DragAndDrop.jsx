@@ -12,6 +12,10 @@ const DragAndDrop = () => {
     const [droppedLink, setDroppedLink] = useState('');
     const [inputLink, setInputLink] = useState('');
 
+    useEffect(() => {//change th edocument title on load
+        document.title = `Parashu | Drag and Drop`;//setting the document title dynamically
+    }, []);
+
     useEffect(() => {
         if (droppedLink || inputLink) {
             // Enable the button if a link is dropped or input

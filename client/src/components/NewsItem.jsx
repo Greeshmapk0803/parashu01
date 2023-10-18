@@ -5,12 +5,11 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-import { AiActions } from '.';
+import { AiActions, ToggleBtn } from '.';
 // import { Link, useHistory } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import Chip from '@mui/material/Chip';
-import Modal from './Modal';
-
+import Box from '@mui/material/Box';
 
 export default function ImgMediaCard(props) {//Function to beautify created_date timestamp
     const { keyProp, title, desc, ImgSrc, newsURL, created_at } = props;
@@ -42,7 +41,10 @@ export default function ImgMediaCard(props) {//Function to beautify created_date
                 image={ImgSrc !== null ? ImgSrc[0].url : 'https://images.unsplash.com/photo-1575936123452-b67c3203c357?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8aW1hZ2V8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=600&q=60'}
             />
             <CardContent sx={{ height: 'min-content' }}>
-                <Chip color="success" size="small" variant='outlined' label={beautifiedTimestamp} />
+                <Box sx={{display:'flex', justifyContent:'space-between', alignItems:'center'}}>
+                    <Chip color="success" size="small" variant='outlined' label={beautifiedTimestamp} />
+                    <ToggleBtn />
+                </Box>
                 <Typography gutterBottom variant="h5" component="div" sx={{ fontWeight: '500' }}>
                     {title}
                 </Typography>
@@ -59,7 +61,7 @@ export default function ImgMediaCard(props) {//Function to beautify created_date
                     sx={{
                         backgroundColor: 'primary.dark',
                         color: 'whitesmoke',
-                        width: {xs:'100%',md:'50%'},
+                        width: { xs: '100%', md: '50%' },
                         marginBottom: { xs: '10px', md: '0' },
                         '&:hover': {
                             backgroundColor: '#3c3c3c',

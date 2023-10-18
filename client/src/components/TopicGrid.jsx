@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useEffect } from 'react';
 import { styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
@@ -17,7 +18,10 @@ const Item = styled(Paper)(({ theme }) => ({
 
 export default function VariableWidthGrid() {
     const location = useLocation();
-    console.log(location.pathname);
+
+    useEffect(() => {//change th edocument title on load
+        document.title = `Parashu | Choose a Category`;//setting the document title dynamically
+    }, []);
 
     return (
         <>

@@ -5,6 +5,7 @@ import { Box, Typography } from '@mui/material';
 import Button from '@mui/material/Button';
 import { InsertInvitationRoundedIcon, ChromeReaderModeIcon } from '../../assets/icons';
 import NewsArticleLoader from '../../components/Loaders/NewsArticleLoader';
+import Summarize from '@mui/icons-material/Summarize';
 
 const NewsArticle = () => {
     const location = useLocation();
@@ -44,6 +45,10 @@ const NewsArticle = () => {
         const newsURL = summarizeURL.get('newsURL');
         fetchData(newsURL);
     }, []); // Empty dependency array ensures useEffect runs once when the component is mounted
+
+    useEffect(() => {
+        document.title = `Parashu | ${summary ? `${summary.article_title}` : "Summarizing your Article"}`;//
+    });
 
 
     return (
