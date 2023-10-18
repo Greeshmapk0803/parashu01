@@ -85,7 +85,7 @@ export function TemporaryDrawer() {
                 width: anchor === 'top' || anchor === 'bottom' ? 'auto' : 250,
                 backgroundColor: 'primary.dark',
                 color: 'white',
-                height:'100%'
+                height: '100%'
             }}
             role="presentation"
             onClick={toggleDrawer(anchor, false)}
@@ -105,60 +105,34 @@ export function TemporaryDrawer() {
                     </Link>
                 ))}
             </List>
-            {/* <Divider />
-            <List>
-                {newsPages1.map((text, index) => (
-                    <ListItem key={index} disablePadding>
-                        <Link to={text.path} style={{ textDecoration: 'none', color: 'black', width: '100%' }}>
-                            <ListItemButton>
-                                <ListItemText primary={text.title} sx={{ color: 'whitesmoke', textTransform: 'capitalize' }} />
-                            </ListItemButton>
-                        </Link>
-                    </ListItem>
-                ))}
-            </List> */}
         </Box>
     );
 
     return (
         <div>
-            {['right'].map((anchor) => (
-                <>
-                    <Button onClick={toggleDrawer('right', true)}
-                        sx={{
-                            my: 2,
-                            color: 'white',
-                            display: 'block',
-                            fontWeight: 500,
-                            fontSize: '14px',
-                            '&:hover': {
-                                backgroundColor: '#f5f5f5',
-                                color: 'black',
-                                opacity: [0.9],
-                            },
-                        }}>More</Button>
-                    <Drawer
-                        anchor={'right'}
-                        open={state['right']}
-                        onClose={toggleDrawer('right', false)}
-                    >
-                        {list('right')}
-                    </Drawer>
-                </>
-            ))}
+            <Button onClick={toggleDrawer('right', true)}
+                sx={{
+                    my: 2,
+                    color: 'white',
+                    display: 'block',
+                    fontWeight: 500,
+                    fontSize: '14px',
+                    '&:hover': {
+                        backgroundColor: '#f5f5f5',
+                        color: 'black',
+                        opacity: [0.9],
+                    },
+                }}>More</Button>
+            <Drawer
+                anchor={'right'}
+                open={state['right']}
+                onClose={toggleDrawer('right', false)}
+            >
+                {list('right')}
+            </Drawer>
         </div>
     );
 }
-
-
-const StyledFab = styled(Fab)({
-    position: 'absolute',
-    zIndex: 1,
-    top: -30,
-    left: 0,
-    right: 0,
-    margin: '0 auto',
-});
 
 export default function BottomAppBar() {
     const [anchorElUser, setAnchorElUser] = React.useState(null);
@@ -173,11 +147,9 @@ export default function BottomAppBar() {
     return (
         <>
             <CssBaseline />
-            <AppBar position="fixed" color={"inherit"} sx={{ top: 'auto', bottom: 0, widht: '100%', display: { md: 'none' }, borderTop: '1px solid grey' }}>
-                <Toolbar sx={{ display: 'flex', justifyContent: 'space-between', width: '100%', backgroundColor: 'primary.dark' }}>
-                    <IconButton color="inherit" aria-label="open drawer">
-                        <TemporaryDrawer />
-                    </IconButton>
+            <AppBar position="fixed" color={"inherit"} sx={{ top: 'auto', bottom: 0, width: '100%', display: { md: 'none' }, borderTop: '1px solid grey' }}>
+                <Toolbar sx={{ display: 'flex', justifyContent: 'space-between', backgroundColor: 'primary.dark' }}>
+                    <TemporaryDrawer />
                     <Typography
                         variant="h6"
                         noWrap
@@ -185,15 +157,15 @@ export default function BottomAppBar() {
                         href="#app-bar-with-responsive-menu"
                         sx={{
                             display: { xs: 'block', md: 'flex' },
-                            fontFamily: 'monospace',
                             fontWeight: 700,
                             letterSpacing: '.3rem',
                             color: 'inherit',
                             textDecoration: 'none',
+                            fontSize: '30px',
                         }}
                     >
                         <Link to='/' style={{ textDecoration: 'none', color: 'white' }}>
-                            NEWS
+                            Parashu
                         </Link>
                     </Typography>
                     <Box sx={{ flexGrow: 0 }}>

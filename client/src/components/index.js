@@ -12,5 +12,6 @@ import DragandDropLoader from './Loaders/DragandDropLoader';
 import TopicGrid from './TopicGrid';
 import Accordion from './Accordion';
 import ToggleBtn from './ToggleBtn';
+import InfiniteNews from './InfiniteNews';
 
-export { Modal, MobileAppbar, Navbar, StickyNavbar, Footer, NewsItem, AiActions, Spinner, FadeMenu, DragAndDrop, DragandDropLoader, TopicGrid, Accordion, ToggleBtn };
+export { Modal, MobileAppbar, Navbar, StickyNavbar, Footer, NewsItem, AiActions, Spinner, FadeMenu, DragAndDrop, DragandDropLoader, TopicGrid, Accordion, ToggleBtn, InfiniteNews };

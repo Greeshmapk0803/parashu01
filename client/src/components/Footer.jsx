@@ -37,7 +37,7 @@ export const Footer = () => {
                     </Typography>
                 </Link>
                 <Box
-                    sx={{ display: 'flex',flexWrap:{md:'wrap'},gap:'2em',flexDirection:{xs:'column', md:''},justifyContent:{ xs:'flex-start',md:'space-between'}, color: 'white', width: '65%', margin: 'auto' }}
+                    sx={{ display: 'flex',gap:'2em',flexDirection:{xs:'column', md:'row'},justifyContent:{ xs:'flex-start',md:'space-between'}, color: 'white', width: {xs:'100%',md:'65%'}, margin: 'auto' }}
                 >
                     {footerLinks.map((value, index) => (
                         <Link to={value.path} style={{color:'whitesmoke', textDecoration:'none'}}>

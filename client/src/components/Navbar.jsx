@@ -174,15 +174,15 @@ function ResponsiveAppBar() {
             sx={{
               mr: 2,
               display: { xs: 'none', md: 'flex' },
-              fontFamily: 'monospace',
               fontWeight: 700,
               letterSpacing: '.3rem',
               color: 'inherit',
               textDecoration: 'none',
+              fontSize: '30px',
             }}
           >
             <Link to='/' style={{ textDecoration: 'none', color: 'white' }}>
-              NEWS
+              Parashu
             </Link>
           </Typography>
 
@@ -198,7 +198,6 @@ function ResponsiveAppBar() {
               mr: 2,
               display: { xs: 'flex', md: 'none' },
               flexGrow: 1,
-              fontFamily: 'monospace',
               fontWeight: 700,
               letterSpacing: '.3rem',
               color: 'inherit',
@@ -206,7 +205,7 @@ function ResponsiveAppBar() {
             }}
           >
             <Link to='/' style={{ textDecoration: 'none', color: 'white' }}>
-              NEWS
+              Parashu
             </Link>
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, justifyContent: 'center' }}>

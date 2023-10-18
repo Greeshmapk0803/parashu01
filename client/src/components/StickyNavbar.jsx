@@ -18,6 +18,7 @@ import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import { HomeRoundedIcon, TipsAndUpdatesIcon, ModelTrainingIcon, QuizIcon } from '../assets/icons';
+import StickyNavbarLoader from './Loaders/StickyNavbarLoader';
 
 const topTextIcon = [
     { title: 'Home', icon: <HomeRoundedIcon sx={{ color: 'white' }} /> },
@@ -175,12 +176,10 @@ export default function ElevateAppBar(props) {
     return (
         <ElevationScroll {...props}>
             <AppBar position={'sticky'} sx={{ borderRadius: scrolled ? `100px` : `20px`, top: '2em', margin: { xs: '0px auto', md: '1em auto' }, width: 'max-content', border: '2px solid grey' }}>
-                <Toolbar sx={{ display: { xs: 'none', md: 'flex' } }}>
+                <Toolbar sx={{ display: { xs: 'none', md: 'flex'}, justifyContent:'space-between', alignItems:'center', transitionDuration:'0.5s', transition:'ease-in' }}>
                     <Zoom in={!scrolled} style={{ transitionDelay: !scrolled ? '100ms' : '0ms' }}>
-                        <Typography variant="h6" text-align='center' component="div" sx={{ display: scrolled ? 'none' : 'flex', width: '100%', justifyContent: 'center', fontSize: '16px' }}>
-                            Parashu...
-                        </Typography>
-                    </Zoom>
+                        <Box sx={{display: !scrolled ?'flex' : 'none', alignItems:'center',}}><StickyNavbarLoader/></Box>
+                        </Zoom>
                     <Zoom in={scrolled} style={{ transitionDelay: scrolled ? '300ms' : '0ms' }}>
                         <Box sx={{ flexGrow: 1, display: { md: 'flex' }, flexDirection: { xs: 'row' }, justifyContent: 'center', display: scrolled ? 'flex' : 'none' }}>
                             {/* Buttons go here */}

@@ -1,6 +1,7 @@
 import { Container } from '@mui/material'
 import React, {useEffect} from 'react'
 import { Accordion, ToggleBtn } from '../../components'
+import {InfiniteNews} from '../../components';
 
 const Home = () => {
 
@@ -10,8 +11,7 @@ const Home = () => {
 
     return (
         <Container>
-            <Accordion />
-            <ToggleBtn />
+            <InfiniteNews/>
         </Container>
     )
 }
