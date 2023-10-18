@@ -29,7 +29,7 @@ const topTextIcon = [
 
 
 
-const pages = ['Home', 'Categories', 'Ask AI', 'Get Context', 'Quiz Me'];
+const pages = ['Home', 'Categories', 'Ask AI', 'Get Context'];
 const settings = ['Profile', 'Dashboard', 'Logout'];
 const newsPages1 = [
   { "title": "arts", "path": "/arts" },
@@ -246,6 +246,21 @@ function ResponsiveAppBar() {
                   opacity: [0.9],
                 },
               }}>Drag and Drop</Button>
+            </Link>
+            <Link to='/topics'>
+              <Button
+              sx={{
+                m: 2,
+                color: 'white',
+                display: 'block',
+                fontWeight: 500,
+                fontSize: '14px',
+                '&:hover': {
+                  backgroundColor: '#f5f5f5',
+                  color: 'black',
+                  opacity: [0.9],
+                },
+              }}>Topics</Button>
             </Link>
             <TemporaryDrawer />
           </Box>

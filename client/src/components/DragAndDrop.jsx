@@ -83,7 +83,7 @@ const DragAndDrop = () => {
                         flexDirection: 'column',
                         justifyContent: 'space-around',
                         alignItems: 'center',
-                        width: '50%',
+                        width: {xs:'100%',sm:'70%'},
                         height: '300px',
                         borderRadius: '10px',
                         border: '2px dashed #ccc',

@@ -1,3 +1,5 @@
+import { summary, context, quiz } from '../assets/images';
+
 export const NavLinks = [
     { href: '/', key: 'Home', text: 'Home' },
     { href: '/', key: 'Find Projects', text: 'Find Projects' },
@@ -110,4 +112,22 @@ export const footerLinks = [
             'Exam announcements',
         ],
     },
+];
+
+export const features = [
+    {
+        "title": "Summarization",
+        "tagline": "Unraveling Complexity, One Insight at a Time. Parashu: Where Information Condenses into Wisdom, Simplifying the World's News for You.",
+        "img": summary
+    },
+    {
+        "title": "Contextualization",
+        "tagline": "Going Beyond Headlines, Creating Connections. Parashu: Delving Deep into Stories, Crafting Contexts that Resonate Across Cultures.",
+        "img": context
+    },
+    {
+        "title": "Quizzing",
+        "tagline": "Challenge Your Mind, Expand Your Horizons. Parashu: Where Knowledge Becomes an Adventure, Sparking Curiosity and Igniting Intellectual Growth.",
+        "img": quiz
+    }
 ];

@@ -3,7 +3,7 @@ import { Box } from '@mui/material';
 import { createTheme, ThemeProvider } from '@mui/material';
 import { green } from '@mui/material/colors';
 import { Home, Landing, Login, Signup, Profile, News, NewsArticle } from './pages';
-import {Navbar, MobileAppbar, Footer, StickyNavbar, DragAndDrop} from './components';
+import {Navbar, MobileAppbar, Footer, StickyNavbar, DragAndDrop, TopicGrid} from './components';
 import { newsPages } from './constants';
 import {
   BrowserRouter as Router,
@@ -56,6 +56,7 @@ function App() {
               <Route exact path={page.path} element={<News path={page.path} key={page.path} />} />
               ))}
               <Route exact path='/long' element={<NewsArticle style={{ color: "white" }} />} />
+              <Route exact path='/topics' element={<TopicGrid style={{ color: "white" }} />} />
           </Routes>
 
           <Footer />

@@ -1,8 +1,12 @@
+import { Container } from '@mui/material'
 import React from 'react'
+import { Accordion } from '../../components'
 
 const Home = () => {
     return (
-        <div>Home</div>
+        <Container>
+            <Accordion />
+        </Container>
     )
 }
 
