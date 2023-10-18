@@ -178,7 +178,7 @@ export default function ElevateAppBar(props) {
                 <Toolbar sx={{ display: { xs: 'none', md: 'flex' } }}>
                     <Zoom in={!scrolled} style={{ transitionDelay: !scrolled ? '100ms' : '0ms' }}>
                         <Typography variant="h6" text-align='center' component="div" sx={{ display: scrolled ? 'none' : 'flex', width: '100%', justifyContent: 'center', fontSize: '16px' }}>
-                            Your Headlines...
+                            Parashu...
                         </Typography>
                     </Zoom>
                     <Zoom in={scrolled} style={{ transitionDelay: scrolled ? '300ms' : '0ms' }}>
@@ -194,7 +194,6 @@ export default function ElevateAppBar(props) {
                                     </Button>
                                 </Link>
                             ))}
-                            <FadeMenu options={categoryList2} text='More' />
                         </Box>
                     </Zoom>
                 </Toolbar>

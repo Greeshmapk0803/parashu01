@@ -27,9 +27,7 @@ const topTextIcon = [
   {title:'Quiz Me!', icon:<QuizIcon sx={{color:'white'}} />},
 ]
 
-
-
-const pages = ['Home', 'Categories', 'Ask AI', 'Get Context'];
+const pages = ['Home', 'Trending', 'Ask AI','Get Context','Quiz Me!'];
 const settings = ['Profile', 'Dashboard', 'Logout'];
 const newsPages1 = [
   { "title": "arts", "path": "/arts" },
@@ -262,7 +260,6 @@ function ResponsiveAppBar() {
                 },
               }}>Topics</Button>
             </Link>
-            <TemporaryDrawer />
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>

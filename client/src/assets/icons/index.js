@@ -17,5 +17,7 @@ import ChromeReaderModeIcon from '@mui/icons-material/ChromeReaderMode';
 import SendIcon from '@mui/icons-material/Send';
 import MemoryIcon from '@mui/icons-material/Memory';
 import NotStartedIcon from '@mui/icons-material/NotStarted';
+import TopicIcon from '@mui/icons-material/Topic';
+import AutoFixHighIcon from '@mui/icons-material/AutoFixHigh';
 
-export {NotStartedIcon,ModelTrainingIcon,HomeRoundedIcon, SummarizeIcon, TipsAndUpdatesIcon, QuizIcon, QuestionMarkIcon, BookmarkRoundedIcon, KeyboardArrowDownIcon, EditIcon, ArchiveIcon, FileCopyIcon, MoreHorizIcon, ExpandMoreIcon, AiAction, InsertInvitationRoundedIcon, ChromeReaderModeIcon, SendIcon, MemoryIcon}
+export {NotStartedIcon,ModelTrainingIcon,HomeRoundedIcon, SummarizeIcon, TipsAndUpdatesIcon, QuizIcon, QuestionMarkIcon, BookmarkRoundedIcon, KeyboardArrowDownIcon, EditIcon, ArchiveIcon, FileCopyIcon, MoreHorizIcon, ExpandMoreIcon, AiAction, InsertInvitationRoundedIcon, ChromeReaderModeIcon, SendIcon, MemoryIcon, TopicIcon, AutoFixHighIcon}

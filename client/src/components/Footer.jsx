@@ -7,76 +7,45 @@ import { Link } from "react-router-dom";
 
 export const Footer = () => {
     return (
-        <Box
-            sx={{
-                width: "100%",
-                height: "auto",
-                backgroundColor: "primary.main",
-                paddingTop: "1rem",
-                paddingBottom: "1rem",
-            }}
-        >
+        <Box sx={{backgroundColor:'primary.main'}}>
             <Box
                 sx={{
-                    display: 'flex',
-                    justifyContent: 'center',
-                    margin: '1rem',
-                    padding: '1rem',
-                    borderRadius: '10px',
-                    width: 300,
-                    backgroundColor: 'primary.dark',
+                    width: "100%",
+                    height: "auto",
+                    backgroundColor: "primary.main",
+                    display: "flex",
+                    flexDirection:{xs:'column', md:'row'},
+                    padding: { xs: '2em', md: '3em 4em' },
+                    marginBottom:{xs:'55px', md:'10px'}
                 }}
-            >   
-                <Link to='/' style={{textDecoration:'none', color: 'white'}}>
+            >
+                <Link to='/' style={{ textDecoration: 'none', color: 'white', display: 'flex', justifyContent: {xs:'center',md:'flex-start'}, alignItems: 'center', width: {xs:'100%',md:'35%'} }}>
                     <Typography
-                        variant="h5"
+                        variant="h3"
                         noWrap
                         component="Link"
                         href="/Home"
                         sx={{
                             display: 'flex',
-                            fontFamily: 'monospace',
                             fontWeight: 700,
                             letterSpacing: '.3rem',
                             color: 'white',
                             textDecoration: 'none',
                         }}
                     >
-                        NEWS
+                        Parashu
                     </Typography>
                 </Link>
-
-            </Box>
-            <Container maxWidth="lg" sx={{color: 'white'}}>
-                <Box 
-                    sx={{display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap', gap: '1rem', padding: '1rem', color: 'white'}}
+                <Box
+                    sx={{ display: 'flex',flexWrap:{md:'wrap'},gap:'2em',flexDirection:{xs:'column', md:''},justifyContent:{ xs:'flex-start',md:'space-between'}, color: 'white', width: '65%', margin: 'auto' }}
                 >
-                    <Box>
-                        <Typography variant="h5">{footerLinks[0].title}</Typography>
-                        <List dense component='div' role="list">
-                            {footerLinks[0].links.map((items)=>(<ListItem align-items="flex-start"> <Link to='/' style={{textDecoration:'none', color: 'white'}}>{items}</Link></ListItem>))}
-                        </List>
-                    </Box>
-                    <Box>
-                        <Typography variant="h5">{footerLinks[1].title}</Typography>
-                        <List dense component='div' role="list">
-                            {footerLinks[1].links.map((items)=>(<ListItem align-items="flex-start"><Link to='/' style={{textDecoration:'none', color: 'white'}}>{items}</Link></ListItem>))}
-                        </List>
-                    </Box>
-                    <Box>
-                        <Typography variant="h5">{footerLinks[3].title}</Typography>
-                        <List dense component='div' role="list">
-                            {footerLinks[3].links.map((items)=>(<ListItem align-items="flex-start"><Link to='/' style={{textDecoration:'none', color: 'white'}}>{items}</Link></ListItem>))}
-                        </List>
-                    </Box>
-                    <Box>
-                        <Typography variant="h5">{footerLinks[2].title}</Typography>
-                        <List dense component='div' role="list">
-                            {footerLinks[2].links.map((items)=>(<ListItem align-items="flex-start"><Link to='/' style={{textDecoration:'none', color: 'white'}}>{items}</Link></ListItem>))}
-                        </List>
-                    </Box>
+                    {footerLinks.map((value, index) => (
+                        <Link to={value.path} style={{color:'whitesmoke', textDecoration:'none'}}>
+                            <Typography component="p" key={index} sx={{}}>{value.title}</Typography>
+                        </Link>
+                    ))}
                 </Box>
-            </Container>
+            </Box>
             <hr />
             <Typography align="center" color='white'>Made with ❤️ by team Parashu🔱</Typography>
         </Box>

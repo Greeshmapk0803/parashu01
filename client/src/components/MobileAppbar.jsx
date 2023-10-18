@@ -26,13 +26,15 @@ import { Button } from '@mui/material';
 import { Tooltip } from '@mui/material';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
-import { HomeRoundedIcon, TipsAndUpdatesIcon, ModelTrainingIcon, QuizIcon } from '../assets/icons';
+import { HomeRoundedIcon, TipsAndUpdatesIcon, ModelTrainingIcon, QuizIcon, TopicIcon, AutoFixHighIcon } from '../assets/icons';
 
 const topTextIcon = [
-    { title: 'Home', icon: <HomeRoundedIcon sx={{ color: 'white' }} /> },
-    { title: 'Ask AI', icon: <ModelTrainingIcon sx={{ color: 'white' }} /> },
-    { title: 'Get Context', icon: <TipsAndUpdatesIcon sx={{ color: 'white' }} /> },
-    { title: 'Quiz Me!', icon: <QuizIcon sx={{ color: 'white' }} /> },
+    { title: 'Parashu', icon: <AutoFixHighIcon sx={{ color: 'white' }} />, path: '/' },
+    { title: 'Home', icon: <HomeRoundedIcon sx={{ color: 'white' }} />, path: '/home' },
+    { title: 'Ask AI', icon: <ModelTrainingIcon sx={{ color: 'white' }} />, path: '/' },
+    { title: 'Get Context', icon: <TipsAndUpdatesIcon sx={{ color: 'white' }} />, path: '/' },
+    { title: 'Quiz Me!', icon: <QuizIcon sx={{ color: 'white' }} />, path: '/' },
+    { title: 'Topics', icon: <TopicIcon sx={{ color: 'white' }} />, path: '/topics' },
 ]
 const settings = ['Profile', 'Dashboard', 'Logout'];
 
@@ -82,15 +84,16 @@ export function TemporaryDrawer() {
             sx={{
                 width: anchor === 'top' || anchor === 'bottom' ? 'auto' : 250,
                 backgroundColor: 'primary.dark',
-                color: 'white'
+                color: 'white',
+                height:'100%'
             }}
             role="presentation"
             onClick={toggleDrawer(anchor, false)}
             onKeyDown={toggleDrawer(anchor, false)}
         >
             <List>
-                <Link to='/'>
-                    {topTextIcon.map((text, index) => (
+                {topTextIcon.map((text, index) => (
+                    <Link to={text.path}>
                         <ListItem key={index} disablePadding sx={{ color: 'whitesmoke', textDecoration: 'none' }}>
                             <ListItemButton>
                                 <ListItemIcon>
@@ -99,10 +102,10 @@ export function TemporaryDrawer() {
                                 <ListItemText primary={text.title} />
                             </ListItemButton>
                         </ListItem>
-                    ))}
-                </Link>
+                    </Link>
+                ))}
             </List>
-            <Divider />
+            {/* <Divider />
             <List>
                 {newsPages1.map((text, index) => (
                     <ListItem key={index} disablePadding>
@@ -113,7 +116,7 @@ export function TemporaryDrawer() {
                         </Link>
                     </ListItem>
                 ))}
-            </List>
+            </List> */}
         </Box>
     );
 
@@ -170,8 +173,8 @@ export default function BottomAppBar() {
     return (
         <>
             <CssBaseline />
-            <AppBar position="fixed" color={"inherit"} sx={{ top: 'auto', bottom: 0, widht: '100%', display:{md:'none'}, borderTop:'1px solid grey' }}>
-                <Toolbar sx={{ display: 'flex', justifyContent: 'space-between', width: '100%', backgroundColor:'primary.dark' }}>
+            <AppBar position="fixed" color={"inherit"} sx={{ top: 'auto', bottom: 0, widht: '100%', display: { md: 'none' }, borderTop: '1px solid grey' }}>
+                <Toolbar sx={{ display: 'flex', justifyContent: 'space-between', width: '100%', backgroundColor: 'primary.dark' }}>
                     <IconButton color="inherit" aria-label="open drawer">
                         <TemporaryDrawer />
                     </IconButton>

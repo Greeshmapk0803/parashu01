@@ -40,11 +40,11 @@ export const newsPages = [
 //link corresponding to sticky navbar
 export const categoryList1 = [
     { "title": "home", "path": "/home" },
-    { "title": "politics", "path": "/politics" },
-    { "title": "opinion", "path": "/opinion" },
-    { "title": "business", "path": "/business" },
-    { "title": "science", "path": "/science" },
-    { "title": "movies", "path": "/movies" },
+    { "title": "ask ai", "path": "/" },
+    { "title": "get context", "path": "/" },
+    { "title": "trending", "path": "/" },
+    { "title": "drag and drop", "path": "/dnd" },
+    { "title": "Categories", "path": "/topics" },
 ];
 export const categoryList2 = [
     { "title": "sports", "path": "/sports" },
@@ -72,45 +72,28 @@ export const categoryList2 = [
 
 export const footerLinks = [
     {
+        title: 'Landing Page',
+        path:'/'
+    },
+    {
+        title: 'Home',
+        path:'/home'
+    },
+    {
         title: 'Categories',
-        links: [
-            'All',
-            'Sports',
-            'Politics',
-            'Health',
-            'Entertainment',
-        ],
+        paht:'/topics'
     },
     {
         title: 'Play with AI',
-        links: [
-            'Summarize an article',
-            'Get Context of an article',
-            'Get quized on an article',
-            'AI aspirant helper'
-        ],
+        paht:'/'
     },
     {
         title: 'Company',
-        links: [
-            'Our Inspiration',
-            'Our Team',
-            'Contact Us',
-            'API',
-            'Terms of service',
-            'Privacy policy',
-            'Cookie policy',
-        ],
+        path:'/'
     },
     {
         title: "Aspirant's Corner",
-        links: [
-            'Give a test',
-            'Get deatils of an event',
-            'Fetch current affairs',
-            'Exam preparation',
-            'Exam announcements',
-        ],
+        path:'/'
     },
 ];
 

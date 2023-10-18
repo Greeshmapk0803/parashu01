@@ -59,7 +59,7 @@ export default function ImgMediaCard(props) {//Function to beautify created_date
                     sx={{
                         backgroundColor: 'primary.dark',
                         color: 'whitesmoke',
-                        width: '30%',
+                        width: {xs:'100%',md:'50%'},
                         marginBottom: { xs: '10px', md: '0' },
                         '&:hover': {
                             backgroundColor: '#3c3c3c',
@@ -68,7 +68,8 @@ export default function ImgMediaCard(props) {//Function to beautify created_date
                     }}>
                     Read
                 </Button>
-                <Modal summaryURL={newsURL} summaryTitle={title} />
+                {/* <Modal summaryURL={newsURL} summaryTitle={title} /> */}
+                <AiActions summaryURL={newsURL} summaryTitle={title} />
             </CardActions>
         </Card>
     );

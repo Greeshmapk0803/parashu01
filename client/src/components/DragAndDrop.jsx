@@ -60,6 +60,7 @@ const DragAndDrop = () => {
                         flexDirection: 'column',
                         justifyContent: 'space-around',
                         alignItems: 'center',
+                        minHeight:'60vh',
                     }}
                 >
                     <DragandDropLoader />

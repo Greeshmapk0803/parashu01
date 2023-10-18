@@ -17,11 +17,13 @@ const Landing = () => {
                     <Typography variant="h2" sx={{display:{xs:'flex', sm:'none'}, width: { xs: '100%', sm: '95%' }, margin: { xs: '0 0 0 0', sm: '0em 1em 0.5em 0em' }, fontSize: { xs: '25px', md: '50px' } }}>Parashu: Shaping the Future of News.</Typography>
                     <Typography variant="5" sx={{textAlign:{xs:'center', md:'left'}}}>Where News Gets a Digital Soul. Feel the Beat of Truth in Every Byte. Informed Today, Ahead Tomorrow!</Typography>
                     <Box sx={{margin: { xs: '1em auto', md: '3em auto 2em auto' }, display: 'flex', flexDirection:{xs:'column', md:'row'},justifyContent: {xs:'space-around',md:'flex-start'} }}>
-                        <Button variant="outlined" sx={{ color: 'white', margin:{ xs:'2em 0em 1em 0', md:'0 1em 2em 0'} }} color="secondary" endIcon={<MemoryIcon />} size="large">
-                            Explore AI
-                        </Button>
+                        <Link to='/home' style={{}}>
+                            <Button variant="outlined" sx={{ color: 'white',width:'100%' }} color="secondary" endIcon={<MemoryIcon />} size="large">
+                                Explore AI
+                            </Button>
+                        </Link>
                         <Link to='/home'>
-                            <Button variant="contained" sx={{ mx: '2em' }} endIcon={<NotStartedIcon />} size="large">
+                            <Button variant="contained" sx={{ margin:{xs:'1em 0 0 0', md:'0 0 0 3em'},width:'100%' }} endIcon={<NotStartedIcon />} size="large">
                                 Get Started
                             </Button>
                         </Link>
