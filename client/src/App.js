@@ -9,9 +9,8 @@ import {
   BrowserRouter as Router,
   Route,
   Routes,
-  Link
 } from "react-router-dom";
-import ProgressBar from "react-scroll-progress-bar"
+import ProgressBar from "./components/TopProgressBar"
 
 
 const theme = createTheme({
@@ -41,7 +40,7 @@ function App() {
     <Router>
       <ThemeProvider theme={theme}>
         <Box sx={{ backgroundColor: "primary.dark", color:'whitesmoke' }}>
-          <ProgressBar duration={"0.2"}/>
+          <ProgressBar duration={"0.2"} height="5"/>
           <Navbar />
           <StickyNavbar />
           <MobileAppbar />
