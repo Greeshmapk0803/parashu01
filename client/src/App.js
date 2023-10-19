@@ -2,7 +2,7 @@ import React from 'react';
 import { Box } from '@mui/material';
 import { createTheme, ThemeProvider } from '@mui/material';
 import { green } from '@mui/material/colors';
-import { Home, Landing, Login, Signup, Profile, News, NewsArticle } from './pages';
+import { Home, Landing, Login, Signup, Profile, News, NewsArticle, Newscontext, ContextResult } from './pages';
 import {Navbar, MobileAppbar, Footer, StickyNavbar, DragAndDrop, TopicGrid} from './components';
 import { newsPages } from './constants';
 import {
@@ -58,6 +58,8 @@ function App() {
               ))}
               <Route exact path='/long' element={<NewsArticle style={{ color: "white" }} />} />
               <Route exact path='/topics' element={<TopicGrid style={{ color: "white" }} />} />
+              <Route exact path='/context' element={<Newscontext style={{ color: "white" }} />} />
+              <Route exact path='/context/result' element={<ContextResult style={{ color: "white" }} />} />
           </Routes>
 
           <Footer />

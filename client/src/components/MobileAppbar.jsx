@@ -32,7 +32,7 @@ const topTextIcon = [
     { title: 'Parashu', icon: <AutoFixHighIcon sx={{ color: 'white' }} />, path: '/' },
     { title: 'Home', icon: <HomeRoundedIcon sx={{ color: 'white' }} />, path: '/home' },
     { title: 'Ask AI', icon: <ModelTrainingIcon sx={{ color: 'white' }} />, path: '/' },
-    { title: 'Get Context', icon: <TipsAndUpdatesIcon sx={{ color: 'white' }} />, path: '/' },
+    { title: 'Get Context', icon: <TipsAndUpdatesIcon sx={{ color: 'white' }} />, path: '/context' },
     { title: 'Quiz Me!', icon: <QuizIcon sx={{ color: 'white' }} />, path: '/' },
     { title: 'Topics', icon: <TopicIcon sx={{ color: 'white' }} />, path: '/topics' },
 ]

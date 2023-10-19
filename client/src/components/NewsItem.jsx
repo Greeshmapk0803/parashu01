@@ -14,6 +14,7 @@ import Box from '@mui/material/Box';
 export default function ImgMediaCard(props) {//Function to beautify created_date timestamp
     const { keyProp, title, desc, ImgSrc, newsURL, created_at } = props;
     const navigate = useNavigate();
+    
     function beautifyTimestamp(timestamp) {
         const options = {
             year: 'numeric',

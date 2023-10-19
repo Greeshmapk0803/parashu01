@@ -178,8 +178,8 @@ export default function ElevateAppBar(props) {
             <AppBar position={'sticky'} sx={{ borderRadius: scrolled ? `100px` : `20px`, top: '2em', margin: { xs: '0px auto', md: '1em auto' }, width: 'max-content', border: '2px solid grey' }}>
                 <Toolbar sx={{ display: { xs: 'none', md: 'flex'}, justifyContent:'space-between', alignItems:'center', transitionDuration:'0.5s', transition:'ease-in' }}>
                     <Zoom in={!scrolled} style={{ transitionDelay: !scrolled ? '100ms' : '0ms' }}>
-                        <Box sx={{display: !scrolled ?'flex' : 'none', alignItems:'center',}}><StickyNavbarLoader/></Box>
-                        </Zoom>
+                        <Typography>Parashu...</Typography>
+                    </Zoom>
                     <Zoom in={scrolled} style={{ transitionDelay: scrolled ? '300ms' : '0ms' }}>
                         <Box sx={{ flexGrow: 1, display: { md: 'flex' }, flexDirection: { xs: 'row' }, justifyContent: 'center', display: scrolled ? 'flex' : 'none' }}>
                             {/* Buttons go here */}

@@ -4,6 +4,8 @@ import Login from './Authentication/Login';
 import Signup from './Authentication/SignUp';
 import Profile from './Profile/Profile';
 import News from './News/News';
-import NewsArticle from './NewsAricle/NewsArticle';
+import NewsArticle from './NewsArticle/NewsArticle';
+import Newscontext from './NewsContext/Newscontext'
+import ContextResult from './NewsContext/ContextResult';
 
-export { Home, Landing, Login, Signup, Profile, News, NewsArticle };
+export { Home, Landing, Login, Signup, Profile, News, NewsArticle, Newscontext, ContextResult };

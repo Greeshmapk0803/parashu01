@@ -6,12 +6,18 @@ import Button from '@mui/material/Button';
 import { InsertInvitationRoundedIcon, ChromeReaderModeIcon } from '../../assets/icons';
 import NewsArticleLoader from '../../components/Loaders/NewsArticleLoader';
 import Summarize from '@mui/icons-material/Summarize';
+import { Toast, Error } from '../../components';
 
 const NewsArticle = () => {
     const location = useLocation();
     const summarizeURL = new URLSearchParams(location.search);
     const [summary, setSummary] = useState('');
     const [isLoading, setIsLoading] = useState(true);
+
+    //both needed for toast
+    const [toastify, setToastify] = useState(false)
+    const [error, setError] = useState(null);
+
     const apiUrl = 'https://tldrthis.p.rapidapi.com/v1/model/abstractive/summarize-url/';
 
     const fetchData = async (url) => {
@@ -38,6 +44,8 @@ const NewsArticle = () => {
         } catch (error) {
             console.error(error);
             setIsLoading(false);
+            setError(error)
+            setToastify(true);//setting toast
         }
     };
 
@@ -60,26 +68,32 @@ const NewsArticle = () => {
                     <Typography variant='h5' sx={{ margin: '1em', textAlign: 'center' }}> Did you know that over 500 million new articles are published online every day?</Typography>
                 </Box>
             ) : (
-                <Box sx={{
-                    maxWidth: { xs: '95%', md: '70%' },
-                    margin: '0em auto 2em auto',
-                }}>
-                    <Typography sx={{ fontSize: { xs: '25px', md: '35px' } }}>{summary.article_title}</Typography>
-
-                    <Box sx={{ display: 'flex', margin: '1em 0 1em 0' }}>
-                        <InsertInvitationRoundedIcon />
-                        <Typography sx={{ margin: '0 5px' }}>{summary.article_pub_date}</Typography>
-                    </Box>
-                    <Box sx={{ width: { xs: '95%', md: '80%' }, margin: 'auto' }}><img style={{ width: '100%', borderRadius: '10px' }} src={summary.article_image} alt="pokkade" /></Box>
-                    <Typography component="p" sx={{ margin: '2em 1em' }}>{summary.article_text}</Typography>
-                    <Box sx={{ display: 'flex', justifyContent: 'flex-end' }}>
-                        <Link to={summary.article_url} target='_blank'>
-                            <Button variant="contained" color="success" endIcon={<ChromeReaderModeIcon />}>
-                                Read Full Article
-                            </Button>
-                        </Link>
-                    </Box>
-                </Box>
+                <>
+                    {error &&   <Box sx={{display:'flex', flexDirection:{xs:'column-reverse', md:'row'},justifyContent:'center', alignItems:'center', height:'70vh'}}>
+                                <h1>Couldn't process this article</h1>
+                                <Error/>
+                                </Box>}
+                    {!error && <Box sx={{
+                        maxWidth: { xs: '95%', md: '70%' },
+                        margin: '0em auto 2em auto',
+                    }}>
+                        <Typography sx={{ fontSize: { xs: '25px', md: '35px' } }}>{summary.article_title}</Typography>
+                        <Box sx={{ display: 'flex', margin: '1em 0 1em 0' }}>
+                            <InsertInvitationRoundedIcon />
+                            <Typography sx={{ margin: '0 5px' }}>{summary.article_pub_date}</Typography>
+                        </Box>
+                        <Box sx={{ width: { xs: '95%', md: '80%' }, margin: 'auto' }}><img style={{ width: '100%', borderRadius: '10px' }} src={summary.article_image} alt="pokkade" /></Box>
+                        <Typography component="p" sx={{ margin: '2em 1em' }}>{summary.article_text}</Typography>
+                        <Box sx={{ display: 'flex', justifyContent: 'flex-end' }}>
+                            <Link to={summary.article_url} target='_blank'>
+                                <Button variant="contained" color="success" endIcon={<ChromeReaderModeIcon />}>
+                                    Read Full Article
+                                </Button>
+                            </Link>
+                        </Box>
+                    </Box>}
+                    <Toast show={toastify} err={error} pullData={isLoading} />
+                </>
             )}
         </div>
     );

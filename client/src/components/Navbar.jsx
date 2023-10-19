@@ -27,7 +27,7 @@ const topTextIcon = [
   {title:'Quiz Me!', icon:<QuizIcon sx={{color:'white'}} />},
 ]
 
-const pages = ['Home', 'Trending', 'Ask AI','Get Context','Quiz Me!'];
+const pages = ['Trending', 'Ask AI','Quiz Me!'];
 const settings = ['Profile', 'Dashboard', 'Logout'];
 const newsPages1 = [
   { "title": "arts", "path": "/arts" },
@@ -169,8 +169,6 @@ function ResponsiveAppBar() {
           <Typography
             variant="h6"
             noWrap
-            component="a"
-            href="#app-bar-with-responsive-menu"
             sx={{
               mr: 2,
               display: { xs: 'none', md: 'flex' },
@@ -209,6 +207,36 @@ function ResponsiveAppBar() {
             </Link>
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, justifyContent: 'center' }}>
+          <Link to='/home'>
+              <Button
+              sx={{
+                m: 2,
+                color: 'white',
+                display: 'block',
+                fontWeight: 500,
+                fontSize: '14px',
+                '&:hover': {
+                  backgroundColor: '#f5f5f5',
+                  color: 'black',
+                  opacity: [0.9],
+                },
+              }}>Home</Button>
+            </Link>
+          <Link to='/context'>
+              <Button
+              sx={{
+                m: 2,
+                color: 'white',
+                display: 'block',
+                fontWeight: 500,
+                fontSize: '14px',
+                '&:hover': {
+                  backgroundColor: '#f5f5f5',
+                  color: 'black',
+                  opacity: [0.9],
+                },
+              }}>Get Context</Button>
+            </Link>
             {pages.map((page) => (
               <Button
                 key={page}
