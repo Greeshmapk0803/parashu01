@@ -1,4 +1,3 @@
-import { Typography } from '@mui/material';
 import '../../assets/stylesheets/spinner.css';
 import LoadingQuotes from './LoadingQuotes';
 import { facts } from '../../constants';

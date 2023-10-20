@@ -6,7 +6,7 @@ import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { AiActions, ToggleBtn } from '.';
-// import { Link, useHistory } from 'react-router-dom';
+import {useLocation} from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import Chip from '@mui/material/Chip';
 import Box from '@mui/material/Box';
@@ -14,6 +14,7 @@ import Box from '@mui/material/Box';
 export default function ImgMediaCard(props) {//Function to beautify created_date timestamp
     const { keyProp, title, desc, ImgSrc, newsURL, created_at } = props;
     const navigate = useNavigate();
+    const location = useLocation();
     
     function beautifyTimestamp(timestamp) {
         const options = {
@@ -35,12 +36,17 @@ export default function ImgMediaCard(props) {//Function to beautify created_date
 
     return (
         <Card sx={{ maxWidth: 400, borderRadius: '5px', height: 'min-content', border: '2px solid grey', backgroundColor: 'primary.main', color: 'whitesmoke' }} key={keyProp}>
-            <CardMedia
+            {location.pathname ==='/home' ? (<CardMedia
                 component="img"
                 alt={title}
                 height="200"
-                image={ImgSrc !== null ? ImgSrc[0].url : 'https://images.unsplash.com/photo-1575936123452-b67c3203c357?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8aW1hZ2V8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=600&q=60'}
-            />
+                image={ImgSrc !== null ? ImgSrc : 'https://images.unsplash.com/photo-1586339949916-3e9457bef6d3?auto=format&fit=crop&q=80&w=1770&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'}
+            />) : (<CardMedia
+                component="img"
+                alt={title}
+                height="200"
+                image={ImgSrc !== null ? ImgSrc[0].url : 'https://images.unsplash.com/photo-1586339949916-3e9457bef6d3?auto=format&fit=crop&q=80&w=1770&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'}
+            />)}
             <CardContent sx={{ height: 'min-content' }}>
                 <Box sx={{display:'flex', justifyContent:'space-between', alignItems:'center'}}>
                     <Chip color="success" size="small" variant='outlined' label={beautifiedTimestamp} />

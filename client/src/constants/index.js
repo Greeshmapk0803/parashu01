@@ -41,11 +41,10 @@ export const newsPages = [
 //link corresponding to sticky navbar
 export const categoryList1 = [
     { "title": "home", "path": "/home" },
-    { "title": "ask ai", "path": "/" },
-    { "title": "get context", "path": "/" },
-    { "title": "trending", "path": "/" },
+    { "title": "ask ai", "path": "/chat" },
+    { "title": "get context", "path": "/context" },
     { "title": "drag and drop", "path": "/dnd" },
-    { "title": "Categories", "path": "/topics" },
+    { "title": "Topics", "path": "/topics" },
 ];
 export const categoryList2 = [
     { "title": "sports", "path": "/sports" },
@@ -199,10 +198,15 @@ export const topTextIcon = [
     { title: 'Quiz Me!', icon: <QuizIcon sx={{ color: 'white' }} /> },
 ]
 
-export const pages = ['Trending', 'Ask AI', 'Quiz Me!'];
+export const pages = [
+    {page:'Home',path:'/'},
+    {page:'Ask AI',path:'/chat'},
+    {page:'Get Context',path:'/context'},
+    {page:'Drag and Drop',path:'/dnd'},
+    {page:'Topics',path:'/topics'},
+];
 export const settings = [
     {action:'Profile', path:'/profile'},
-    {action:'Dashboard', path:'/'},
     {action:'Logout', path:'/'}
 ];
 export const newsPages1 = [

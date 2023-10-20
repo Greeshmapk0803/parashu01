@@ -8,8 +8,7 @@ import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Zoom from '@mui/material/Zoom'
 import { Link } from 'react-router-dom';
-import FadeMenu from './FadeMenu';
-import { categoryList1, categoryList2 } from '../constants';
+import { categoryList1 } from '../constants';
 import Drawer from '@mui/material/Drawer';
 import List from '@mui/material/List';
 import Divider from '@mui/material/Divider';
@@ -18,7 +17,6 @@ import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import { HomeRoundedIcon, TipsAndUpdatesIcon, ModelTrainingIcon, QuizIcon } from '../assets/icons';
-import StickyNavbarLoader from './Loaders/StickyNavbarLoader';
 
 const topTextIcon = [
     { title: 'Home', icon: <HomeRoundedIcon sx={{ color: 'white' }} /> },
@@ -181,7 +179,7 @@ export default function ElevateAppBar(props) {
                         <Typography>Parashu...</Typography>
                     </Zoom>
                     <Zoom in={scrolled} style={{ transitionDelay: scrolled ? '300ms' : '0ms' }}>
-                        <Box sx={{ flexGrow: 1, display: { md: 'flex' }, flexDirection: { xs: 'row' }, justifyContent: 'center', display: scrolled ? 'flex' : 'none' }}>
+                        <Box sx={{ flexGrow: 1, display: scrolled ? 'flex' : 'none' , flexDirection: { xs: 'row' }, justifyContent: 'center',}}>
                             {/* Buttons go here */}
                             {categoryList1.map((page) => (
                                 <Link to={page.path} style={{ color: 'white', textDecoration: 'none' }}>

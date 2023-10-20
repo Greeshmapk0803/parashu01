@@ -1,25 +1,16 @@
 import * as React from 'react';
-import { styled } from '@mui/material/styles';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import CssBaseline from '@mui/material/CssBaseline';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
-import Paper from '@mui/material/Paper';
-import Fab from '@mui/material/Fab';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
-import ListItemAvatar from '@mui/material/ListItemAvatar';
 import ListItemText from '@mui/material/ListItemText';
-import ListSubheader from '@mui/material/ListSubheader';
 import Avatar from '@mui/material/Avatar';
-import AddIcon from '@mui/icons-material/Add';
-import SearchIcon from '@mui/icons-material/Search';
-import MoreIcon from '@mui/icons-material/MoreVert';
 import { Link } from 'react-router-dom';
 import Drawer from '@mui/material/Drawer';
-import Divider from '@mui/material/Divider';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import { Button } from '@mui/material';
@@ -38,35 +29,6 @@ const topTextIcon = [
 ]
 const settings = ['Profile', 'Dashboard', 'Logout'];
 
-
-const newsPages1 = [
-    { "title": "arts", "path": "/arts" },
-    { "title": "automobiles", "path": "/automobiles" },
-    { "title": "books/review", "path": "/books-review" },
-    { "title": "business", "path": "/business" },
-    { "title": "fashion", "path": "/fashion" },
-    { "title": "food", "path": "/food" },
-    { "title": "health", "path": "/health" },
-    { "title": "home", "path": "/home" },
-    { "title": "insider", "path": "/insider" },
-    { "title": "magazine", "path": "/magazine" },
-    { "title": "movies", "path": "/movies" },
-    { "title": "nyregion", "path": "/nyregion" },
-    { "title": "obituaries", "path": "/obituaries" },
-    { "title": "opinion", "path": "/opinion" },
-    { "title": "politics", "path": "/politics" },
-    { "title": "realestate", "path": "/realestate" },
-    { "title": "science", "path": "/science" },
-    { "title": "sports", "path": "/sports" },
-    { "title": "sundayreview", "path": "/sundayreview" },
-    { "title": "technology", "path": "/technology" },
-    { "title": "theater", "path": "/theater" },
-    { "title": "t-magazine", "path": "/t-magazine" },
-    { "title": "travel", "path": "/travel" },
-    { "title": "upshot", "path": "/upshot" },
-    { "title": "us", "path": "/us" },
-    { "title": "world", "path": "/world" }
-];
 
 export function TemporaryDrawer() {
     const [state, setState] = React.useState({ right: false });

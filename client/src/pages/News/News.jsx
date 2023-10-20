@@ -1,15 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios';
 import NewsItem from '../../components/NewsItem';
-import { Grid, Typography } from '@mui/material';
+import { Grid } from '@mui/material';
 import Box from '@mui/material/Box';
-import { Error, LoadingQuotes, Spinner, Toast } from '../../components';
-import { useLocation } from 'react-router-dom';
-import { Container } from '@mui/material';
-import NewsArticleLoader from '../../components/Loaders/NewsArticleLoader';
+import { Error, Spinner, Toast } from '../../components';
 
 const News = (props) => {
-    const location = useLocation();
     // console.log(location.pathname);
 
     const { path } = props;
@@ -53,7 +49,7 @@ const News = (props) => {
 
         document.title = `Parashu | ${capitalize(stringWithoutSlash)}`;//setting the document title dynamically
 
-    }, [apiEndPoint]);
+    }, [apiEndPoint, stringWithoutSlash]);
 
     if (error) {
         return (

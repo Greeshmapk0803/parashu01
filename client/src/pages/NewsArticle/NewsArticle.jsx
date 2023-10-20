@@ -5,13 +5,11 @@ import { Box, Typography } from '@mui/material';
 import Button from '@mui/material/Button';
 import { InsertInvitationRoundedIcon, ChromeReaderModeIcon } from '../../assets/icons';
 import NewsArticleLoader from '../../components/Loaders/NewsArticleLoader';
-import Summarize from '@mui/icons-material/Summarize';
 import { Toast, Error, LoadingQuotes } from '../../components';
 import { facts } from '../../constants';
 
 const NewsArticle = () => {
     const location = useLocation();
-    const summarizeURL = new URLSearchParams(location.search);
     const [summary, setSummary] = useState('');
     const [isLoading, setIsLoading] = useState(true);
 
@@ -49,9 +47,11 @@ const NewsArticle = () => {
     };
 
     useEffect(() => {
+        const summarizeURL = new URLSearchParams(location.search);
+
         const newsURL = summarizeURL.get('newsURL');
         fetchData(newsURL);
-    }, []); // Empty dependency array ensures useEffect runs once when the component is mounted
+    }); // Empty dependency array ensures useEffect runs once when the component is mounted
 
     useEffect(() => {
         document.title = `Parashu | ${summary ? `${summary.article_title}` : "Summarizing your Article"}`;//
@@ -64,14 +64,14 @@ const NewsArticle = () => {
                 <Box sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', height: '80vh' }}>
                     <Typography component='p' sx={{ margin: '1em', textAlign: 'center' }}>AI is generating a summary curated just for you</Typography>
                     <NewsArticleLoader />
-                    <LoadingQuotes data = {facts}/>
+                    <LoadingQuotes data={facts} />
                 </Box>
             ) : (
                 <>
-                    {error &&   <Box sx={{display:'flex', flexDirection:{xs:'column-reverse', md:'row'},justifyContent:'center', alignItems:'center', height:'70vh'}}>
-                                <h1>Couldn't process this article</h1>
-                                <Error/>
-                                </Box>}
+                    {error && <Box sx={{ display: 'flex', flexDirection: { xs: 'column-reverse', md: 'row' }, justifyContent: 'center', alignItems: 'center', height: '70vh' }}>
+                        <h1>Couldn't process this article</h1>
+                        <Error />
+                    </Box>}
                     {!error && <Box sx={{
                         maxWidth: { xs: '95%', md: '70%' },
                         margin: '0em auto 2em auto',

@@ -1,5 +1,5 @@
-import React, { FC, ReactElement } from "react";
-import { Box, Container, Grid, List, ListItem, Typography } from "@mui/material";
+import React from "react";
+import { Box, Typography } from "@mui/material";
 import { footerLinks } from "../constants";
 import { Link } from "react-router-dom";
 

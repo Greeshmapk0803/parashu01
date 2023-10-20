@@ -25,7 +25,15 @@ export default function VariableWidthGrid() {
     return (
         <>
             {location.pathname==='/topics' ? (<Typography variant="h3" sx={{textAlign:'center'}}>Categories</Typography>) : (null)}
-            <Container maxWidth='xl' sx={{ flexGrow: 1, margin: '', minHeight: '70vh', display: 'flex', alignItems: 'center' }}>
+            {location.pathname==='/home' ? (<Typography variant="h6" sx={{textAlign:'center'}}>Jump to</Typography>) : (null)}
+            <Container maxWidth='xl' sx={{  border:location.pathname ==='/home' ? '2px solid gray' : '0',
+                                            borderRadius:location.pathname==='/home' ? '10px' : '0',
+                                            marginBottom:location.pathname==='/home' ? '2em': '0',
+                                            flexGrow: 1, 
+                                            margin: '', 
+                                            minHeight: location.pathname==='/home' ? '20vh':'70vh', 
+                                            display: 'flex', 
+                                            alignItems: 'center' }}>
                 <Grid container spacing={3} sx={{ margin: { xs: '0', md: ' 0 3em' } }}>
                     {newsPages.map((value, index) => (
                         <Grid xs="auto" key={index} sx={{ margin: '' }}>
@@ -36,7 +44,7 @@ export default function VariableWidthGrid() {
                                     textTransform: 'capitalize',
                                     borderRadius: '12px',
                                     padding: '0.6em 3em',
-                                    fontSize: { xs: '13px', md: '1.3em' },
+                                    fontSize: location.pathname ==='/home' ? { xs: '8px', md: '0.8em' } : { xs: '13px', md: '1.3em' },
                                     transitionDuration: '0.5s',
                                     transitionProperty: 'background-color',
                                     '&:hover': {
@@ -47,6 +55,7 @@ export default function VariableWidthGrid() {
                         </Grid>
                     ))}
                 </Grid>
+                {location.pathname === '/home' && <hr />}
             </Container>
         </>
     );

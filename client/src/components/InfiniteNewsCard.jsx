@@ -7,10 +7,10 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { ToggleBtn, AiActions } from '.';
 import { useNavigate } from 'react-router-dom';
-import { CardMedia } from '@mui/material';
 
 export default function BasicCard(props) {
-    const { title, description, source_id, pubDate, link, image_url } = props;
+    // eslint-disable-next-line
+    const { title, description, source_id, pubDate, link } = props;
 
     const navigate = useNavigate();
 

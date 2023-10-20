@@ -7,47 +7,40 @@ import { Button } from '@mui/material';
 
 
 export default function InteractiveList() {
-  const [dense, setDense] = React.useState(false);
-  const [secondary, setSecondary] = React.useState(false);
-
   return (
     <Box sx={{ flexGrow: 1, }}>
 
-            <List dense={dense} sx={{
-                    backgroundColor:'primary.main'
-                }}>
+      <List sx={{
+        backgroundColor: 'primary.main'
+      }}>
 
-                <ListItem sx={{
-                    backgroundColor:'primary.main'
-                }}
-                  secondaryAction={
-                    <Button variant="contained" color='error' size='small'>Remove</Button>
-                  }
-                >
-                  <ListItemText
-                    primary="Single-line item"
-                    secondary={secondary ? 'Secondary text' : null
-                }
-                sx={{padding:'1em',
-                    '&:hover':{backgroundColor:'#42285d', borderRadius:'5px',}}}
-                  />
-                </ListItem>
-                <ListItem sx={{
-                    backgroundColor:'primary.main'
-                }}
-                  secondaryAction={
-                    <Button variant="contained" color='error' size='small'>Remove</Button>
-                  }
-                >
-                  <ListItemText
-                    primary="Single-line item"
-                    secondary={secondary ? 'Secondary text' : null
-                }
-                sx={{padding:'1em',
-                    '&:hover':{backgroundColor:'#42285d', borderRadius:'5px',}}}
-                  />
-                </ListItem>
-            </List>
+        <ListItem sx={{
+          backgroundColor: 'primary.main'
+        }}
+        >
+          <ListItemText
+            primary="Single-line item"
+            sx={{
+              padding: '1em',
+              '&:hover': { backgroundColor: '#42285d', borderRadius: '5px', }
+            }}
+          />
+          <Button variant="contained" color='error' size='small'>Remove</Button>
+        </ListItem>
+        <ListItem sx={{
+          backgroundColor: 'primary.main'
+        }}
+        >
+          <ListItemText
+            primary="Single-line item"
+            sx={{
+              padding: '1em',
+              '&:hover': { backgroundColor: '#42285d', borderRadius: '5px', }
+            }}
+          />
+          <Button variant="contained" color='error' size='small'>Remove</Button>
+        </ListItem>
+      </List>
     </Box>
   );
 }

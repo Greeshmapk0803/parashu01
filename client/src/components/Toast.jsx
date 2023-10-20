@@ -2,7 +2,7 @@ import * as React from 'react';
 import Snackbar from '@mui/material/Snackbar';
 
 export default function SimpleSnackbar(props) {
-    const { show, err, pullData } = props;
+    const { show, err } = props;
     const [open, setOpen] = React.useState(false);
 
     const handleClose = (event, reason) => {

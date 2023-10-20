@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import * as React from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -11,18 +12,12 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import { Link } from 'react-router-dom';
-import Drawer from '@mui/material/Drawer';
-import List from '@mui/material/List';
-import Divider from '@mui/material/Divider';
-import ListItem from '@mui/material/ListItem';
-import ListItemButton from '@mui/material/ListItemButton';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
-import { pages, settings, newsPages1, topTextIcon } from '../constants';
+import { pages, settings } from '../constants';
+
 
 
 function ResponsiveAppBar() {
-  const [anchorElNav, setAnchorElNav] = React.useState(null);
+  const [, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
   const handleOpenNavMenu = (event) => {
@@ -82,86 +77,28 @@ function ResponsiveAppBar() {
             </Link>
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, justifyContent: 'center' }}>
-          <Link to='/home'>
-              <Button
-              sx={{
-                m: 2,
-                color: 'white',
-                display: 'block',
-                fontWeight: 500,
-                fontSize: '14px',
-                '&:hover': {
-                  backgroundColor: '#f5f5f5',
-                  color: 'black',
-                  opacity: [0.9],
-                },
-              }}>Home</Button>
-            </Link>
-          <Link to='/context'>
-              <Button
-              sx={{
-                m: 2,
-                color: 'white',
-                display: 'block',
-                fontWeight: 500,
-                fontSize: '14px',
-                '&:hover': {
-                  backgroundColor: '#f5f5f5',
-                  color: 'black',
-                  opacity: [0.9],
-                },
-              }}>Get Context</Button>
-            </Link>
             {pages.map((page) => (
-              <Button
-                key={page}
-                onClick={handleCloseNavMenu}
-                sx={{
-                m: 2,
-                color: 'white',
-                display: 'block',
-                fontWeight: 500,
-                fontSize: '14px',
-                '&:hover': {
-                  backgroundColor: '#f5f5f5',
-                  color: 'black',
-                  opacity: [0.9],
-                },
-                }}
-              >
-                {page}
-              </Button>
+              <Link to={page.path}>
+                <Button
+                  key={page}
+                  onClick={handleCloseNavMenu}
+                  sx={{
+                  m: 2,
+                  color: 'white',
+                  display: 'block',
+                  fontWeight: 500,
+                  fontSize: '14px',
+                  '&:hover': {
+                    backgroundColor: '#f5f5f5',
+                    color: 'black',
+                    opacity: [0.9],
+                  },
+                  }}
+                >
+                  {page.page}
+                </Button>
+              </Link>
             ))}
-            <Link to='/dnd'>
-              <Button
-              sx={{
-                m: 2,
-                color: 'white',
-                display: 'block',
-                fontWeight: 500,
-                fontSize: '14px',
-                '&:hover': {
-                  backgroundColor: '#f5f5f5',
-                  color: 'black',
-                  opacity: [0.9],
-                },
-              }}>Drag and Drop</Button>
-            </Link>
-            <Link to='/topics'>
-              <Button
-              sx={{
-                m: 2,
-                color: 'white',
-                display: 'block',
-                fontWeight: 500,
-                fontSize: '14px',
-                '&:hover': {
-                  backgroundColor: '#f5f5f5',
-                  color: 'black',
-                  opacity: [0.9],
-                },
-              }}>Topics</Button>
-            </Link>
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>

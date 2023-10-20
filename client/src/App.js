@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import { Box } from '@mui/material';
 import { createTheme, ThemeProvider } from '@mui/material';
 import { green } from '@mui/material/colors';
+// eslint-disable-next-line
 import { Home, Landing, Login, Signup, Profile, News, NewsArticle, Newscontext, ContextResult, Chat, Profie  } from './pages';
 import { Navbar, MobileAppbar, Footer, StickyNavbar, DragAndDrop, TopicGrid, InitialLoader} from './components';
 import { newsPages } from './constants';

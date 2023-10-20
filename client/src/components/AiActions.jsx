@@ -54,6 +54,7 @@ export default function CustomizedMenus({ summaryTitle }) {
 
     const [anchorEl, setAnchorEl] = React.useState(null);
     const open = Boolean(anchorEl);
+    // eslint-disable-next-line
     const [openModal, setOpenModal] = React.useState(false);
     const handleClick = (event) => {
         setAnchorEl(event.currentTarget);
@@ -61,10 +62,11 @@ export default function CustomizedMenus({ summaryTitle }) {
     const handleClose = () => {
         setAnchorEl(null);
     };
+    // eslint-disable-next-line
     const handleOpenModal = () => {
         setOpenModal(true);
     };
-
+    // eslint-disable-next-line
     const handleCloseModal = () => {
         setOpenModal(false);
     };
