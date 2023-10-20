@@ -17,5 +17,7 @@ import InfiniteNewsCard from './InfiniteNewsCard';
 import Toast from './Toast';
 import InfiniteLoader from './Loaders/InfiniteLoader';
 import Error from './Error/Error';
+import LoadingQuotes from './Loaders/LoadingQuotes';
+import InitialLoader from './Loaders/InitialLoader';
 
-export { Modal, MobileAppbar, Navbar, StickyNavbar, Footer, NewsItem, AiActions, Spinner, FadeMenu, DragAndDrop, DragandDropLoader, TopicGrid, Accordion, ToggleBtn, InfiniteNews, InfiniteNewsCard, Toast, InfiniteLoader, Error };
+export { Modal, MobileAppbar, Navbar, StickyNavbar, Footer, NewsItem, AiActions, Spinner, FadeMenu, DragAndDrop, DragandDropLoader, TopicGrid, Accordion, ToggleBtn, InfiniteNews, InfiniteNewsCard, Toast, InfiniteLoader, Error, LoadingQuotes, InitialLoader };

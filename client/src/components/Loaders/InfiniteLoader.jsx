@@ -3,7 +3,7 @@ import '../../assets/stylesheets/InfiniteLoader..css'
 const InfiniteLoader = () => {
     return (
         <div class="bar">
-            <div class="ball"></div>
+            <div class="ball" style={{color:'black'}}>Loading</div>
         </div>
     )
 }

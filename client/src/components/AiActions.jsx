@@ -7,6 +7,7 @@ import MenuItem from '@mui/material/MenuItem';
 import Divider from '@mui/material/Divider';
 import { SummarizeIcon, TipsAndUpdatesIcon, QuizIcon, QuestionMarkIcon, BookmarkRoundedIcon, KeyboardArrowDownIcon, AiAction } from '../assets/icons';
 import { Modal } from '.';
+import { useNavigate } from 'react-router-dom';
 
 const StyledMenu = styled((props) => (
     <Menu
@@ -49,7 +50,9 @@ const StyledMenu = styled((props) => (
     },
 }));
 
-export default function CustomizedMenus({ newsURL }) {
+export default function CustomizedMenus({ summaryTitle }) {
+    const navigate = useNavigate();
+
     const [anchorEl, setAnchorEl] = React.useState(null);
     const open = Boolean(anchorEl);
     const [openModal, setOpenModal] = React.useState(false);
@@ -62,10 +65,16 @@ export default function CustomizedMenus({ newsURL }) {
     const handleOpenModal = () => {
         setOpenModal(true);
     };
-
+    
     const handleCloseModal = () => {
         setOpenModal(false);
     };
+    
+    const handleContextClick = () => {
+        setAnchorEl(null);
+        console.log(summaryTitle)
+        navigate('/context/result?newsURL=' + encodeURIComponent(summaryTitle));
+    }
 
     return (
         <Box sx={{ width: '100%', marginTop: { md: '10px' } }}>
@@ -92,10 +101,7 @@ export default function CustomizedMenus({ newsURL }) {
                 open={open}
                 onClose={handleClose}
             >
-                <MenuItem onClick={handleOpenModal} disableRipple>
-                    <SummarizeIcon />
-                </MenuItem>
-                <MenuItem onClick={handleClose} disableRipple>
+                <MenuItem onClick={handleContextClick} disableRipple>
                     <TipsAndUpdatesIcon />
                     Get Context
                 </MenuItem>

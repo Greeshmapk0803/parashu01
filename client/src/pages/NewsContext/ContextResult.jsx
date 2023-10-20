@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { Box, Container } from '@mui/material';
 import Typography from '@mui/material/Typography';
 import { useLocation } from 'react-router-dom';
-import { DragAndDrop, InfiniteLoader, Toast } from '../../components';
+import { DragAndDrop, InfiniteLoader, LoadingQuotes, Toast } from '../../components';
 import { List, ListItem } from '@mui/material';
 import {Link} from 'react-router-dom';
 
@@ -55,8 +55,10 @@ const ContextResult = () => {
             <hr />
 
             {loading &&
-            
-            <Box sx={{display:'flex', justifyContent:'center', alignItems:'center', height:'60vh'}}><InfiniteLoader/></Box>}
+                <Box sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', height: '80vh' }}>
+                        <InfiniteLoader/>
+                        <LoadingQuotes />
+                </Box>}
             {!loading && <Box sx={{ display: 'flex', flexDirection:{xs:'column', lg:'row'} }}>
                 <List sx={{ width: {xs:'95%',lg:'50%'}, margin:{xs:'auto', lg:'0 2em'}, justifyContent:'center' }}>
                     <Typography sx={{fontSize:{xs:'20px', md:'40px'}, textAlign:'center'}}>Related Events</Typography>

@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios';
 import NewsItem from '../../components/NewsItem';
-import { Grid } from '@mui/material';
+import { Grid, Typography } from '@mui/material';
 import Box from '@mui/material/Box';
-import { Spinner } from '../../components';
+import { Error, LoadingQuotes, Spinner, Toast } from '../../components';
 import { useLocation } from 'react-router-dom';
+import { Container } from '@mui/material';
+import NewsArticleLoader from '../../components/Loaders/NewsArticleLoader';
 
-export function News(props) {
+const News = (props) => {
     const location = useLocation();
     console.log(location.pathname);
 
@@ -14,6 +16,9 @@ export function News(props) {
     const [data, setData] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
+
+    //both needed for toast
+    const [toastify, setToastify] = useState(false)
 
     const capitalize = (word) => {
         const lower = word.toLowerCase();
@@ -35,8 +40,10 @@ export function News(props) {
             try {
                 const response = await axios.get(apiEndPoint);
                 setData(response.data.results);
+                console.log(response.data.results)
             } catch (error) {
                 setError(error);
+                setToastify(true);
             } finally {
                 setLoading(false);
             }
@@ -48,12 +55,21 @@ export function News(props) {
 
     }, [apiEndPoint]);
 
-    if (loading) {
-        return <Spinner />;
+    if (error) {
+        return (
+            <Box maxWidth='xl' sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '60vh' }}>
+                Error occurred: {error.message}
+                <Error />
+                <Toast show={toastify} err={error} pullData={loading} />
+            </Box>)
     }
 
-    if (error) {
-        return <div>Error occurred: {error.message}</div>;
+    if (loading) {
+        return (
+            <>
+                <Spinner />
+            </>
+        )
     }
 
     if (!data || data.length === 0) {
@@ -61,15 +77,17 @@ export function News(props) {
     }
 
     return (
-        <Box sx={{ flexGrow: 1, margin: { xs: '0em 1em', md: '0 1em 2em 1em' }, backgroundColor: 'primary.dark', minHeight: '100vh' }}>
-            <Grid container spacing={{ xs: 2, md: 4 }} columns={{ xs: 4, sm: 8, md: 12 }}>
-                {data.map((item, index) => (
-                    <Grid item xs={4} sm={4} md={4} key={index} sx={{ display: 'flex', justifyContent: 'center' }}>
-                        <NewsItem keyProp={item.uri} title={item.title} desc={item.abstract} ImgSrc={item.multimedia} newsURL={item.url} created_at={item.created_date} />
-                    </Grid>
-                ))}
-            </Grid>
-        </Box>
+        <>
+            <Box sx={{ flexGrow: 1, margin: { xs: '0em 1em', md: '0 1em 2em 1em' }, backgroundColor: 'primary.dark', minHeight: '100vh' }}>
+                <Grid container spacing={{ xs: 2, md: 4 }} columns={{ xs: 4, sm: 8, md: 12 }}>
+                    {data.map((item, index) => (
+                        <Grid item xs={4} sm={4} md={4} key={index} sx={{ display: 'flex', justifyContent: 'center' }}>
+                            <NewsItem keyProp={item.uri} title={item.title} desc={item.abstract} ImgSrc={item.multimedia} newsURL={item.url} created_at={item.created_date} />
+                        </Grid>
+                    ))}
+                </Grid>
+            </Box>
+        </>
     );
 }
 

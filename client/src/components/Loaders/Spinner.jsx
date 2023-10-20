@@ -1,6 +1,7 @@
+import { Typography } from '@mui/material';
 import '../../assets/stylesheets/spinner.css';
-
-import React from 'react';
+import LoadingQuotes from './LoadingQuotes';
+import { facts } from '../../constants';
 
 
 // eslint-disable-next-line import/no-anonymous-default-export
@@ -9,7 +10,8 @@ const Spinner = () => {
 		<div className='mb-3 mt-3' style={{
 			display: "flex",
 			justifyContent: 'center',
-			alignItems:'center',
+			alignItems: 'center',
+			flexDirection:'column',
 			height: '90vh',
 		}}>
 			<div className="loading">
@@ -18,10 +20,11 @@ const Spinner = () => {
 					<polyline points="0.157 23.954, 14 23.954, 21.843 48, 43 0, 50 24, 64 24" id="front"></polyline>
 				</svg>
 			</div>
+			<LoadingQuotes data={facts} />
 		</div>
 	)
 }
 
-export default Spinner
+export default Spinner;
 
 

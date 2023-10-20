@@ -6,7 +6,7 @@ import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Unstable_Grid2';
 import { newsPages } from '../constants';
 import { Link, useLocation } from 'react-router-dom';
-import { Typography } from '@mui/material';
+import { Container, Typography } from '@mui/material';
 
 const Item = styled(Paper)(({ theme }) => ({
     backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
@@ -26,7 +26,7 @@ export default function VariableWidthGrid() {
     return (
         <>
             {location.pathname==='/topics' ? (<Typography variant="h3" sx={{textAlign:'center'}}>Categories</Typography>) : (null)}
-            <Box sx={{ flexGrow: 1, margin: '', minHeight: '70vh', display: 'flex', alignItems: 'center' }}>
+            <Container maxWidth='xl' sx={{ flexGrow: 1, margin: '', minHeight: '70vh', display: 'flex', alignItems: 'center' }}>
                 <Grid container spacing={3} sx={{ margin: { xs: '0', md: ' 0 3em' } }}>
                     {newsPages.map((value, index) => (
                         <Grid xs="auto" key={index} sx={{ margin: '' }}>
@@ -48,7 +48,7 @@ export default function VariableWidthGrid() {
                         </Grid>
                     ))}
                 </Grid>
-            </Box>
+            </Container>
         </>
     );
 }

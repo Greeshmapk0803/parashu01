@@ -6,7 +6,8 @@ import Button from '@mui/material/Button';
 import { InsertInvitationRoundedIcon, ChromeReaderModeIcon } from '../../assets/icons';
 import NewsArticleLoader from '../../components/Loaders/NewsArticleLoader';
 import Summarize from '@mui/icons-material/Summarize';
-import { Toast, Error } from '../../components';
+import { Toast, Error, LoadingQuotes } from '../../components';
+import { facts } from '../../constants';
 
 const NewsArticle = () => {
     const location = useLocation();
@@ -65,7 +66,7 @@ const NewsArticle = () => {
                 <Box sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', height: '80vh' }}>
                     <Typography component='p' sx={{ margin: '1em', textAlign: 'center' }}>AI is generating a summary curated just for you</Typography>
                     <NewsArticleLoader />
-                    <Typography variant='h5' sx={{ margin: '1em', textAlign: 'center' }}> Did you know that over 500 million new articles are published online every day?</Typography>
+                    <LoadingQuotes data = {facts}/>
                 </Box>
             ) : (
                 <>
