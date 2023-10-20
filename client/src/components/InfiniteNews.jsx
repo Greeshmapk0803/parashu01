@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Box from '@mui/material/Box';
-import { InfiniteNewsCard, Toast } from '.';
+import { InfiniteNewsCard, Spinner, Toast } from '.';
 import InfiniteScroll from "react-infinite-scroll-component";
 import { Container } from '@mui/material';
 
@@ -47,14 +47,14 @@ const InfiniteNews = () => {
 
     return (
         <Box sx={{}}>
-            {loading && <h1 style={{ textAlign: 'center' }}>Loading</h1>}
+            {loading && <Spinner/>}
             {/* {error && <p>Error occurred: {error.message}</p>} */}
             <Toast show={toastify} err={error} pullData={loading} />
             <InfiniteScroll
                 dataLength={data.length}
                 next={fetchMoreData}
                 hasMore={data.length !== totalResults}
-                loader={loading && <h1 style={{ textAlign: 'center' }}>Loading</h1>}
+                loader={loading && <Spinner/>}
             >
                 {data.map(item => (
                     <InfiniteNewsCard {...item} />

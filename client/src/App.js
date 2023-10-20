@@ -2,8 +2,8 @@ import React, {useEffect, useState} from 'react';
 import { Box } from '@mui/material';
 import { createTheme, ThemeProvider } from '@mui/material';
 import { green } from '@mui/material/colors';
-import { Home, Landing, Login, Signup, Profile, News, NewsArticle, Newscontext, ContextResult } from './pages';
-import { Navbar, MobileAppbar, Footer, StickyNavbar, DragAndDrop, TopicGrid, LoadingQuotes, InitialLoader } from './components';
+import { Home, Landing, Login, Signup, Profile, News, NewsArticle, Newscontext, ContextResult, Chat  } from './pages';
+import { Navbar, MobileAppbar, Footer, StickyNavbar, DragAndDrop, TopicGrid, LoadingQuotes, InitialLoader} from './components';
 import { newsPages } from './constants';
 import {
   BrowserRouter as Router,
@@ -37,9 +37,9 @@ const theme = createTheme({
 
 
 function App() {
-  
+
   const [intialize, setIntialize] = useState(true)
-  
+
   useEffect(() => {
     setTimeout(() => {
       setIntialize(false)
@@ -76,7 +76,7 @@ function App() {
               <Route exact path='/topics' element={<TopicGrid style={{ color: "white" }} />} />
               <Route exact path='/context' element={<Newscontext style={{ color: "white" }} />} />
               <Route exact path='/context/result' element={<ContextResult style={{ color: "white" }} />} />
-              <Route exact path='/initial' element={<InitialLoader/>} />
+              {/* <Route exact path='/chat' element={<Chat style={{ color: "white" }} />} /> */}
             </Routes>
             <Footer />
           </Box>

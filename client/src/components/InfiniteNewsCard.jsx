@@ -12,7 +12,7 @@ import { Link } from 'react-router-dom';
 export default function BasicCard(props) {
     const { title, description, source_id, pubDate, link } = props;
 
-    const naviagte = useNavigate();
+    const navigate = useNavigate();
 
     function beautifyTimestamp(timestamp) {
         const options = {
@@ -32,7 +32,7 @@ export default function BasicCard(props) {
 
     const handleButtonClick = () => {
         // Push to the long page route when the button is clicked
-        naviagte('/long?newsURL=' + encodeURIComponent(link));
+        navigate('/long?newsURL=' + encodeURIComponent(link));
     };
 
     return (
@@ -52,17 +52,16 @@ export default function BasicCard(props) {
                 </Typography>
             </CardContent>
             <CardActions sx={{display:'flex', justifyContent:'flex-start', px:'2em', alignItems:'center'}}>
-                <Box sx={{width:'fit-content'}}>
-                    <AiActions />
+                <Box sx={{width:'fit-content', display:'flex', alignItems:'flex-start'}}>
+                    <AiActions summaryTitle={title}/>
                 </Box>
-                <Link to='/'><Button size="large" color='success' sx={{margin:'0 2em 0 2em'}}>Read</Button></Link>
                 <Button
                         variant="contained"
                         color="success"
                         onClick={handleButtonClick}
                     >
-                        Click to Get the Summarized News
-                    </Button>
+                        Get Summary
+                </Button>
                 <ToggleBtn />
             </CardActions>
         </Card>

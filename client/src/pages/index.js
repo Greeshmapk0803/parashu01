@@ -7,5 +7,6 @@ import News from './News/News';
 import NewsArticle from './NewsArticle/NewsArticle';
 import Newscontext from './NewsContext/Newscontext'
 import ContextResult from './NewsContext/ContextResult';
+import Chat from './AIChat/Chat';
 
-export { Home, Landing, Login, Signup, Profile, News, NewsArticle, Newscontext, ContextResult };
+export { Home, Landing, Login, Signup, Profile, News, NewsArticle, Newscontext, ContextResult, Chat };
