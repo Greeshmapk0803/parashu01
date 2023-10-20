@@ -39,6 +39,7 @@ gem "bootsnap", require: false
 # gem "rack-cors"
 
 gem 'excon'
+gem 'devise', '~> 4.9', '>= 4.9.3'
 
 group :development do
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
