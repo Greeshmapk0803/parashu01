@@ -35,7 +35,6 @@ const NewsArticle = () => {
                 is_detailed: false
             }
         };
-        console.log(options.headers)
         try {
             const response = await axios.request(options);
             setSummary(response.data);
