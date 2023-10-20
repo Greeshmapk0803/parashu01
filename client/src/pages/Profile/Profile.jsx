@@ -6,7 +6,6 @@ const Profile = () => {
     return (
         <Container maxWidth='xl'>
             <ProfileBox />
-            <div>Button to logout</div>
             <SavedArticles />
         </Container>
     )
