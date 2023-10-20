@@ -30,6 +30,6 @@ test:
 production:
   <<: *default
   url: <%= ENV["DATABASE_URL"] %>
-  database: deploy_production
-  username: deploy
-  password: <%= ENV["DEPLOY_DATABASE_PASSWORD"] %>
+  database: parashu_db
+  username: preetham
+  password: rfsMa95sf53uOjXfMZf8IYUq8dFvaWwd %>
