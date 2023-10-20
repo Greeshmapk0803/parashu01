@@ -1,4 +1,5 @@
 import { summary, context, quiz } from '../assets/images';
+import {HomeRoundedIcon, TipsAndUpdatesIcon, ModelTrainingIcon, QuizIcon} from '../assets/icons';
 
 export const NavLinks = [
     { href: '/', key: 'Home', text: 'Home' },
@@ -191,3 +192,44 @@ export const introLines = [
     "Your Gateway to Intelligent News. Loading the Future Stories."
 ]
 
+export const topTextIcon = [
+    { title: 'Home', icon: <HomeRoundedIcon sx={{ color: 'white' }} /> },
+    { title: 'Ask AI', icon: <ModelTrainingIcon sx={{ color: 'white' }} /> },
+    { title: 'Get Context', icon: <TipsAndUpdatesIcon sx={{ color: 'white' }} /> },
+    { title: 'Quiz Me!', icon: <QuizIcon sx={{ color: 'white' }} /> },
+]
+
+export const pages = ['Trending', 'Ask AI', 'Quiz Me!'];
+export const settings = [
+    {action:'Profile', path:'/profile'},
+    {action:'Dashboard', path:'/'},
+    {action:'Logout', path:'/'}
+];
+export const newsPages1 = [
+    { "title": "arts", "path": "/arts" },
+    { "title": "automobiles", "path": "/automobiles" },
+    { "title": "books/review", "path": "/books-review" },
+    { "title": "business", "path": "/business" },
+    { "title": "fashion", "path": "/fashion" },
+    { "title": "food", "path": "/food" },
+    { "title": "health", "path": "/health" },
+    { "title": "home", "path": "/home" },
+    { "title": "insider", "path": "/insider" },
+    { "title": "magazine", "path": "/magazine" },
+    { "title": "movies", "path": "/movies" },
+    { "title": "nyregion", "path": "/nyregion" },
+    { "title": "obituaries", "path": "/obituaries" },
+    { "title": "opinion", "path": "/opinion" },
+    { "title": "politics", "path": "/politics" },
+    { "title": "realestate", "path": "/realestate" },
+    { "title": "science", "path": "/science" },
+    { "title": "sports", "path": "/sports" },
+    { "title": "sundayreview", "path": "/sundayreview" },
+    { "title": "technology", "path": "/technology" },
+    { "title": "theater", "path": "/theater" },
+    { "title": "t-magazine", "path": "/t-magazine" },
+    { "title": "travel", "path": "/travel" },
+    { "title": "upshot", "path": "/upshot" },
+    { "title": "us", "path": "/us" },
+    { "title": "world", "path": "/world" }
+];

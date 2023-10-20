@@ -4,7 +4,7 @@ import { Box, Container, Grid, Typography } from '@mui/material';
 import { Link } from 'react-router-dom';
 import landingImage from '../../assets/images/landing.jpg';
 import vision from '../../assets/images/vision.jpg';
-import { MemoryIcon, NotStartedIcon, SummarizeIcon, QuestionMarkIcon, TipsAndUpdatesIcon } from '../../assets/icons';
+import { MemoryIcon, NotStartedIcon } from '../../assets/icons';
 import { DragAndDrop, TopicGrid } from '../../components';
 import { features } from '../../constants';
 

@@ -1,8 +1,14 @@
 import React from 'react'
+import { ProfileBox, SavedArticles } from '../../components'
+import { Container } from '@mui/material'
 
 const Profile = () => {
     return (
-        <div>Profile</div>
+        <Container maxWidth='xl'>
+            <ProfileBox />
+            <div>Button to logout</div>
+            <SavedArticles />
+        </Container>
     )
 }
 

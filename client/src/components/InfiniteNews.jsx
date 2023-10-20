@@ -19,7 +19,7 @@ const InfiniteNews = () => {
             try {
                 const response = await axios.get('https://newsdata.io/api/1/news?country=in&language=en&apikey=pub_314243eec9787eb043aa6be9ff8321a57d225');
                 setData(response.data.results);
-                // console.log('RESPONSE DATA',response.data);
+                console.log('RESPONSE DATA',response.data);
                 setTotalResults(response.totalResults)
                 setPage(response.data.nextPage)
                 setLoading(false);
