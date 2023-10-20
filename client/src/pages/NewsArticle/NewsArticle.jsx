@@ -40,10 +40,8 @@ const NewsArticle = () => {
         try {
             const response = await axios.request(options);
             setSummary(response.data);
-            console.log(response.data)
             setIsLoading(false);
         } catch (error) {
-            console.error(error);
             setIsLoading(false);
             setError(error)
             setToastify(true);//setting toast

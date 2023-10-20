@@ -30,11 +30,11 @@ const ContextResult = () => {
                     // console.log('DATA', data.items)
                     setLoading(false)
                 } else {
-                    console.error('Failed to fetch data');
+                    // console.error('Failed to fetch data');
                     setLoading(false);
             }}
         } catch (error) {
-            console.error('Error fetching data:', error);
+            // console.error('Error fetching data:', error);
             setError(error)
             setToastify(true);//setting toast
         }

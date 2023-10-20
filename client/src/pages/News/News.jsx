@@ -10,7 +10,7 @@ import NewsArticleLoader from '../../components/Loaders/NewsArticleLoader';
 
 const News = (props) => {
     const location = useLocation();
-    console.log(location.pathname);
+    // console.log(location.pathname);
 
     const { path } = props;
     const [data, setData] = useState(null);
@@ -40,7 +40,7 @@ const News = (props) => {
             try {
                 const response = await axios.get(apiEndPoint);
                 setData(response.data.results);
-                console.log(response.data.results)
+                // console.log(response.data.results)
             } catch (error) {
                 setError(error);
                 setToastify(true);

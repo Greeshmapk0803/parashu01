@@ -72,7 +72,7 @@ export default function CustomizedMenus({ summaryTitle }) {
     
     const handleContextClick = () => {
         setAnchorEl(null);
-        console.log(summaryTitle)
+        // console.log(summaryTitle)
         navigate('/context/result?newsURL=' + encodeURIComponent(summaryTitle));
     }
 
