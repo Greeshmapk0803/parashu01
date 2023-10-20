@@ -4,10 +4,8 @@ import Button from '@mui/material/Button';
 import Menu from '@mui/material/Menu';
 import { Box } from '@mui/material';
 import MenuItem from '@mui/material/MenuItem';
-import Divider from '@mui/material/Divider';
-import { SummarizeIcon, TipsAndUpdatesIcon, QuizIcon, QuestionMarkIcon, BookmarkRoundedIcon, KeyboardArrowDownIcon, AiAction } from '../assets/icons';
-import { Modal } from '.';
-import { useNavigate } from 'react-router-dom';
+import { TipsAndUpdatesIcon, QuizIcon, QuestionMarkIcon, KeyboardArrowDownIcon, AiAction } from '../assets/icons';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 const StyledMenu = styled((props) => (
     <Menu
@@ -52,6 +50,7 @@ const StyledMenu = styled((props) => (
 
 export default function CustomizedMenus({ summaryTitle }) {
     const navigate = useNavigate();
+    const location = useLocation()
 
     const [anchorEl, setAnchorEl] = React.useState(null);
     const open = Boolean(anchorEl);
@@ -65,11 +64,11 @@ export default function CustomizedMenus({ summaryTitle }) {
     const handleOpenModal = () => {
         setOpenModal(true);
     };
-    
+
     const handleCloseModal = () => {
         setOpenModal(false);
     };
-    
+
     const handleContextClick = () => {
         setAnchorEl(null);
         // console.log(summaryTitle)
@@ -77,48 +76,82 @@ export default function CustomizedMenus({ summaryTitle }) {
     }
 
     return (
-        <Box sx={{ width: '100%', marginTop: { md: '10px' } }}>
-            <Button
-                id="demo-customized-button"
-                aria-controls={open ? 'demo-customized-menu' : undefined}
-                aria-haspopup="true"
-                aria-expanded={open ? 'true' : undefined}
-                variant="contained"
-                disableElevation
-                onClick={handleClick}
-                endIcon={<KeyboardArrowDownIcon />}
-                sx={{ backgroundColor: 'white', color: 'primary.main', fontWeight: 500, width: '100%', '&:hover': { backgroundColor: '#f5f5f5', color: '#262626', opacity: [0.9], } }}
-            >
-                <img src={AiAction} alt="AI Action" style={{ width: '20px', height: '20px', marginLeft: '10px' }} />
-                AI Options
-            </Button>
-            <StyledMenu
-                id="demo-customized-menu"
-                MenuListProps={{
-                    'aria-labelledby': 'demo-customized-button',
-                }}
-                anchorEl={anchorEl}
-                open={open}
-                onClose={handleClose}
-            >
-                <MenuItem onClick={handleContextClick} disableRipple>
-                    <TipsAndUpdatesIcon />
-                    Get Context
-                </MenuItem>
-                <MenuItem onClick={handleClose} disableRipple>
-                    <QuizIcon />
-                    Quiz Me!
-                </MenuItem>
-                <MenuItem onClick={handleClose} disableRipple>
-                    <QuestionMarkIcon />
-                    Possible Questions
-                </MenuItem>
-                <Divider sx={{ my: 0.5 }} />
-                <MenuItem onClick={handleClose} disableRipple>
-                    <BookmarkRoundedIcon />
-                    Save
-                </MenuItem>
-            </StyledMenu>
-        </Box>
+        <>
+            {!location.pathname === 'home' ? (<Box  sx={{ width: '100%', marginTop: {  md: '10px' } }}>
+                <Button
+                    id="demo-customized-button"
+                    aria-controls={open ? 'demo-customized-menu' : undefined}
+                    aria-haspopup="true"
+                    aria-expanded={open ? 'true' : undefined}
+                    variant="contained"
+                    disableElevation
+                    onClick={handleClick}
+                    endIcon={<KeyboardArrowDownIcon />}
+                    sx={{ backgroundColor: 'white', color: 'primary.main', fontWeight: 500, width: '100%', '&:hover': { backgroundColor: '#f5f5f5', color: '#262626', opacity: [0.9], } }}
+                >
+                    <img src={AiAction} alt="AI Action" style={{ width: '20px', height: '20px', marginLeft: '10px' }} />
+                    AI Options
+                </Button>
+                <StyledMenu
+                    id="demo-customized-menu"
+                    MenuListProps={{
+                        'aria-labelledby': 'demo-customized-button',
+                    }}
+                    anchorEl={anchorEl}
+                    open={open}
+                    onClose={handleClose}
+                >
+                    <MenuItem onClick={handleContextClick} disableRipple>
+                        <TipsAndUpdatesIcon />
+                        Get Context
+                    </MenuItem>
+                    <MenuItem onClick={handleClose} disableRipple>
+                        <QuizIcon />
+                        Quiz Me!
+                    </MenuItem>
+                    <MenuItem onClick={handleClose} disableRipple>
+                        <QuestionMarkIcon />
+                        Possible Questions
+                    </MenuItem>
+                </StyledMenu>
+            </Box>) : (<Box  sx={{ width: '100%', margin: {  md: '0 10px 0 0' } }}>
+                <Button
+                    id="demo-customized-button"
+                    aria-controls={open ? 'demo-customized-menu' : undefined}
+                    aria-haspopup="true"
+                    aria-expanded={open ? 'true' : undefined}
+                    variant="contained"
+                    disableElevation
+                    onClick={handleClick}
+                    endIcon={<KeyboardArrowDownIcon />}
+                    sx={{ backgroundColor: 'white', color: 'primary.main', fontWeight: 500, width: '100%', '&:hover': { backgroundColor: '#f5f5f5', color: '#262626', opacity: [0.9], } }}
+                >
+                    <img src={AiAction} alt="AI Action" style={{ width: '20px', height: '20px', marginLeft: '10px' }} />
+                    AI Options
+                </Button>
+                <StyledMenu
+                    id="demo-customized-menu"
+                    MenuListProps={{
+                        'aria-labelledby': 'demo-customized-button',
+                    }}
+                    anchorEl={anchorEl}
+                    open={open}
+                    onClose={handleClose}
+                >
+                    <MenuItem onClick={handleContextClick} disableRipple>
+                        <TipsAndUpdatesIcon />
+                        Get Context
+                    </MenuItem>
+                    <MenuItem onClick={handleClose} disableRipple>
+                        <QuizIcon />
+                        Quiz Me!
+                    </MenuItem>
+                    <MenuItem onClick={handleClose} disableRipple>
+                        <QuestionMarkIcon />
+                        Possible Questions
+                    </MenuItem>
+                </StyledMenu>
+            </Box>)}
+                   </>
     );
 }
