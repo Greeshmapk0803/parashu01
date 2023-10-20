@@ -17,12 +17,13 @@ const InfiniteNews = (props) => {
 
     //both needed for toast
     const [toastify, setToastify] = useState(false)
+    const apiKey = process.env.REACT_APP_NEWS_DATA_API_KEY;
 
 
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get('https://newsdata.io/api/1/news?country=in&language=en&apikey=pub_31531e6e4ddf7f454a8f2d1d6cbe6e5bc9ea8');
+                const response = await axios.get(`https://newsdata.io/api/1/news?country=in&language=en&apikey=${apiKey}`);
                 setData(response.data.results);
                 setTotalResults(response.totalResults)
                 setPage(response.data.nextPage)
@@ -41,7 +42,7 @@ const InfiniteNews = (props) => {
     }, []);
 
     const fetchMoreData = async () => {
-        let url = `https://newsdata.io/api/1/news?country=in&language=en&apikey=pub_31531e6e4ddf7f454a8f2d1d6cbe6e5bc9ea8&page=${page}`;
+        let url = `https://newsdata.io/api/1/news?country=in&language=en&apikey=${apiKey}&page=${page}`;
         setLoading(true);
         const newresponse = await axios.get(url)
         setPage(newresponse.data.nextPage);

@@ -16,7 +16,7 @@ const ContextResult = () => {
     const [error, setError] = useState(null);
     
     const fetchData = async (q) => {
-        const apiKey = 'AIzaSyBMrN1f2Aw9F6OKBEV_-5pTIV60Yoj46m8'; // Replace with your actual Google API key
+        const apiKey = process.env.REACT_APP_GOOGLE_SEARCH_API_KEY; // Replace with your actual Google API key
         const query = `${q} related news`;
         const endpoint = `https://www.googleapis.com/customsearch/v1?cx=f5cb999d93ea448e3&alt=json&key=${apiKey}&q=${query}`;
         

@@ -29,8 +29,8 @@ const News = (props) => {
     }
     // Example usage:
     const stringWithoutSlash = removeLeadingSlash(path);
-
-    const apiEndPoint = `https://api.nytimes.com/svc/topstories/v2/${path}.json?api-key=df2wNBhQH6XoZBZJnmj151DiOeDHKSaL`
+    const apiKey = process.env.REACT_APP_NYT_API_KEY;
+    const apiEndPoint = `https://api.nytimes.com/svc/topstories/v2/${path}.json?api-key=${apiKey}`
     useEffect(() => {
         const fetchData = async () => {
             try {

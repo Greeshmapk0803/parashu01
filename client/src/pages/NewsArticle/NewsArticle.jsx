@@ -16,7 +16,7 @@ const NewsArticle = () => {
     //both needed for toast
     const [toastify, setToastify] = useState(false)
     const [error, setError] = useState(null);
-
+    const apiKey = process.env.REACT_APP_TLDR_API_KEY
     const apiUrl = 'https://tldrthis.p.rapidapi.com/v1/model/abstractive/summarize-url/';
 
     const fetchData = async (url) => {
@@ -25,7 +25,7 @@ const NewsArticle = () => {
             url: apiUrl,
             headers: {
                 'content-type': 'application/json',
-                'X-RapidAPI-Key': 'bf6829d254msh58ed988da2e6864p1a23c5jsn8fe9ad0b9e51',
+                'X-RapidAPI-Key': apiKey,
                 'X-RapidAPI-Host': 'tldrthis.p.rapidapi.com'
             },
             data: {
@@ -35,6 +35,7 @@ const NewsArticle = () => {
                 is_detailed: false
             }
         };
+        console.log(options.headers)
         try {
             const response = await axios.request(options);
             setSummary(response.data);
@@ -48,14 +49,13 @@ const NewsArticle = () => {
 
     useEffect(() => {
         const summarizeURL = new URLSearchParams(location.search);
-
         const newsURL = summarizeURL.get('newsURL');
         fetchData(newsURL);
-    }); // Empty dependency array ensures useEffect runs once when the component is mounted
+    }, []); // Empty dependency array ensures useEffect runs once when the component is mounted
 
     useEffect(() => {
         document.title = `Parashu | ${summary ? `${summary.article_title}` : "Summarizing your Article"}`;//
-    });
+    }, []);
 
 
     return (

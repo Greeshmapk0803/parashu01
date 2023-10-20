@@ -32,7 +32,10 @@ export default function ImgMediaCard(props) {//Function to beautify created_date
     }
     const beautifiedTimestamp = beautifyTimestamp(created_at);
 
-
+    function removeForwardSlash(inputString) {
+        return inputString.replace('/', '');
+    }
+    let modifiedString = removeForwardSlash(location.pathname);
 
     return (
         <Card sx={{ maxWidth: 400, borderRadius: '5px', height: 'min-content', border: '2px solid grey', backgroundColor: 'primary.main', color: 'whitesmoke' }} key={keyProp}>
@@ -52,6 +55,7 @@ export default function ImgMediaCard(props) {//Function to beautify created_date
                     <Chip color="success" size="small" variant='outlined' label={beautifiedTimestamp} />
                     <ToggleBtn />
                 </Box>
+                <Chip label={modifiedString}  color='warning' size='small'/>
                 <Typography gutterBottom variant="h5" component="div" sx={{ fontWeight: '500' }}>
                     {title}
                 </Typography>

@@ -6,7 +6,7 @@ import CardContent from '@mui/material/CardContent';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { ToggleBtn, AiActions } from '.';
-import { useNavigate } from 'react-router-dom';
+import {  useNavigate } from 'react-router-dom';
 
 export default function BasicCard(props) {
     // eslint-disable-next-line
@@ -29,7 +29,7 @@ export default function BasicCard(props) {
         return formattedDate;
     }
     const beautifiedTimestamp = beautifyTimestamp(pubDate);
-
+    
     const handleButtonClick = () => {
         // Push to the long page route when the button is clicked
         navigate('/long?newsURL=' + encodeURIComponent(link));
