@@ -18,16 +18,15 @@ import { Tooltip } from '@mui/material';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import { HomeRoundedIcon, TipsAndUpdatesIcon, ModelTrainingIcon, QuizIcon, TopicIcon, AutoFixHighIcon } from '../assets/icons';
+import { settings } from '../constants';
 
 const topTextIcon = [
     { title: 'Parashu', icon: <AutoFixHighIcon sx={{ color: 'white' }} />, path: '/' },
     { title: 'Home', icon: <HomeRoundedIcon sx={{ color: 'white' }} />, path: '/home' },
-    { title: 'Ask AI', icon: <ModelTrainingIcon sx={{ color: 'white' }} />, path: '/' },
+    { title: 'Ask AI', icon: <ModelTrainingIcon sx={{ color: 'white' }} />, path: '/chat' },
     { title: 'Get Context', icon: <TipsAndUpdatesIcon sx={{ color: 'white' }} />, path: '/context' },
-    { title: 'Quiz Me!', icon: <QuizIcon sx={{ color: 'white' }} />, path: '/' },
     { title: 'Topics', icon: <TopicIcon sx={{ color: 'white' }} />, path: '/topics' },
 ]
-const settings = ['Profile', 'Dashboard', 'Logout'];
 
 
 export function TemporaryDrawer() {
@@ -153,9 +152,11 @@ export default function BottomAppBar() {
                             onClose={handleCloseUserMenu}
                         >
                             {settings.map((setting) => (
-                                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                                    <Typography textAlign="center">{setting}</Typography>
-                                </MenuItem>
+                                <Link to={setting.path}>
+                                    <MenuItem key={setting.action} onClick={handleCloseUserMenu} sx={{textDecoration:'none', color:'black'}}>
+                                        <Typography textAlign="center">{setting.action}</Typography>
+                                    </MenuItem>
+                                </Link>
                             ))}
                         </Menu>
                     </Box>

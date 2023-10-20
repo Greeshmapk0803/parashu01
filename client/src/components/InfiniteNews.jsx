@@ -9,7 +9,6 @@ import InfiniteScroll from "react-infinite-scroll-component";
 const InfiniteNews = (props) => {
     // console.log(location.pathname);
 
-    const { path } = props;
     const [data, setData] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
@@ -19,26 +18,12 @@ const InfiniteNews = (props) => {
     //both needed for toast
     const [toastify, setToastify] = useState(false)
 
-    // const capitalize = (word) => {
-    //     const lower = word.toLowerCase();
-    //     return lower.charAt(0).toUpperCase() + lower.slice(1);
-    // }
-
-    // function removeLeadingSlash(inputString) {
-    //     if (inputString.startsWith('/')) {
-    //         return inputString.substring(1);
-    //     }
-    //     return inputString;
-    // }
-    // Example usage:
-    // const stringWithoutSlash = removeLeadingSlash(path);
 
     useEffect(() => {
         const fetchData = async () => {
             try {
                 const response = await axios.get('https://newsdata.io/api/1/news?country=in&language=en&apikey=pub_31531e6e4ddf7f454a8f2d1d6cbe6e5bc9ea8');
                 setData(response.data.results);
-                console.log('RESPONSE DATA', response.data);
                 setTotalResults(response.totalResults)
                 setPage(response.data.nextPage)
                 setLoading(false);

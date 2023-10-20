@@ -199,7 +199,7 @@ export const topTextIcon = [
 ]
 
 export const pages = [
-    {page:'Home',path:'/'},
+    {page:'Home',path:'/home'},
     {page:'Ask AI',path:'/chat'},
     {page:'Get Context',path:'/context'},
     {page:'Drag and Drop',path:'/dnd'},
