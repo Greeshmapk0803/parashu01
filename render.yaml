@@ -1,0 +1,18 @@
+databases:
+  - name: Parashu
+    databaseName: parashu_db
+    user: preetham
+
+services:
+  - type: web
+    name: parashu_be
+    runtime: ruby
+    buildCommand: "./bin/render-build.sh"
+    startCommand: "bundle exec puma -C config/puma.rb"
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: Parashu
+          property: connectionString
+      - key: RAILS_MASTER_KEY
+        sync: false
