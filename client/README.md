@@ -1,70 +1,81 @@
-# Getting Started with Create React App
+# Parashu 🪓 : Your Ultimate AI-Powered News App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Parashu is not just another news app; it's your gateway to a revolutionized news experience. Harnessing the power of Artificial Intelligence, Parashu offers a seamless blend of informative content, intelligent summarization, contextual news understanding, and engaging quizzes. Stay ahead of the curve with Parashu!
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+Parashu redefines how you consume news by combining cutting-edge technology with journalistic excellence. Here's what sets us apart:
 
-### `npm start`
+- **Summarization:** Digestible Insights, Amplified Knowledge. Parashu: Where Complexity Shrinks, Understanding Grows.
+- **Contextualization:** Discover the Depth Within the News. Parashu: Crafting Context, Forging Connections.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Getting Started
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+To dive into the world of informed brilliance, follow these simple steps:
 
-### `npm test`
+1. **Clone the Repository:**
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+   ```
+   git clone https://github.com/PreethamNaik12/parashu
+   cd parashu-news-app
+   cd client
+   ```
 
-### `npm run build`
+2. **Install Dependencies:**
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+   ```
+   npm install
+   ```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+3. **Add Environment Variables-Create a `.env.local` file in the root directory:**
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+   ```
+   REACT_APP_NEWS_DATA_API_KEY=your_news_data_api_key
+   REACT_APP_NYT_API_KEY=your_nyt_api_key
+   REACT_APP_GOOGLE_SEARCH_API_KEY=your_google_search_api_key
+   REACT_APP_TLDR_API_KEY=your_tldr_api_key
+   ```
+   *Replace `your_news_data_api_key`, `your_nyt_api_key`, `your_google_search_api_key`, and `your_tldr_api_key` with your respective API keys*.
 
-### `npm run eject`
+4. **Run the App:**
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+   ```
+   npm run start
+   ```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+   Open [http://localhost:3000](http://localhost:3000) to view Parashu in your browser.
 
 ## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Explore the endless possibilities with Parashu. To learn more about the technologies used, check out the following resources:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- [React Documentation](https://reactjs.org/docs/getting-started.html)
+- [Axios GitHub Repository](https://github.com/axios/axios)
 
-### Code Splitting
+## Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Ready to share Parashu with the world? Build the app for production:
 
-### Analyzing the Bundle Size
+```
+npm run build
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+This command optimizes the app for performance and prepares it for deployment. Your app is now ready to be deployed to any web server or hosting service.
 
-### Making a Progressive Web App
+## Troubleshooting
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Encountering issues? Refer to our troubleshooting guide for solutions:
 
-### Advanced Configuration
+- [Troubleshooting Guide](https://parashu-news-app.com/docs/troubleshooting)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+---
 
-### Deployment
+With Parashu, the future of news is at your fingertips. Explore, learn, and stay ahead of the news cycle. Welcome to a new era of informed brilliance! 🚀
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+For any inquiries or support, contact us at newsparashu@gmail.com.
 
-### `npm run build` fails to minify
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+_Parashu - Where Artificial Intelligence Meets Journalism Excellence._
+
+

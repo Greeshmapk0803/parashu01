@@ -1,5 +1,5 @@
 import { summary, context, quiz } from '../assets/images';
-import {HomeRoundedIcon, TipsAndUpdatesIcon, ModelTrainingIcon, QuizIcon} from '../assets/icons';
+import { HomeRoundedIcon, TipsAndUpdatesIcon, ModelTrainingIcon, QuizIcon } from '../assets/icons';
 
 export const NavLinks = [
     { href: '/', key: 'Home', text: 'Home' },
@@ -199,15 +199,15 @@ export const topTextIcon = [
 ]
 
 export const pages = [
-    {page:'Home',path:'/home'},
-    {page:'Ask AI',path:'/chat'},
-    {page:'Get Context',path:'/context'},
-    {page:'Drag and Drop',path:'/dnd'},
-    {page:'Topics',path:'/topics'},
+    { page: 'Home', path: '/home' },
+    { page: 'Ask AI', path: '/chat' },
+    { page: 'Get Context', path: '/context' },
+    { page: 'Drag and Drop', path: '/dnd' },
+    { page: 'Topics', path: '/topics' },
 ];
 export const settings = [
-    {action:'Profile', path:'/profile'},
-    {action:'Logout', path:'/'}
+    { action: 'Profile', path: '/profile' },
+    { action: 'Logout', path: '/' }
 ];
 export const newsPages1 = [
     { "title": "arts", "path": "/arts" },

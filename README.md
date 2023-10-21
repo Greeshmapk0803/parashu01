@@ -1,24 +1,74 @@
-# README
+# Parashu 🪓 : Your Ultimate AI-Powered News App
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Parashu is an innovative news platform that seamlessly blends Artificial Intelligence with journalism excellence. The backend is powered by Ruby on Rails, providing robust API endpoints, while the frontend is crafted with React to offer an immersive user experience. Parashu allows users to explore news, save articles, and interact with intelligent features that enrich their understanding of the world.
 
-Things you may want to cover:
+## Features
 
-* Ruby version
+### Intelligent News Management
 
-* System dependencies
+Parashu offers advanced news management features, allowing users to:
 
-* Configuration
+- **User Authentication:** Secure user authentication system ensures data privacy.
+- **Article Saving:** Users can save articles of interest for later reading.
+- **AI-Driven Summarization:** Utilizes AI to summarize articles for quick insights.
+- **Future Prospects:** Exciting upcoming features include personalized recommendations, interactive quizzes, and real-time news updates.
 
-* Database creation
+## Getting Started
 
-* Database initialization
+These instructions will guide you through setting up and running Parashu on your local machine for development and testing purposes.
 
-* How to run the test suite
+### Prerequisites
 
-* Services (job queues, cache servers, search engines, etc.)
+- **Ruby:** Ensure you have Ruby installed. Recommended version: 2.7.4
+- **Rails:** Install Rails, the backend framework. Recommended version: 6.1.4
+- **Node.js:** Required for managing JavaScript packages. Recommended version: 14.16.1
+- **PostgreSQL:** Database system. Recommended version: 13.3
 
-* Deployment instructions
+### Installation
 
-* ...
+1. Clone the repository:
+   ```
+   git clone [repository_url]
+   cd parashu-news-app
+   ```
+
+2. Install Ruby dependencies:
+   ```
+   bundle install
+   ```
+
+3. Install JavaScript dependencies:
+   ```
+   yarn install
+   ```
+
+4. Create and migrate the database:
+   ```
+   rails db:create
+   rails db:migrate
+   ```
+
+5. Start the Rails server:
+   ```
+   rails s
+   ```
+
+The Rails backend is now running on [http://localhost:3000](http://localhost:3000).
+
+## API Documentation
+
+For API documentation and endpoints, refer to the [API Documentation](/api_documentation.md) file.
+
+## Deployment
+
+Parashu can be easily deployed to cloud platforms like Heroku or AWS. Ensure to set up the necessary environment variables (such as API keys) in your production environment.
+
+## Support and Contributions
+
+For bug reports, issues, or feature requests, please create an [issue](https://github.com/PreethamNaik12/parashu/issues).
+
+---
+
+**Parashu - Where Artificial Intelligence Meets Journalism Excellence.**
+
+*Frontend documentation is available in the [client folder](https://github.com/PreethamNaik12/parashu/tree/master/client).*
