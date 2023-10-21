@@ -45,7 +45,7 @@ const ContextResult = () => {
         const reqContext = contextURL.get('newsURL')
         fetchData(reqContext);
 
-    })
+    }, [])
 
 
     return (
