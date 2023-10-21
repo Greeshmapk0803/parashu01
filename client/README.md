@@ -51,6 +51,8 @@ Explore the endless possibilities with Parashu. To learn more about the technolo
 
 - [React Documentation](https://reactjs.org/docs/getting-started.html)
 - [Axios GitHub Repository](https://github.com/axios/axios)
+- [Material UI](https://mui.com/material-ui/)
+- [Parashu API public collection](https://github.com/PreethamNaik12/parashu)
 
 ## Deployment
 
