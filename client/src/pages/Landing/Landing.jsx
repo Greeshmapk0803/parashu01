@@ -18,8 +18,8 @@ const Landing = () => {
         <Container maxWidth="xl">
             <Box sx={{ display: 'flex', flexDirection: { xs: 'column-reverse', md: 'row' }, alignItems: 'center', margin: '0 2em 2em 2em' }}>
                 <Grid sx={{ margin: { md: '3em auto' },  width: { xs: '100%', sm: '65%' } }}>
-                    <Typography variant="h2" sx={{display:{xs:'none', sm:'flex'}, width: { xs: '100%', sm: '95%' }, margin: { xs: '0 0 0 0', sm: '0em 1em 0.5em 0em' }, fontSize: { xs: '25px', md: '50px' } }}>Parashu<br sx={{display:{xs:'none', md:'block'}}}/>Where the Future of News Unfolds, Every Story a Beacon of Tomorrow's World</Typography>
-                    <Typography variant="h2" sx={{display:{xs:'flex', sm:'none'}, width: { xs: '100%', sm: '95%' }, margin: { xs: '0 0 0 0', sm: '0em 1em 0.5em 0em' }, fontSize: { xs: '25px', md: '50px' } }}>Parashu: Shaping the Future of News.</Typography>
+                    <Typography variant="h2" sx={{display:{xs:'none', sm:'flex'}, width: { xs: '100%', sm: '95%' }, margin: { xs: '0 0 0 0', sm: '0em 1em 0.5em 0em' }, fontSize: { xs: '25px', md: '50px' } }}>Parashu<br sx={{display:{xs:'none', md:'block'}}}/> Where Artificial Intelligence Meets Journalism Excellence</Typography>
+                    <Typography variant="h2" sx={{display:{xs:'flex', sm:'none'}, width: { xs: '100%', sm: '95%' }, margin: { xs: '0 0 0 0', sm: '0em 1em 0.5em 0em' }, fontSize: { xs: '25px', md: '50px' } }}>Parashu:  Where Artificial Intelligence Meets Journalism Excellence</Typography>
                     <Typography variant="5" sx={{textAlign:{xs:'center', md:'left'}}}>Where News Gets a Digital Soul. Feel the Beat of Truth in Every Byte. Informed Today, Ahead Tomorrow!</Typography>
                     <Box sx={{margin: { xs: '1em auto', md: '3em auto 2em auto' }, display: 'flex', flexDirection:{xs:'column', md:'row'},justifyContent: {xs:'space-around',md:'flex-start'} }}>
                         <Link to='/home' style={{}}>

@@ -19,11 +19,12 @@ const Newscontext = () => {
     };
 
     return (
-        <Container maxWidth='xl'>
+        <Container maxWidth='xl' sx={{ height:'80vh' }}>
             <Typography sx={{ fontSize: { xs: '30px', md: '50px' }, fontWeight: '700', textAlign: 'center' }}>News Context</Typography>
             <Typography component='p' sx={{ fontSize: { xs: '12px', md: '20px' }, textAlign: 'center' }}>Ever wondered about the backstory of a news event? We've got you covered! Our app lets you dig into the history behind today's headlines. Just ask about a news event, and we'll provide you with a quick summary of its background, helping you understand the context effortlessly. Stay informed, stay curious!</Typography>
+            <hr />
 
-            <Box sx={{ display: 'flex', flexDirection: { xs: 'column', lg: 'row' }, justifyContent: 'space-around', alignItems: 'center' }}>
+            <Box sx={{ display: 'flex', flexDirection: { xs: 'column', lg: 'row' }, justifyContent: 'space-around', alignItems: 'center', height:'40vh' }}>
                 <TextField
                     label="Enter News Headline"
                     variant="outlined"
@@ -40,8 +41,6 @@ const Newscontext = () => {
                     Get Context
                 </Button>
             </Box>
-            <hr />
-            <DragAndDrop />
         </Container>
     );
 };
