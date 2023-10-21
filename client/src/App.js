@@ -50,7 +50,7 @@ function App() {
             <Route exact path='/context/result' element={<ContextResult style={{ color: "white" }} />} />
             <Route exact path='/profile' element={<Profile style={{ color: "white" }} />} />
             <Route exact path='/get' element={<Login style={{ color: "white" }} />} />
-            {/* <Route exact path='/chat' element={<Chat style={{ color: "white" }} />} /> */}
+            <Route exact path='/chat' element={<Chat style={{ color: "white" }} />} />
           </Routes>
           <Footer />
         </Box>

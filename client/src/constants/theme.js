@@ -6,16 +6,23 @@ const primary = {
     light: '#42a5f5',
     dark: '#0C0C0C',
     contrastText: '#fff',
+    chat: '#32293a',
 };
 
 const secondary = {
     main: green[500],
 };
 
+const tertiary = {
+    main:'#f5f5f5',
+    contrastText: '#000',
+}
+
 const theme = createTheme({
     palette: {
         primary,
         secondary,
+        tertiary
     },
     typography: {
         fontFamily: ['Gabarito', 'serif'].join(','),
@@ -35,6 +42,18 @@ const theme = createTheme({
             lineHeight: 1.4,
         },
         // You can add more typography options for other elements as needed
+        components: {
+            MuiScrollbar: {
+                styleOverrides: {
+                    thumb: {
+                        backgroundColor: '#ccc', // Customize scrollbar thumb color
+                    },
+                    track: {
+                        backgroundColor: '#f5f5f5', // Customize scrollbar track color
+                    },
+                },
+            },
+        },
     },
 });
 
