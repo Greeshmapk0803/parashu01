@@ -1,6 +1,8 @@
-import React, { useState } from 'react';
-import { Container, TextField, Button, Paper, Typography } from '@mui/material';
+import React, { useEffect, useState } from 'react';
+import { Container, TextField, Button, Paper, Typography, Box } from '@mui/material';
 import { Toast } from '../../components';
+import { ChatBG } from '../../assets/images';
+import { useLocation } from 'react-router-dom';
 
 const API_KEY = process.env.REACT_APP_CHAT_GPT_API_KEY;
 
@@ -8,36 +10,20 @@ const Chat = () => {
     const [inputMessage, setInputMessage] = useState('');
     const [messages, setMessages] = useState([
         {
-            message: "Hello, I'm ChatGPT! Ask me anything! About the article you gave just now",
+            message: "Namaste, paste an article here for detailed analysis!",
             sentTime: "just now",
-            sender: "ChatGPT",
-        },
-        {
-            message: "Hello, I want you to quiz me on the article I gave you",
-            sentTime: "just now",
-            sender: "User",
-        },
-        {
-            message: "Certainly, What kind of quiz do you want? Choose one of the following options: 1. Fill in the blanks 2. True or False 3. Multiple Choice Questions",
-            sentTime: "just now",
-            sender: "ChatGPT",
-        },
-        {
-            message: "3",
-            sentTime: "just now",
-            sender: "User",
-        },
-        {
-            message: "Generating....",
-            sentTime: "just now",
-            sender: "ChatGPT",
-        },
+            sender: "Parashu",
+        }
     ]);
+
+    console.log('INITIAL', messages);
     const [isTyping, setIsTyping] = useState(false);
 
     //both needed for toast
     const [toastify, setToastify] = useState(false)
     const [error, setError] = useState(null);
+
+    const location = useLocation();
 
     const handleInputChange = (e) => {
         setInputMessage(e.target.value);
@@ -66,7 +52,7 @@ const Chat = () => {
             if (content) {
                 const chatGPTResponse = {
                     message: content,
-                    sender: "ChatGPT",
+                    sender: "Parashu",
                 };
                 setMessages([...messages, chatGPTResponse]);
             }
@@ -83,7 +69,7 @@ const Chat = () => {
 
     async function processMessageToChatGPT(chatMessages) {
         const apiMessages = chatMessages.map((messageObject) => {
-            const role = messageObject.sender === "ChatGPT" ? "assistant" : "user";
+            const role = messageObject.sender === "Parashu" ? "assistant" : "user";
             return { role, content: messageObject.message };
         });
 
@@ -104,27 +90,95 @@ const Chat = () => {
             body: JSON.stringify(apiRequestBody),
         });
 
-        console.log(response.json());
+        console.log(response);
         return response.json();
     }
 
+    useEffect(() => {
+        const BotInput = new URLSearchParams(location.search);
+        const prompt = BotInput.get('content');
+        console.log(prompt);
+        setInputMessage(prompt);
+
+    }, [])
+
+
     return (
         <Container maxWidth="md" sx={{
-            height: '80vh', 
+            height: '80vh',
             bgcolor: 'primary.main',
-            margin:'1em auto',
-            p:'1em',
-            borderRadius:'10px'
+            margin: '1em auto',
+            p: '1em',
+            borderRadius: '10px'
         }}>
 
-            <Paper elevation={3} sx={{ padding: '20px',bgcolor:'primary.chat', color:'primary.contrastText',marginBottom: '15px', height:'68vh', overflowY:'scroll', scrollbarWidth:'thin', scrollbarColor: 'transparent transperent' }}>
+            <Paper elevation={3} sx={{
+                padding: '20px',
+                background: `linear-gradient(rgba(0,0,0,0.597), rgba(0,0,0,0.597)) ,url(${ChatBG})`,
+                color: 'primary.contrastText',
+                marginBottom: '15px',
+                height: '65vh',
+                overflowY: 'scroll',
+                scrollbarWidth: 'thin',
+                scrollbarColor: 'transparent transperent'
+            }}>
                 {messages.map((message, index) => (
-                    <Typography key={index} variant="body1" style={{ marginBottom: '10px' }}>
-                        <strong>{message.sender}:</strong> {message.message}
-                    </Typography>
+                    <Box key={index} variant="body1" style={{
+                        marginBottom: '10px',
+                        display: 'flex',
+                        flexDirection: 'column',
+                    }}>
+                        {message.sender === 'Parashu' ? (
+                            <Typography component='p' sx={{
+                                bgcolor: 'primary.main',
+                                borderRadius: '10px',
+                                p: '5px 7px',
+                                margin: '5px 0',
+                                textAlign: 'left',
+                                maxWidth: '80%',
+                                alignSelf: 'flex-start',
+                                display: 'flex',
+                                flexDirection: 'column'
+                            }}>
+                                <Typography component='small' sx={{ fontSize: '10px' }}>Parashu</Typography>
+                                {message.message}
+                            </Typography>
+                        ) : (
+                            <Typography component='p' sx={{
+                                bgcolor: 'white',
+                                color: 'primary.main',
+                                borderRadius: '10px',
+                                p: '5px 7px',
+                                margin: '5px 0',
+                                textAlign: 'left',
+                                maxWidth: '80%',
+                                alignSelf: 'flex-end',
+                                display: 'flex',
+                                flexDirection: 'column'
+                            }}>
+                                <Typography component='small' sx={{ fontSize: '10px' }}>You</Typography>
+                                {message.message}
+                            </Typography>
+                        )}
+                    </Box>
                 ))}
+                        {isTyping && <Typography component='p' sx={{
+                            bgcolor: 'primary.main',
+                            borderRadius: '10px',
+                            width:'fit-content',
+                            p: '5px 7px',
+                            margin: '5px 0',
+                            textAlign: 'left',
+                            maxWidth: '80%',
+                            alignSelf: 'flex-start',
+                            display: 'flex',
+                            flexDirection: 'column'
+                        }}>
+                            <Typography component='small' sx={{ fontSize: '10px' }}>ChatGPT</Typography>
+                            Generating...
+                        </Typography>}
             </Paper>
-            <form onSubmit={handleSendMessage} style={{ display: 'flex'}}>
+            <form onSubmit={handleSendMessage} style={{ display: 'flex' }}>
                 <TextField
                     fullWidth
                     variant="outlined"
@@ -132,8 +186,8 @@ const Chat = () => {
                     value={inputMessage}
                     onChange={handleInputChange}
                     color='secondary'
-                    focused 
-                    sx={{ input: { color: 'whitesmoke' }}}
+                    focused
+                    sx={{ input: { color: 'whitesmoke' } }}
                 />
                 <Button
                     variant="contained"

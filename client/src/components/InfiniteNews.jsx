@@ -5,9 +5,12 @@ import { Grid } from '@mui/material';
 import Box from '@mui/material/Box';
 import { Error, Spinner, Toast } from '../components';
 import InfiniteScroll from "react-infinite-scroll-component";
+import { useChat } from '../Context/ChatContext';
+
 
 const InfiniteNews = (props) => {
     // console.log(location.pathname);
+    const { setArticle } = useChat();
 
     const [data, setData] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -28,6 +31,7 @@ const InfiniteNews = (props) => {
                 setTotalResults(response.totalResults)
                 setPage(response.data.nextPage)
                 setLoading(false);
+                console.log(data)
             } catch (error) {
                 setError(error);
                 setToastify(true);
@@ -46,14 +50,10 @@ const InfiniteNews = (props) => {
         setLoading(true);
         const newresponse = await axios.get(url)
         setPage(newresponse.data.nextPage);
-        console.log('newResonse', newresponse);
-
         setData(data.concat(newresponse.data.results));
         setLoading(false);
         setTotalResults(newresponse.data.totalResults)
-        console.log('PAGE', page);
-        console.log('DATA', data);
-        console.log('NEXTPAGE', data.nextPage);
+        console.log(data);
     };
 
     if (error) {
@@ -81,7 +81,7 @@ const InfiniteNews = (props) => {
                         {data.map((item, index) => (
                             <Grid item xs={4} sm={4} md={4} key={index} sx={{ display: 'flex', justifyContent: 'center' }}>
                                 <NewsItem keyProp={item.article_id} title={item.title} ImgSrc={item.image_url
-                                } newsURL={item.link} created_at={item.pubDate} />
+                                } newsURL={item.link} created_at={item.pubDate} content={item.content} />
                             </Grid>
                         ))}
                     </Grid>

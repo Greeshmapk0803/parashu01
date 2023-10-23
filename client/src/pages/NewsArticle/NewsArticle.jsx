@@ -1,15 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { useLocation, Link } from 'react-router-dom';
+import { useLocation, Link,useNavigate } from 'react-router-dom';
 import { Box, Typography } from '@mui/material';
 import Button from '@mui/material/Button';
-import { InsertInvitationRoundedIcon, ChromeReaderModeIcon } from '../../assets/icons';
+import { InsertInvitationRoundedIcon, ChromeReaderModeIcon, SmartToyIcon } from '../../assets/icons';
 import NewsArticleLoader from '../../components/Loaders/NewsArticleLoader';
 import { Toast, Error, LoadingQuotes } from '../../components';
 import { facts } from '../../constants';
 
 const NewsArticle = () => {
     const location = useLocation();
+    const navigate = useNavigate();
     const [summary, setSummary] = useState('');
     const [isLoading, setIsLoading] = useState(true);
 
@@ -39,12 +40,17 @@ const NewsArticle = () => {
             const response = await axios.request(options);
             setSummary(response.data);
             setIsLoading(false);
+            console.log(summary);
         } catch (error) {
             setIsLoading(false);
             setError(error)
             setToastify(true);//setting toast
         }
     };
+
+    const handleBotClick = () => {
+        navigate('/chat?content=' + summary.article_text + 'Take this and analyze this and ask me to get ready for this quiz. Start the quiz once I say yes');
+    }
 
     useEffect(() => {
         const summarizeURL = new URLSearchParams(location.search);
@@ -83,6 +89,11 @@ const NewsArticle = () => {
                         <Box sx={{ width: { xs: '95%', md: '80%' }, margin: 'auto' }}><img style={{ width: '100%', borderRadius: '10px' }} src={summary.article_image} alt="pokkade" /></Box>
                         <Typography component="p" sx={{ margin: '2em 1em' }}>{summary.article_text}</Typography>
                         <Box sx={{ display: 'flex', justifyContent: 'flex-end' }}>
+                            <Box sx={{mr:'10px'}}>
+                                <Button variant="contained" color="warning" endIcon={<SmartToyIcon />} onClick={handleBotClick}>
+                                    Ask Bot
+                                </Button>
+                            </Box>
                             <Link to={summary.article_url} target='_blank'>
                                 <Button variant="contained" color="success" endIcon={<ChromeReaderModeIcon />}>
                                     Read Full Article

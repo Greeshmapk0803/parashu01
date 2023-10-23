@@ -9,7 +9,7 @@ import {
   Route,
   Routes,
 } from "react-router-dom";
-import ProgressBar from "./components/TopProgressBar"
+import ProgressBar from "./components/TopProgressBar";
 
 function App() {
   const [intialize, setIntialize] = useState(true)//loader state

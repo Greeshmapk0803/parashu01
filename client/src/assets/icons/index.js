@@ -20,5 +20,6 @@ import NotStartedIcon from '@mui/icons-material/NotStarted';
 import TopicIcon from '@mui/icons-material/Topic';
 import AutoFixHighIcon from '@mui/icons-material/AutoFixHigh';
 import AlternateEmailRoundedIcon from '@mui/icons-material/AlternateEmailRounded';
+import SmartToyIcon from '@mui/icons-material/SmartToy';
 
-export {NotStartedIcon,ModelTrainingIcon,HomeRoundedIcon, SummarizeIcon, TipsAndUpdatesIcon, QuizIcon, QuestionMarkIcon, BookmarkRoundedIcon, KeyboardArrowDownIcon, EditIcon, ArchiveIcon, FileCopyIcon, MoreHorizIcon, ExpandMoreIcon, AiAction, InsertInvitationRoundedIcon, ChromeReaderModeIcon, SendIcon, MemoryIcon, TopicIcon, AutoFixHighIcon, AlternateEmailRoundedIcon}
+export {SmartToyIcon,NotStartedIcon,ModelTrainingIcon,HomeRoundedIcon, SummarizeIcon, TipsAndUpdatesIcon, QuizIcon, QuestionMarkIcon, BookmarkRoundedIcon, KeyboardArrowDownIcon, EditIcon, ArchiveIcon, FileCopyIcon, MoreHorizIcon, ExpandMoreIcon, AiAction, InsertInvitationRoundedIcon, ChromeReaderModeIcon, SendIcon, MemoryIcon, TopicIcon, AutoFixHighIcon, AlternateEmailRoundedIcon}

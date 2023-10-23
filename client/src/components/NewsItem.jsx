@@ -12,7 +12,7 @@ import Chip from '@mui/material/Chip';
 import Box from '@mui/material/Box';
 
 export default function ImgMediaCard(props) {//Function to beautify created_date timestamp
-    const { keyProp, title, desc, ImgSrc, newsURL, created_at } = props;
+    const { keyProp, title, desc, ImgSrc, newsURL, created_at, content } = props;
     const navigate = useNavigate();
     const location = useLocation();
     
@@ -81,8 +81,7 @@ export default function ImgMediaCard(props) {//Function to beautify created_date
                     }}>
                     Read
                 </Button>
-                {/* <Modal summaryURL={newsURL} summaryTitle={title} /> */}
-                <AiActions summaryURL={newsURL} summaryTitle={title} />
+                <AiActions summaryURL={newsURL} summaryTitle={title} content={content}/>
             </CardActions>
         </Card>
     );

@@ -2,10 +2,11 @@ import * as React from 'react';
 import { styled, alpha } from '@mui/material/styles';
 import Button from '@mui/material/Button';
 import Menu from '@mui/material/Menu';
-import { Box } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 import MenuItem from '@mui/material/MenuItem';
 import { TipsAndUpdatesIcon, QuizIcon, QuestionMarkIcon, KeyboardArrowDownIcon, AiAction } from '../assets/icons';
 import { useNavigate, useLocation } from 'react-router-dom';
+import { useChat } from '../Context/ChatContext';
 
 const StyledMenu = styled((props) => (
     <Menu
@@ -48,9 +49,10 @@ const StyledMenu = styled((props) => (
     },
 }));
 
-export default function CustomizedMenus({ summaryTitle }) {
+export default function CustomizedMenus({ summaryTitle, content }) {
     const navigate = useNavigate();
-    const location = useLocation()
+    const location = useLocation();
+    const {setArticle} = useChat(); // Accessing the setArticle function from the ChatContext
 
     const [anchorEl, setAnchorEl] = React.useState(null);
     const open = Boolean(anchorEl);
@@ -76,10 +78,16 @@ export default function CustomizedMenus({ summaryTitle }) {
         // console.log(summaryTitle)
         navigate('/context/result?newsURL=' + encodeURIComponent(summaryTitle));
     }
+    
+    const handleAskBot = () => {
+        setAnchorEl(null);
+        navigate('/chat?content=' + encodeURIComponent(content) + 'Take this and analyze this and ask me to get ready for this quiz. Start the quiz once I say yes');
+
+    }
 
     return (
         <>
-            {!location.pathname === 'home' ? (<Box  sx={{ width: '100%', marginTop: {  md: '10px' } }}>
+            {!location.pathname === 'home' ? (<Box sx={{ width: '100%', marginTop: { md: '10px' } }}>
                 <Button
                     id="demo-customized-button"
                     aria-controls={open ? 'demo-customized-menu' : undefined}
@@ -110,13 +118,9 @@ export default function CustomizedMenus({ summaryTitle }) {
                     <MenuItem onClick={handleClose} disableRipple>
                         <QuizIcon />
                         Quiz Me!
-                    </MenuItem>
-                    <MenuItem onClick={handleClose} disableRipple>
-                        <QuestionMarkIcon />
-                        Possible Questions
                     </MenuItem>
                 </StyledMenu>
-            </Box>) : (<Box  sx={{ width: '100%', margin: {  md: '0 10px 0 0' } }}>
+            </Box>) : (<Box sx={{ width: '100%', margin: { md: '0 10px 0 0' } }}>
                 <Button
                     id="demo-customized-button"
                     aria-controls={open ? 'demo-customized-menu' : undefined}
@@ -144,16 +148,14 @@ export default function CustomizedMenus({ summaryTitle }) {
                         <TipsAndUpdatesIcon />
                         Get Context
                     </MenuItem>
-                    <MenuItem onClick={handleClose} disableRipple>
+                    {location.pathname === '/home' ? (<MenuItem onClick={handleAskBot} disableRipple>
                         <QuizIcon />
-                        Quiz Me!
-                    </MenuItem>
-                    <MenuItem onClick={handleClose} disableRipple>
-                        <QuestionMarkIcon />
-                        Possible Questions
-                    </MenuItem>
+                        Ask Bot
+                    </MenuItem>) : (<MenuItem onClick={handleClose} disableRipple>
+                        <Typography component='p' sx={{fontSize:'14px'}}>Summary generation needed to chat with bot</Typography>
+                    </MenuItem>)}
                 </StyledMenu>
             </Box>)}
-                   </>
+        </>
     );
 }
