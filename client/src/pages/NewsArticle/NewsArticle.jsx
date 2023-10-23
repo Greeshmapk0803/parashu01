@@ -40,7 +40,6 @@ const NewsArticle = () => {
             const response = await axios.request(options);
             setSummary(response.data);
             setIsLoading(false);
-            console.log(summary);
         } catch (error) {
             setIsLoading(false);
             setError(error)

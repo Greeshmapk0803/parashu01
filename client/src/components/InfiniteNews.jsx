@@ -31,7 +31,6 @@ const InfiniteNews = (props) => {
                 setTotalResults(response.totalResults)
                 setPage(response.data.nextPage)
                 setLoading(false);
-                console.log(data)
             } catch (error) {
                 setError(error);
                 setToastify(true);
@@ -53,7 +52,6 @@ const InfiniteNews = (props) => {
         setData(data.concat(newresponse.data.results));
         setLoading(false);
         setTotalResults(newresponse.data.totalResults)
-        console.log(data);
     };
 
     if (error) {

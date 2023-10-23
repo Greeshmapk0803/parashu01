@@ -10,7 +10,7 @@ const Chat = () => {
     const [inputMessage, setInputMessage] = useState('');
     const [messages, setMessages] = useState([
         {
-            message: "Namaste, paste an article here for detailed analysis!",
+            message: "Namaste, the article has been populated to the input field, hit Send and get started!",
             sentTime: "just now",
             sender: "Parashu",
         }
@@ -90,7 +90,6 @@ const Chat = () => {
             body: JSON.stringify(apiRequestBody),
         });
 
-        console.log(response);
         return response.json();
     }
 
