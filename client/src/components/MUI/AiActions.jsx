@@ -4,9 +4,9 @@ import Button from '@mui/material/Button';
 import Menu from '@mui/material/Menu';
 import { Box, Typography } from '@mui/material';
 import MenuItem from '@mui/material/MenuItem';
-import { TipsAndUpdatesIcon, QuizIcon, QuestionMarkIcon, KeyboardArrowDownIcon, AiAction } from '../assets/icons';
+import { TipsAndUpdatesIcon, QuizIcon, QuestionMarkIcon, KeyboardArrowDownIcon, AiAction } from '../../assets/icons';
 import { useNavigate, useLocation } from 'react-router-dom';
-import { useChat } from '../Context/ChatContext';
+import { useChat } from '../../Context/ChatContext';
 
 const StyledMenu = styled((props) => (
     <Menu

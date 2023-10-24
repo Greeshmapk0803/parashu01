@@ -5,7 +5,7 @@ import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
-import Skeleton from './Loaders/Skeleton';
+import Skeleton from '../Loaders/Skeleton';
 
 
 const apiUrl = 'https://tldrthis.p.rapidapi.com/v1/model/abstractive/summarize-url/';//the ai link

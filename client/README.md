@@ -52,7 +52,6 @@ Explore the endless possibilities with Parashu. To learn more about the technolo
 - [React Documentation](https://reactjs.org/docs/getting-started.html)
 - [Axios GitHub Repository](https://github.com/axios/axios)
 - [Material UI](https://mui.com/material-ui/)
-- [Parashu API public collection](https://github.com/PreethamNaik12/parashu)
 
 ## Deployment
 
@@ -64,13 +63,6 @@ npm run build
 
 This command optimizes the app for performance and prepares it for deployment. Your app is now ready to be deployed to any web server or hosting service.
 
-## Troubleshooting
-
-Encountering issues? Refer to our troubleshooting guide for solutions:
-
-- [Troubleshooting Guide](https://parashu-news-app.com/docs/troubleshooting)
-
----
 
 With Parashu, the future of news is at your fingertips. Explore, learn, and stay ahead of the news cycle. Welcome to a new era of informed brilliance! 🚀
 

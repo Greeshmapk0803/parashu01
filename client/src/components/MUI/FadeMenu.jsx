@@ -4,7 +4,7 @@ import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
 import { Link } from 'react-router-dom';
 import Fade from '@mui/material/Fade';
-import { ExpandMoreIcon } from '../assets/icons';
+import { ExpandMoreIcon } from '../../assets/icons';
 import { Box } from '@mui/material';
 
 export default function FadeMenu (props) {

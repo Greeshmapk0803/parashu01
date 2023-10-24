@@ -28,7 +28,7 @@ These instructions will guide you through setting up and running Parashu on your
 
 1. Clone the repository:
    ```
-   git clone [repository_url]
+   git clone https://github.com/PreethamNaik12/parashu
    cd parashu-news-app
    ```
 
@@ -61,7 +61,9 @@ For API documentation and endpoints, refer to the [API Documentation](/api_docum
 
 ## Deployment
 
-Parashu can be easily deployed to cloud platforms like Heroku or AWS. Ensure to set up the necessary environment variables (such as API keys) in your production environment.
+Server and the Client have to depoloyed seperately.
+Parashu Server can be easily deployed to cloud platforms like Render, Heroku or AWS.Parashu Client can be deployed to cloud platforms like Vercel, Netlify or Github Pages. 
+Ensure to set up the necessary environment variables (such as API keys) in your production environment.
 
 ## Support and Contributions
 

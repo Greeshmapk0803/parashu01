@@ -1,7 +1,7 @@
 import * as React from 'react';
 import ToggleButton from '@mui/material/ToggleButton';
 import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
-import { BookmarkRoundedIcon } from '../assets/icons';
+import { BookmarkRoundedIcon } from '../../assets/icons';
 
 export default function ColorToggleButton() {
     const [save, setSave] = React.useState('no');

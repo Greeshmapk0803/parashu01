@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import { Box } from '@mui/material';
 // eslint-disable-next-line
-import { Home, Landing, Login, Signup, Profile, News, NewsArticle, Newscontext, ContextResult, Chat, Profie } from './pages';
-import { Navbar, MobileAppbar, Footer, StickyNavbar, DragAndDrop, TopicGrid, InitialLoader } from './components';
-import { newsPages } from './constants';
 import {
   BrowserRouter as Router,
   Route,
   Routes,
 } from "react-router-dom";
-import ProgressBar from "./components/TopProgressBar";
+import { Home, Landing, Login, Signup, Profile, News, NewsArticle, Newscontext, ContextResult, Chat } from './pages';
+import { Navbar, MobileAppbar, Footer, StickyNavbar, DragAndDrop, TopicGrid, InitialLoader } from './components';
+import ProgressBar from "./components/Common/TopProgressBar";
+import { newsPages } from './constants';
 
 function App() {
   const [intialize, setIntialize] = useState(true)//loader state

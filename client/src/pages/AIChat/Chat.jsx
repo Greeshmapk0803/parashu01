@@ -7,10 +7,12 @@ import { useLocation } from 'react-router-dom';
 const API_KEY = process.env.REACT_APP_CHAT_GPT_API_KEY;
 
 const Chat = () => {
+    const location = useLocation();
+
     const [inputMessage, setInputMessage] = useState('');
     const [messages, setMessages] = useState([
         {
-            message: "Namaste, the article has been populated to the input field, hit Send and get started!",
+            message:`Namaste, the article has been populated to the input field, hit Send and get started!`,
             sentTime: "just now",
             sender: "Parashu",
         }
@@ -23,7 +25,6 @@ const Chat = () => {
     const [toastify, setToastify] = useState(false)
     const [error, setError] = useState(null);
 
-    const location = useLocation();
 
     const handleInputChange = (e) => {
         setInputMessage(e.target.value);

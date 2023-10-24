@@ -5,7 +5,7 @@ import AccordionDetails from '@mui/material/AccordionDetails';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { Box } from '@mui/material';
-import { TopicGrid } from '.';
+import { TopicGrid } from '..';
 
 export default function BasicAccordion() {
     return (

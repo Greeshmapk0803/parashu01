@@ -17,8 +17,8 @@ import { Button } from '@mui/material';
 import { Tooltip } from '@mui/material';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
-import { HomeRoundedIcon, TipsAndUpdatesIcon, ModelTrainingIcon, QuizIcon, TopicIcon, AutoFixHighIcon } from '../assets/icons';
-import { settings } from '../constants';
+import { HomeRoundedIcon, TipsAndUpdatesIcon, ModelTrainingIcon, QuizIcon, TopicIcon, AutoFixHighIcon } from '../../assets/icons';
+import { settings } from '../../constants';
 
 const topTextIcon = [
     { title: 'Parashu', icon: <AutoFixHighIcon sx={{ color: 'white' }} />, path: '/' },
