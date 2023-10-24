@@ -88,12 +88,12 @@ export const footerLinks = [
         path: '/chat'
     },
     {
-        title: 'Company',
-        path: '/about'
-    },
-    {
         title: "Aspirant's Corner",
         path: '/aspirant'
+    },
+    {
+        title: 'About Us',
+        path: '/about'
     },
 ];
 

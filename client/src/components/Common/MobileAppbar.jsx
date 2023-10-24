@@ -55,7 +55,9 @@ export function TemporaryDrawer() {
             <List>
                 {topTextIcon.map((text, index) => (
                     <Link to={text.path}>
-                        <ListItem key={index} disablePadding sx={{ color: 'whitesmoke', textDecoration: 'none' }}>
+                        <ListItem key={index} disablePadding sx={{ 
+                            color: 'whitesmoke', 
+                            textDecoration: 'none' }}>
                             <ListItemButton>
                                 <ListItemIcon>
                                     {text.icon}
@@ -108,14 +110,22 @@ export default function BottomAppBar() {
     return (
         <>
             <CssBaseline />
-            <AppBar position="fixed" color={"inherit"} sx={{ top: 'auto', bottom: 0, width: '100%', display: { md: 'none' }, borderTop: '1px solid grey' }}>
-                <Toolbar sx={{ display: 'flex', justifyContent: 'space-between', backgroundColor: 'primary.dark' }}>
+            <AppBar position="fixed" color={"inherit"} sx={{ 
+                top: 'auto', 
+                bottom: 0, 
+                width: '100%', 
+                display: { md: 'none' }, 
+                borderTop: '1px solid grey' 
+                }}>
+                <Toolbar sx={{ 
+                    display: 'flex', 
+                    justifyContent: 'space-between', 
+                    backgroundColor: 'primary.dark' }}>
                     <TemporaryDrawer />
                     <Typography
                         variant="h6"
                         noWrap
                         component="a"
-                        href="#app-bar-with-responsive-menu"
                         sx={{
                             display: { xs: 'block', md: 'flex' },
                             fontWeight: 700,
@@ -125,8 +135,10 @@ export default function BottomAppBar() {
                             fontSize: '30px',
                         }}
                     >
-                        <Link to='/' style={{ textDecoration: 'none', color: 'white' }}>
-                            Parashu
+                        <Link to='/' style={{ 
+                            textDecoration: 'none', 
+                            color: 'white' }}>
+                            PARASHU
                         </Link>
                     </Typography>
                     <Box sx={{ flexGrow: 0 }}>
@@ -153,7 +165,9 @@ export default function BottomAppBar() {
                         >
                             {settings.map((setting) => (
                                 <Link to={setting.path}>
-                                    <MenuItem key={setting.action} onClick={handleCloseUserMenu} sx={{textDecoration:'none', color:'black'}}>
+                                    <MenuItem key={setting.action} onClick={handleCloseUserMenu} sx={{
+                                        textDecoration:'none', 
+                                        color:'black'}}>
                                         <Typography textAlign="center">{setting.action}</Typography>
                                     </MenuItem>
                                 </Link>

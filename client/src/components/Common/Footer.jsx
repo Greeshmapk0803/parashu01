@@ -33,7 +33,7 @@ export const Footer = () => {
                             textDecoration: 'none',
                         }}
                     >
-                        Parashu
+                        PARASHU
                     </Typography>
                 </Link>
                 <Box
@@ -47,7 +47,7 @@ export const Footer = () => {
                 </Box>
             </Box>
             <hr />
-            <Typography align="center" color='white'>Made with ❤️ by team Parashu🔱</Typography>
+            <Typography align="center" color='white'>Developed⚙️ and Deployed🚀 by team Parashu 🏹</Typography>
         </Box>
     );
 };
