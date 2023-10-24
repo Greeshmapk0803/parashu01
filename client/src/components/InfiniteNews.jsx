@@ -5,12 +5,10 @@ import { Grid } from '@mui/material';
 import Box from '@mui/material/Box';
 import { Error, Spinner, Toast } from '../components';
 import InfiniteScroll from "react-infinite-scroll-component";
-import { useChat } from '../Context/ChatContext';
 
 
 const InfiniteNews = (props) => {
     // console.log(location.pathname);
-    const { setArticle } = useChat();
 
     const [data, setData] = useState([]);
     const [loading, setLoading] = useState(true);

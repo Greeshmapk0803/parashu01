@@ -175,7 +175,7 @@ export default function ElevateAppBar(props) {
         <ElevationScroll {...props}>
             <AppBar position={'sticky'} sx={{ borderRadius: scrolled ? `100px` : `20px`, top: '2em', margin: { xs: '0px auto', md: '1em auto' }, width: 'max-content', border: '2px solid grey' }}>
                 <Toolbar sx={{ display: { xs: 'none', md: 'flex'}, justifyContent:'space-between', alignItems:'center', transitionDuration:'0.5s', transition:'ease-in' }}>
-                    <Zoom in={!scrolled} style={{ transitionDelay: !scrolled ? '100ms' : '0ms' }}>
+                    <Zoom in={!scrolled} style={{display:!scrolled?'block':'none', transitionDelay: !scrolled ? '100ms' : '0ms' }}>
                         <Typography>Parashu...</Typography>
                     </Zoom>
                     <Zoom in={scrolled} style={{ transitionDelay: scrolled ? '300ms' : '0ms' }}>

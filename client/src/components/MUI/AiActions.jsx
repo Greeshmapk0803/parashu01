@@ -4,9 +4,8 @@ import Button from '@mui/material/Button';
 import Menu from '@mui/material/Menu';
 import { Box, Typography } from '@mui/material';
 import MenuItem from '@mui/material/MenuItem';
-import { TipsAndUpdatesIcon, QuizIcon, QuestionMarkIcon, KeyboardArrowDownIcon, AiAction } from '../../assets/icons';
+import { TipsAndUpdatesIcon, QuizIcon, KeyboardArrowDownIcon, AiAction } from '../../assets/icons';
 import { useNavigate, useLocation } from 'react-router-dom';
-import { useChat } from '../../Context/ChatContext';
 
 const StyledMenu = styled((props) => (
     <Menu
@@ -52,7 +51,6 @@ const StyledMenu = styled((props) => (
 export default function CustomizedMenus({ summaryTitle, content }) {
     const navigate = useNavigate();
     const location = useLocation();
-    const {setArticle} = useChat(); // Accessing the setArticle function from the ChatContext
 
     const [anchorEl, setAnchorEl] = React.useState(null);
     const open = Boolean(anchorEl);

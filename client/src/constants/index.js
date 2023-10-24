@@ -80,20 +80,20 @@ export const footerLinks = [
         path: '/home'
     },
     {
-        title: 'Categories',
+        title: 'Topics',
         paht: '/topics'
     },
     {
         title: 'Play with AI',
-        paht: '/'
+        path: '/chat'
     },
     {
         title: 'Company',
-        path: '/'
+        path: '/about'
     },
     {
         title: "Aspirant's Corner",
-        path: '/'
+        path: '/aspirant'
     },
 ];
 

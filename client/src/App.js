@@ -6,7 +6,7 @@ import {
   Route,
   Routes,
 } from "react-router-dom";
-import { Home, Landing, Login, Signup, Profile, News, NewsArticle, Newscontext, ContextResult, Chat } from './pages';
+import { Home, Landing, Login, Signup, Profile, News, NewsArticle, Newscontext, ContextResult, Chat, About, Aspirant } from './pages';
 import { Navbar, MobileAppbar, Footer, StickyNavbar, DragAndDrop, TopicGrid, InitialLoader } from './components';
 import ProgressBar from "./components/Common/TopProgressBar";
 import { newsPages } from './constants';
@@ -51,6 +51,8 @@ function App() {
             <Route exact path='/profile' element={<Profile style={{ color: "white" }} />} />
             <Route exact path='/get' element={<Login style={{ color: "white" }} />} />
             <Route exact path='/chat' element={<Chat style={{ color: "white" }} />} />
+            <Route exact path='/about' element={<About style={{ color: "white" }} />} />
+            <Route exact path='/aspirant' element={<Aspirant style={{ color: "white" }} />} />
           </Routes>
           <Footer />
         </Box>
