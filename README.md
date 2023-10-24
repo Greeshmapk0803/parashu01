@@ -57,7 +57,7 @@ The Rails backend is now running on [http://localhost:3000](http://localhost:300
 
 ## API Documentation
 
-For API documentation and endpoints, refer to the [API Documentation]([/api_documentation.md](https://www.postman.com/interstellar-comet-634512/workspace/bits/request/29242271-dda96ebe-6140-4add-ae1c-c99854a85a71) file.
+For API documentation and endpoints, refer to the [API Documentation]([/api_documentation.md](https://www.postman.com/interstellar-comet-634512/workspace/bits/request/29242271-dda96ebe-6140-4add-ae1c-c99854a85a71)) file.
 
 ## Deployment
 
