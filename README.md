@@ -17,6 +17,11 @@ Parashu offers advanced news management features, allowing users to:
 - **Quizzing Chatbot:** Interactive chatbot quizzes users on their knowledge of news articles.
 - **Future Prospects:** Exciting upcoming features include personalized recommendations, interactive quizzes, and real-time news updates.
 
+  ## Get the guided tour of our app features
+  - Using [AI ChatBot](https://scribehow.com/shared/How_to_use_Parashu_Bot__tsxrMHbwSiKCAEXNdENJcg)
+  - Using [Get Context](https://scribehow.com/shared/Accessing_and_Exploring_a_Context_of_a_News_Article__emoKBjaKRoCVNsEpPAmQJw) Feature
+  - Using [Drag and Drop](https://scribehow.com/shared/How_to_Navigate_and_Use_Parashus_Drag_and_Drop_Feature__lbOORNk2S8yTBcLvJNBFLQ) Feature
+
 ## Getting Started
 
 These instructions will guide you through setting up and running Parashu on your local machine for development and testing purposes.
