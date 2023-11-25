@@ -42,18 +42,6 @@ const theme = createTheme({
             lineHeight: 1.4,
         },
         // You can add more typography options for other elements as needed
-        components: {
-            MuiScrollbar: {
-                styleOverrides: {
-                    thumb: {
-                        backgroundColor: '#ccc', // Customize scrollbar thumb color
-                    },
-                    track: {
-                        backgroundColor: '#f5f5f5', // Customize scrollbar track color
-                    },
-                },
-            },
-        },
     },
 });
 

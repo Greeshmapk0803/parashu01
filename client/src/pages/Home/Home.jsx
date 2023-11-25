@@ -12,7 +12,6 @@ const Home = () => {
         <Container>
             <TopicGrid/>
             <InfiniteNews/>
-
         </Container>
     )
 }

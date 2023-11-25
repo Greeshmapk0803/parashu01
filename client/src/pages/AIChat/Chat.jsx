@@ -194,6 +194,7 @@ const Chat = () => {
                     color="tertiary"
                     type="submit"
                     style={{ marginLeft: '10px', minWidth: '100px' }}
+                    disabled={isTyping ? true : false} //disable button if ChatGPT is typing
                 >
                     Send
                 </Button>

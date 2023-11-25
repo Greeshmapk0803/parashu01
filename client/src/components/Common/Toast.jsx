@@ -1,5 +1,6 @@
 import * as React from 'react';
 import Snackbar from '@mui/material/Snackbar';
+import { Alert } from '@mui/material';
 
 export default function SimpleSnackbar(props) {
     const { show, err } = props;
@@ -26,8 +27,9 @@ export default function SimpleSnackbar(props) {
                 open={open}
                 autoHideDuration={6000}
                 onClose={handleClose}
-                message={err ? `${err.message}` : 'Succesfully Loaded'}
-            />
+            >
+                <Alert severity="info"  sx={{ bgcolor:'whitesmoke'}}>{err ? `${err.message}` : 'Succesfully Loaded'}</Alert>
+            </Snackbar>
         </div>
     );
 }
