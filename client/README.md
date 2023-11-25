@@ -8,6 +8,7 @@ Parashu redefines how you consume news by combining cutting-edge technology with
 
 - **Summarization:** Digestible Insights, Amplified Knowledge. Parashu: Where Complexity Shrinks, Understanding Grows.
 - **Contextualization:** Discover the Depth Within the News. Parashu: Crafting Context, Forging Connections.
+- **Quizzing Chatbot:** Interactive chatbot quizzes users on their knowledge of news articles.
 
 ### Getting Started
 
