@@ -4,6 +4,8 @@ Parashu is an innovative news platform that seamlessly blends Artificial Intelli
 
 Access the live version of Parashu at [https://parashu.vercel.app/](https://parashu.vercel.app/).
 
+Get to know about the journey of development of Parashu at out Medium Article [“Parashu: A Journey through AI-Powered News Evolution! 🚀📰”](https://medium.com/@newsparashu/parashu-a-journey-through-ai-powered-news-evolution-b8df7cc267ff)
+
 ## Features
 
 ### Intelligent News Management
